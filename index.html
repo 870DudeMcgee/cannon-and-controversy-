@@ -1,0 +1,2867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The History of Bible Manipulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    /* ─────────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────────── */
+    :root {
+      --bg:          #1c1812;
+      --bg-deep:     #15110c;
+      --bg-card:     #241e17;
+      --bg-card2:    #2b241c;
+      --bg-parch:    #e9dcc0;
+      --bg-parch2:   #e1d3b3;
+      --gold:        #b79a5e;
+      --gold-lt:     #ceb27a;
+      --gold-dim:    #8f7750;
+      --gold-faint:  #342a1d;
+      --red:         #8b2515;
+      --text:        #e6dac4;
+      --text-body:   #d1c5af;
+      --text-muted:  #9a8d77;
+      --text-parch:  #1a120a;
+      --rule:        #3f3426;
+      --rule-gold:   #5d4a2e;
+      --shadow:      rgba(0,0,0,0.7);
+    }
+
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-deep);
+      background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(120,88,35,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(95,68,22,0.08) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      color: var(--text-body);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.9;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────────────
+       LAYOUT SHELL
+    ───────────────────────────────────────────── */
+    .shell {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      max-width: none;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 2.8vw, 44px);
+      gap: clamp(20px, 3vw, 56px);
+    }
+
+    /* ─────────────────────────────────────────────
+       SIDEBAR TOC
+    ───────────────────────────────────────────── */
+    .sidebar {
+      width: clamp(220px, 19vw, 300px);
+      flex-shrink: 0;
+      position: fixed;
+      top: 40px;
+      left: clamp(16px, 2.8vw, 44px);
+      padding: 32px 0 32px 0;
+      margin-right: 0;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      z-index: 15;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold-dim) transparent;
+    }
+
+    .main {
+      margin-left: calc(clamp(220px, 19vw, 300px) + clamp(20px, 3vw, 56px));
+    }
+
+    .sidebar-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule-gold);
+    }
+
+    .sidebar nav ol {
+      list-style: none;
+      counter-reset: toc;
+    }
+    .sidebar nav ol li {
+      counter-increment: toc;
+      margin-bottom: 2px;
+    }
+    .sidebar nav ol li a {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-family: 'Crimson Text', serif;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 5px 10px 5px 0;
+      border-right: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .sidebar nav ol li a::before {
+      content: counter(toc, upper-roman);
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      min-width: 22px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .sidebar nav ol li a:hover,
+    .sidebar nav ol li a.active {
+      color: var(--gold-lt);
+      border-right-color: var(--gold);
+    }
+
+    .sidebar-ornament {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--gold-dim);
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+      opacity: 0.6;
+    }
+
+    /* ─────────────────────────────────────────────
+       MAIN CONTENT
+    ───────────────────────────────────────────── */
+    .main {
+      flex: 1;
+      min-width: 0;
+      max-width: 1200px;
+      padding: 60px 0 120px;
+    }
+
+    /* ─────────────────────────────────────────────
+       MASTHEAD
+    ───────────────────────────────────────────── */
+    .masthead {
+      margin-bottom: 72px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--rule-gold);
+      position: relative;
+    }
+    .masthead::before {
+      content: '✦ ── ✦ ── ✦';
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--gold-dim);
+    }
+
+    .masthead h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.08;
+      color: var(--gold-lt);
+      letter-spacing: 0.04em;
+      text-shadow: 0 1px 20px rgba(183,154,94,0.14);
+      margin-bottom: 24px;
+    }
+
+    .masthead .byline {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+    .masthead .byline strong {
+      color: var(--gold-dim);
+      font-style: normal;
+    }
+
+    /* ─────────────────────────────────────────────
+       SECTION HEADINGS
+    ───────────────────────────────────────────── */
+    .part-heading {
+      margin-top: 80px;
+      margin-bottom: 32px;
+    }
+    .part-heading .part-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .part-heading h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 700;
+      color: var(--gold-lt);
+      line-height: 1.2;
+      letter-spacing: 0.03em;
+    }
+    .part-heading .heading-rule {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .part-heading .heading-rule::before,
+    .part-heading .heading-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule-gold), transparent);
+    }
+    .part-heading .heading-rule::before {
+      max-width: 60px;
+      background: linear-gradient(90deg, transparent, var(--rule-gold));
+    }
+    .part-heading .heading-rule .ornament {
+      color: var(--gold-dim);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+    }
+
+    h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-top: 44px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    /* ─────────────────────────────────────────────
+       BODY TEXT
+    ───────────────────────────────────────────── */
+    p {
+      margin-bottom: 20px;
+      color: var(--text-body);
+    }
+
+    /* Drop cap on first paragraph of each section */
+    .drop-cap::first-letter {
+      font-family: 'IM Fell English', serif;
+      font-size: 4.8rem;
+      font-weight: 400;
+      line-height: 0.78;
+      float: left;
+      margin-right: 8px;
+      margin-top: 8px;
+      color: var(--gold);
+      text-shadow: 0 0 30px rgba(200,168,75,0.3);
+    }
+
+    em { color: var(--text); font-style: italic; }
+    strong { color: var(--text); font-weight: 600; }
+
+    ul, ol {
+      margin: 4px 0 22px 28px;
+    }
+    li {
+      margin-bottom: 10px;
+      color: var(--text-body);
+    }
+
+    /* ─────────────────────────────────────────────
+       CALLOUT / PARCHMENT PANEL
+    ───────────────────────────────────────────── */
+    .callout {
+      background: var(--bg-parch);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      border: 1px solid #cdb58b;
+      box-shadow: inset 0 0 42px rgba(160,110,40,0.08), 0 4px 20px rgba(0,0,0,0.35);
+      padding: 28px 32px;
+      margin: 36px 0;
+      position: relative;
+      color: var(--text-parch);
+      font-family: 'Crimson Text', serif;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .callout::before {
+      content: '❧';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-parch);
+      padding: 0 12px;
+      color: var(--gold-dim);
+      font-size: 1.4rem;
+    }
+    .callout .callout-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .callout p {
+      color: var(--text-parch);
+      margin-bottom: 0;
+    }
+    .callout strong {
+      color: var(--red);
+      font-weight: 700;
+    }
+    .callout em {
+      color: #5b3f18;
+      font-style: italic;
+    }
+    .callout p + p { margin-top: 12px; }
+
+    /* ─────────────────────────────────────────────
+       PULL QUOTE
+    ───────────────────────────────────────────── */
+    .pull-quote {
+      margin: 48px 0;
+      padding: 0 32px;
+      border-left: 3px solid var(--gold);
+      position: relative;
+    }
+    .pull-quote::before {
+      content: '\201C';
+      font-family: 'IM Fell English', serif;
+      font-size: 6rem;
+      line-height: 1;
+      color: var(--gold-dim);
+      position: absolute;
+      top: -20px;
+      left: 0;
+      opacity: 0.6;
+    }
+    .pull-quote blockquote {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--text);
+      padding-left: 20px;
+    }
+    .pull-quote cite {
+      display: block;
+      margin-top: 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      padding-left: 20px;
+    }
+
+    /* ─────────────────────────────────────────────
+       TIMELINE
+    ───────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 0;
+      margin: 16px 0 32px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 108px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--rule-gold) 5%, var(--rule-gold) 95%, transparent);
+    }
+
+    .tl-item {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .tl-year {
+      width: 108px;
+      flex-shrink: 0;
+      text-align: right;
+      padding-right: 24px;
+      padding-top: 2px;
+      padding-bottom: 32px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+    }
+
+    .tl-dot {
+      width: 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .tl-dot::before {
+      content: '';
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(200,168,75,0.5);
+      left: -5.5px;
+      top: 6px;
+    }
+
+    .tl-content {
+      flex: 1;
+      padding-left: 28px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+    .tl-item:last-child .tl-content {
+      border-bottom: none;
+    }
+
+    .tl-content strong {
+      display: block;
+      font-family: 'Crimson Text', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .tl-content p {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      line-height: 1.75;
+    }
+    .tl-source {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ─────────────────────────────────────────────
+       BOOK CARDS — SCROLL FRAGMENTS
+    ───────────────────────────────────────────── */
+    .book-grid {
+      display: grid;
+      gap: 24px;
+      margin: 12px 0 32px;
+    }
+
+    .book-card {
+      background: var(--bg-card);
+      border: 1px solid var(--rule-gold);
+      position: relative;
+      padding: 28px 30px 24px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(200,168,75,0.08);
+    }
+    .book-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .book-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rule-gold), transparent);
+    }
+
+    .book-card .book-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 6px;
+    }
+
+    .book-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-lt);
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+    }
+
+    .book-card .meta {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .book-card p {
+      font-size: 0.97rem;
+      margin-bottom: 14px;
+    }
+
+    .book-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      background: var(--gold-faint);
+      border: 1px solid var(--rule-gold);
+      padding: 4px 10px;
+    }
+
+    /* ─────────────────────────────────────────────
+       TABLES
+    ───────────────────────────────────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0 36px;
+      border: 1px solid var(--rule-gold);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    .ref-table thead tr {
+      background: #1a1205;
+    }
+    .ref-table th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--gold-dim);
+      white-space: nowrap;
+    }
+    .ref-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+    .ref-table tbody tr:nth-child(even) td {
+      background: rgba(255,255,255,0.025);
+    }
+    .ref-table tbody tr:hover td {
+      background: rgba(183,154,94,0.06);
+    }
+    .ref-table strong {
+      color: var(--gold-lt);
+      font-weight: 600;
+    }
+    .ref-table em {
+      color: var(--text);
+    }
+
+    /* ─────────────────────────────────────────────
+       ORNAMENTAL DIVIDERS
+    ───────────────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 56px 0;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rule-gold));
+    }
+    .divider::after {
+      background: linear-gradient(90deg, var(--rule-gold), transparent);
+    }
+    .divider .glyph {
+      font-size: 0.85rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.3em;
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────────────
+       HIGHLIGHT NUMBERS / KEY FACTS BAR
+    ───────────────────────────────────────────── */
+    .fact-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--rule-gold);
+      border: 1px solid var(--rule-gold);
+      margin: 36px 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .fact-item {
+      background: var(--bg-card);
+      padding: 20px 22px;
+      text-align: center;
+    }
+    .fact-item .num {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .fact-item .label {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* ─────────────────────────────────────────────
+       FOOTNOTE / SOURCES
+    ───────────────────────────────────────────── */
+    .sources-block {
+      margin-top: 72px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule-gold);
+      position: relative;
+    }
+    .sources-block::before {
+      content: '✦';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg);
+      padding: 0 12px;
+      color: var(--gold-dim);
+      font-size: 0.9rem;
+    }
+    .sources-block p {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .passage-reader {
+      margin: 26px 0 34px;
+      border: 1px solid var(--rule-gold);
+      background: rgba(255,255,255,0.01);
+      padding: 18px;
+    }
+    .passage-reader h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .passage-reader details {
+      border-top: 1px solid var(--rule);
+      padding: 10px 0;
+    }
+    .passage-reader details:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .passage-reader summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .passage-reader blockquote {
+      margin: 10px 0 0;
+      padding: 10px 14px;
+      border-left: 2px solid var(--gold-dim);
+      color: var(--text-body);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      background: rgba(0,0,0,0.15);
+    }
+    .passage-reader .tr {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+    .sources-block strong {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    /* ─────────────────────────────────────────────
+       ETHIOPIAN MANUSCRIPT ILLUMINATION LAYER
+    ───────────────────────────────────────────── */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    body::before {
+      background-image:
+        linear-gradient(90deg, rgba(183,154,94,0.05) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(183,154,94,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(90deg, rgba(0,0,0,0.65), transparent 24%, transparent 76%, rgba(0,0,0,0.65));
+      opacity: 0.45;
+    }
+    body::after {
+      background:
+        repeating-linear-gradient(90deg, transparent 0 18px, rgba(185,44,24,0.06) 18px 20px, transparent 20px 42px),
+        repeating-linear-gradient(0deg, transparent 0 30px, rgba(29,95,82,0.045) 30px 32px, transparent 32px 72px);
+      mix-blend-mode: screen;
+      opacity: 0.22;
+    }
+
+    .masthead {
+      min-height: min(760px, calc(100vh - 80px));
+      display: grid;
+      grid-template-areas: "copy art";
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.86fr);
+      align-items: center;
+      gap: clamp(28px, 5vw, 70px);
+      isolation: isolate;
+    }
+    .masthead::after {
+      content: '';
+      position: absolute;
+      inset: -30px -4vw 20px -4vw;
+      background:
+        radial-gradient(circle at 78% 38%, rgba(205,178,122,0.16), transparent 32%),
+        linear-gradient(90deg, rgba(28,24,18,0.96), rgba(28,24,18,0.5) 58%, transparent);
+      z-index: -2;
+    }
+    .masthead-copy {
+      position: relative;
+      z-index: 2;
+      grid-area: copy;
+    }
+    .hero-codex {
+      position: relative;
+      min-height: 520px;
+      transform: rotate(1.2deg);
+      filter: drop-shadow(0 30px 55px rgba(0,0,0,0.62));
+      grid-area: art;
+    }
+    .codex-leaf {
+      position: absolute;
+      inset: 6% 2% 4% 0;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,0.2), transparent 28%),
+        radial-gradient(circle at 20% 12%, rgba(255,255,255,0.2), transparent 20%),
+        var(--bg-parch);
+      border: 1px solid #d1b77d;
+      box-shadow:
+        inset 0 0 80px rgba(99,55,18,0.18),
+        inset 0 0 0 8px rgba(139,37,21,0.12),
+        inset 0 0 0 13px rgba(29,95,82,0.11);
+      clip-path: polygon(2% 0, 97% 2%, 100% 93%, 94% 100%, 0 96%);
+      overflow: hidden;
+    }
+    .codex-leaf::before {
+      content: '';
+      position: absolute;
+      inset: 26px;
+      border: 3px solid rgba(139,37,21,0.84);
+      outline: 2px solid rgba(29,95,82,0.72);
+      outline-offset: -13px;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 34px, rgba(26,18,10,0.1) 34px 36px, transparent 36px 70px),
+        repeating-linear-gradient(0deg, transparent 0 20px, rgba(139,37,21,0.1) 20px 22px);
+    }
+    .codex-leaf::after {
+      content: 'ፍ ፡ ቅ ፡ ስ ፡ ሃ ፡ መ ፡ ጽ ፡ ሐ ፡ ፍ';
+      position: absolute;
+      left: 52px;
+      right: 52px;
+      bottom: 42px;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.8rem, 2vw, 1.35rem);
+      letter-spacing: 0.38em;
+      color: rgba(84,46,22,0.44);
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .codex-miniature {
+      position: absolute;
+      inset: 70px 70px 98px 70px;
+      display: grid;
+      place-items: center;
+    }
+    .codex-miniature svg,
+    .section-plate svg,
+    .book-illumination svg,
+    .timeline-miniature svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .codex-caption {
+      position: absolute;
+      right: 8px;
+      top: 18%;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: rgba(206,178,122,0.74);
+      text-transform: uppercase;
+    }
+
+    .section-plate {
+      margin: 70px 0 28px;
+      position: relative;
+      min-height: 240px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(260px, 1fr);
+      gap: clamp(18px, 3.5vw, 46px);
+      align-items: stretch;
+      background:
+        linear-gradient(135deg, rgba(233,220,192,0.98), rgba(224,206,165,0.94)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+      color: var(--text-parch);
+      border: 1px solid #cdb58b;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.42), inset 0 0 0 9px rgba(139,37,21,0.09);
+      padding: clamp(18px, 3vw, 28px);
+      overflow: hidden;
+    }
+    .section-plate::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 3px solid rgba(139,37,21,0.78);
+      outline: 2px solid rgba(29,95,82,0.72);
+      outline-offset: -10px;
+      pointer-events: none;
+    }
+    .section-plate::after {
+      content: '✚ ✦ ✚';
+      position: absolute;
+      right: 22px;
+      bottom: 14px;
+      color: rgba(84,46,22,0.45);
+      letter-spacing: 0.36em;
+      font-size: 0.72rem;
+    }
+    .section-plate-copy {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      padding: clamp(18px, 3vw, 30px);
+    }
+    .section-kicker {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      color: var(--red);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .section-plate-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.35rem, 3.6vw, 2.4rem);
+      line-height: 1.05;
+      color: #201309;
+      max-width: 460px;
+    }
+    .section-plate-note {
+      margin-top: 14px;
+      max-width: 430px;
+      color: #4b3216;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .section-plate-art {
+      position: relative;
+      z-index: 1;
+      min-height: 220px;
+      padding: 18px;
+    }
+
+    .illuminated-books .book-card {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      background:
+        linear-gradient(135deg, rgba(36,30,23,0.98), rgba(26,18,10,0.98));
+      overflow: hidden;
+    }
+    .book-illumination {
+      aspect-ratio: 1;
+      background: var(--bg-parch);
+      border: 2px solid var(--red);
+      outline: 2px solid rgba(29,95,82,0.86);
+      outline-offset: -9px;
+      box-shadow: inset 0 0 28px rgba(91,63,24,0.2), 0 12px 24px rgba(0,0,0,0.32);
+      padding: 12px;
+    }
+    .book-body { min-width: 0; }
+
+    .timeline.illuminated-timeline::before {
+      left: 124px;
+      width: 6px;
+      border-radius: 999px;
+      background:
+        linear-gradient(to bottom, transparent, rgba(139,37,21,0.9) 4%, rgba(183,154,94,0.85) 50%, rgba(29,95,82,0.9) 96%, transparent);
+      box-shadow: 0 0 0 1px rgba(183,154,94,0.35), 0 0 20px rgba(183,154,94,0.18);
+    }
+    .timeline.illuminated-timeline .tl-year { width: 124px; }
+    .timeline-miniature {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      margin-left: 23px;
+      margin-right: 18px;
+      margin-top: -6px;
+      background: var(--bg-parch);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--bg-deep), 0 8px 18px rgba(0,0,0,0.38);
+      overflow: hidden;
+    }
+    .timeline.illuminated-timeline .tl-dot { display: none; }
+    .timeline.illuminated-timeline .tl-content { padding-left: 0; }
+
+    .passage-reader {
+      background:
+        linear-gradient(135deg, rgba(28,24,18,0.92), rgba(21,17,12,0.96));
+      box-shadow: inset 0 0 0 1px rgba(206,178,122,0.08), 0 14px 32px rgba(0,0,0,0.38);
+    }
+    .passage-reader details {
+      background: rgba(233,220,192,0.035);
+      margin: 7px 0;
+      padding: 0;
+      border: 1px solid rgba(93,74,46,0.64);
+    }
+    .passage-reader summary {
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .passage-reader summary::before {
+      content: '✚';
+      color: var(--red);
+      background: var(--bg-parch);
+      border: 1px solid var(--gold-dim);
+      width: 24px;
+      height: 24px;
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 24px;
+      font-size: 0.64rem;
+    }
+    .passage-reader blockquote {
+      margin: 0 12px 12px 46px;
+      background:
+        linear-gradient(135deg, rgba(233,220,192,0.94), rgba(225,211,179,0.92));
+      color: var(--text-parch);
+      border-left: 3px solid var(--red);
+      box-shadow: inset 0 0 26px rgba(160,110,40,0.12);
+    }
+    .passage-reader blockquote .tr { color: #6b4f27; }
+
+    .margin-script {
+      position: absolute;
+      left: calc(100% + 18px);
+      top: 18px;
+      width: 34px;
+      color: rgba(183,154,94,0.22);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      line-height: 1.7;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1100px) {
+      .masthead {
+        grid-template-areas: "copy" "art";
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+      }
+      .hero-codex { min-height: 430px; max-width: 620px; }
+      .margin-script { display: none; }
+    }
+
+    @media (max-width: 760px) {
+      .section-plate,
+      .illuminated-books .book-card {
+        grid-template-columns: 1fr;
+      }
+      .book-illumination {
+        width: min(170px, 60vw);
+      }
+      .section-plate-copy { padding: 14px; }
+      .timeline.illuminated-timeline::before { display: none; }
+      .timeline-miniature { display: none; }
+      .timeline.illuminated-timeline .tl-year { width: auto; }
+      .hero-codex { min-height: 340px; }
+      .codex-miniature { inset: 54px 42px 84px; }
+    }
+
+    .mobile-toc {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      margin: 0 0 18px;
+      border: 1px solid var(--rule-gold);
+      background:
+        linear-gradient(135deg, rgba(36,30,23,0.97), rgba(21,17,12,0.98));
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    }
+    .mobile-toc summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      user-select: none;
+    }
+    .mobile-toc summary::-webkit-details-marker { display: none; }
+    .mobile-toc .mobile-toc-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mobile-toc .mobile-toc-label::after {
+      content: '▾';
+      font-size: 0.8rem;
+      color: var(--gold-dim);
+    }
+    .mobile-toc[open] .mobile-toc-label::after { content: '▴'; }
+    .mobile-toc nav {
+      border-top: 1px solid var(--rule);
+      padding: 10px 10px 14px;
+    }
+    .mobile-toc nav a {
+      display: block;
+      padding: 10px 10px;
+      margin: 4px 0;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-body);
+      background: rgba(0,0,0,0.16);
+      border: 1px solid transparent;
+      font-family: 'Crimson Text', serif;
+      line-height: 1.3;
+    }
+    .mobile-toc nav a:hover,
+    .mobile-toc nav a:focus {
+      outline: none;
+      border-color: var(--gold-dim);
+      color: var(--gold-lt);
+    }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .mobile-toc { display: block; }
+      section[id] { scroll-margin-top: 84px; }
+      .shell {
+        display: block;
+        padding: 0 18px;
+        gap: 0;
+      }
+      .main { padding: 40px 0 80px; }
+      .main { margin-left: 0; }
+      .timeline::before { left: 80px; }
+      .tl-year { width: 80px; font-size: 0.65rem; }
+      .table-wrap { margin: 18px 0 28px; }
+    }
+    @media (max-width: 600px) {
+      body { font-size: 17px; }
+      .shell { padding: 0 12px; }
+      .masthead h1 { font-size: 2rem; }
+      .masthead { margin-bottom: 48px; padding-bottom: 32px; }
+      .masthead .byline { font-size: 0.98rem; }
+      .fact-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .callout { padding: 22px 20px; }
+      .book-card { padding: 22px 20px; }
+      .ref-table th, .ref-table td { padding: 10px 12px; }
+      .passage-reader { padding: 14px; margin: 18px 0 24px; }
+      .passage-reader summary { font-size: 0.9rem; }
+      .mobile-toc { margin: 10px 0 6px; }
+      section[id] { scroll-margin-top: 76px; }
+      .mobile-toc summary { padding: 12px 14px; font-size: 0.68rem; }
+      .mobile-toc nav { padding: 8px 8px 12px; }
+      .mobile-toc nav a { padding: 9px 10px; }
+      .timeline::before { display: none; }
+      .tl-year { width: auto; text-align: left; padding-right: 0; font-size: 0.65rem; }
+      .tl-dot { display: none; }
+      .tl-item { flex-direction: column; gap: 4px; }
+      .tl-content { padding-left: 0; border-left: 2px solid var(--gold-dim); padding-left: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ════════════════════════════════
+       SIDEBAR
+  ════════════════════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Contents</div>
+    <nav>
+      <ol>
+        <li><a href="#part1">What Is the Canon?</a></li>
+        <li><a href="#part2">Two Different Lists</a></li>
+        <li><a href="#part3">The Timeline</a></li>
+        <li><a href="#part4">The Removed Books</a></li>
+        <li><a href="#part5">The Reformation Cut</a></li>
+        <li><a href="#part6">The Deeper Texts</a></li>
+        <li><a href="#part7">References Inside the Bible</a></li>
+        <li><a href="#part8">Resurrection &amp; Purgatory</a></li>
+        <li><a href="#part9">Why It Matters</a></li>
+      </ol>
+    </nav>
+    <div class="sidebar-ornament">✦ · ✦ · ✦</div>
+  </aside>
+
+  <details class="mobile-toc">
+    <summary><span class="mobile-toc-label">Jump to section</span></summary>
+    <nav>
+      <a href="#part1">What Is the Canon?</a>
+      <a href="#part2">Two Different Lists</a>
+      <a href="#part3">The Timeline</a>
+      <a href="#part4">The Removed Books</a>
+      <a href="#part5">The Reformation Cut</a>
+      <a href="#part6">The Deeper Texts</a>
+      <a href="#part7">References Inside the Bible</a>
+      <a href="#part8">Resurrection &amp; Purgatory</a>
+      <a href="#part9">Why It Matters</a>
+      <a href="#citation-map">Citation Map</a>
+    </nav>
+  </details>
+
+  <!-- ════════════════════════════════
+       MAIN
+  ════════════════════════════════ -->
+  <main class="main">
+
+    <!-- MASTHEAD -->
+    <header class="masthead">
+      <div class="masthead-copy">
+        <h1>The History of<br>Bible Manipulation</h1>
+        <p class="byline">
+          A cross-referenced deep research document — covering the formation of the Biblical canon, the books that were removed, who removed them, why they were removed, and every place the removed books are cited inside the Bible itself.<br><br>
+          <strong>Sources:</strong> Catholic Encyclopedia (New Advent) · Church Council Records · Patristic Writings · Jewish Historical Records (Josephus, Talmud, Mishnah) · Dead Sea Scrolls Scholarship · Reformation Primary Sources
+        </p>
+        <div class="callout" style="margin: 24px 0 0;">
+          <span class="callout-label">Method</span>
+          <p>This site is written in a truth-first, no-agenda posture: it tries to marry history and religion into a larger account of what happened, using primary and public-domain sources wherever possible. Where scholarly disagreement exists, it is noted rather than hidden.</p>
+        </div>
+      </div>
+      <div class="hero-codex" aria-hidden="true">
+        <div class="codex-leaf"></div>
+        <div class="codex-miniature" id="hero-miniature"></div>
+        <div class="codex-caption">Ethiopian manuscript inspired</div>
+      </div>
+    </header>
+
+    <!-- KEY FACTS -->
+    <div class="fact-bar">
+      <div class="fact-item">
+        <span class="num">2,500</span>
+        <span class="label">years of canon debate</span>
+      </div>
+      <div class="fact-item">
+        <span class="num">7</span>
+        <span class="label">books removed by Luther in 1534</span>
+      </div>
+      <div class="fact-item">
+        <span class="num">300+</span>
+        <span class="label">NT quotes favor the Septuagint</span>
+      </div>
+      <div class="fact-item">
+        <span class="num">1546</span>
+        <span class="label">Trent defines the canon infallibly</span>
+      </div>
+      <div class="fact-item">
+        <span class="num">1826</span>
+        <span class="label">Books vanish from Protestant Bibles</span>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────
+         PART 1
+    ───────────────────────── -->
+    <section id="part1">
+      <div class="part-heading">
+        <span class="part-num">Part One</span>
+        <h2>What Is the Biblical Canon?</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">The word <em>canon</em> comes from the Greek <em>kanon</em>, meaning a rod, rule, or measuring stick. When applied to scripture, it means the authoritative, official list of books considered holy and binding. The first time a Church authority used the word <em>canon</em> specifically for scripture was in the fourth century — by St. Athanasius, Bishop of Alexandria.</p>
+
+      <p>This single fact is worth sitting with: for the first three to four centuries of Christianity, there was no formally agreed-upon list of sacred books. Different Christian communities across the Roman Empire used different collections. What ended up in your Bible depended on where you lived, what language you read, and which church authorities you trusted.</p>
+
+      <div class="callout">
+        <span class="callout-label">Key Principle</span>
+        <p>The canon was never a discovery — it was a decision. Books were not "found to be divine." They were <em>declared</em> divine by human councils, popes, and scribal authorities, often in response to political and theological conflicts of their era.</p>
+      </div>
+
+      <p>There are two fundamentally different approaches to what the canon even means:</p>
+
+      <ul>
+        <li><strong>The Catholic / Orthodox view:</strong> The Church, guided by the Holy Spirit, defined the canon through tradition, liturgical usage, and council decisions. The Church's authority is what certifies which books are scripture.</li>
+        <li><strong>The Protestant view (post-1517):</strong> Scripture certifies itself — a book's divine origin is self-evident. Books not in the Hebrew Bible used by Jews should not be in the Christian Old Testament.</li>
+      </ul>
+
+      <p>These two positions led directly to different Bibles — a split that has never been resolved.</p>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 2
+    ───────────────────────── -->
+    <section id="part2">
+      <div class="part-heading">
+        <span class="part-num">Part Two</span>
+        <h2>The First Bible: Two Different Lists</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">Long before Christianity, Jews in different parts of the world were reading different versions of their scriptures. This is the origin of the entire debate.</p>
+
+      <h3>The Palestinian Jewish Canon — The Hebrew Bible</h3>
+      <p>Jews living in Palestine — the land of Israel — used a collection of texts written almost entirely in Hebrew and Aramaic. This collection was organized into three sections: the Torah (Law), the Nebiim (Prophets), and the Kethubim (Writings). Combined, this is called the TaNaKh. The historian Josephus (~95 AD) counted these as 22 books (matching the Hebrew alphabet), arranged by combining and grouping. Today we count 39 books in the same collection.</p>
+      <p>This is the Old Testament used by Protestants today.</p>
+
+      <h3>The Alexandrian Jewish Canon — The Septuagint</h3>
+      <p>Jews living in Alexandria, Egypt — heavily influenced by Greek culture and speaking Greek rather than Hebrew — used a different, broader collection. This was the Septuagint (abbreviated LXX), a Greek translation of Jewish scripture begun around 250 BC. The Septuagint included everything in the Hebrew Bible plus an additional 7 books and several expanded sections of existing books.</p>
+      <p>This is the Bible the early Christians used. When New Testament writers quote the Old Testament — which they do approximately 350 times — roughly 300 of those quotes favor the language of the Septuagint over the Hebrew text. The early Church was, at its core, reading from the larger Alexandrian collection.</p>
+
+      <div class="callout">
+        <span class="callout-label">The Core Tension</span>
+        <p>The books that Protestants call "Apocrypha" (meaning hidden or spurious) are the same books Catholics call "Deuterocanonical" (meaning second canon). They were never "added" to the Catholic Bible — they were <em>removed</em> from the Protestant Bible during the Reformation. They had been part of Christian scripture continuously since the first century.</p>
+      </div>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 3
+    ───────────────────────── -->
+    <section id="part3">
+      <div class="part-heading">
+        <span class="part-num">Part Three</span>
+        <h2>The Timeline: How the Canon Was Shaped</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">Over two and a half millennia, the Biblical canon was shaped by scholars, councils, emperors, translators, and reformers — each leaving a permanent mark on what Christians read as scripture. Here is the full sequence.</p>
+
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-year">~250 BC</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>The Septuagint Is Created</strong>
+            <p>Jewish scholars in Alexandria translate Hebrew scriptures into Greek for the large Greek-speaking Jewish community. This translation includes 7 additional books not found in the Palestinian Hebrew collection. This becomes the Bible of the Jewish diaspora — and later, the Bible of early Christians.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">~432 BC</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Palestinian Canon Begins to Close</strong>
+            <p>The Samaritan schism provides a rough lower boundary for when the Torah was fixed. The Prophets section likely closed by the late 5th century BC when prophecy was widely believed to have ceased in Israel.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">~90 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Council of Jamnia — Jewish Rabbis Close the Hebrew Canon</strong>
+            <p>After the destruction of Jerusalem and the Temple in 70 AD, Jewish scholars gathered at Jamnia (modern Israel) to stabilize Judaism. Their discussions settled lingering disputes about Ecclesiastes, Song of Songs, and Esther. Critically, they explicitly <em>excluded</em> the books in the Septuagint not in the Hebrew canon — in part a reaction against Christians using those books, since by 90 AD the Septuagint had effectively become a Christian document.</p>
+            <p class="tl-source">Source: Mishnah, Yadaim III:5; Babylonian Talmud, Megilla fol. 7; Catholic Encyclopedia</p>
+            <p class="tl-source">Scholarly nuance: modern scholars debate whether Jamnia was a single formal "canon-closing council" or a longer rabbinic process; this document uses Jamnia as a historical shorthand for that consolidation period.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">~170 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Muratorian Fragment — First Known New Testament List</strong>
+            <p>A Latin document (likely from Rome) lists the books considered legitimate for Christian use. It shows that even 170 years after Christ, the New Testament canon was still being actively debated.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">~170 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>St. Irenaeus Defends the Septuagint Books</strong>
+            <p>A direct disciple of Polycarp (who knew the Apostle John), Irenaeus explicitly treats Baruch as part of Jeremiah and accepts the expanded Daniel. He is a major early witness that the larger canon was considered authoritative in the apostolic tradition.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">~250 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Origen — Lists a Narrow Canon, Uses a Wide One</strong>
+            <p>The greatest scholar of early Christianity compiled a list following the Hebrew canon — but in his actual writings he quotes and treats the deuterocanonical books as divine scripture, and defends Tobit, Judith, and the Greek Daniel additions in a famous letter to Julius Africanus. This contradiction reflects the genuine uncertainty of the era.</p>
+            <p class="tl-source">Source: Origen, Letter to Julius Africanus; Catholic Encyclopedia</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">367 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>St. Athanasius — First Complete New Testament List</strong>
+            <p>In his Easter (Festal) Letter of 367 AD, Athanasius provided the first known list of all 27 New Testament books we use today — and placed the deuterocanonical books in a second tier for "edification" rather than the primary canon. His list was influential but not universally followed.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">382 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Synod of Rome — First Papal Canon List Includes All 7 Disputed Books</strong>
+            <p>The synod convoked by Pope Damasus I produced a canon list (the Decretum Damasi) that included all the deuterocanonical books with no secondary distinction. This is the first formal Roman authority document on the canon, and it contains exactly what the Council of Trent would later define 1,164 years later.</p>
+            <p class="tl-source">Source: Decretum Damasi; Catholic Encyclopedia</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">393–419 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>North African Councils — Canon Formally Declared</strong>
+            <p>Under Augustine's influence, the Council of Hippo (393) and three Councils of Carthage (393, 397, 419) all produced identical canon lists including the deuterocanonical books with no hierarchy. Pope Innocent I confirmed the same list in 405 AD. These councils represent the first broadly accepted official Christian canon.</p>
+            <p class="tl-source">Source: Council of Hippo, Canon 36; Councils of Carthage; Catholic Encyclopedia</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">~400 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>St. Jerome and the Vulgate — Seeds of Doubt Planted</strong>
+            <p>Jerome, commissioned by Pope Damasus to produce a new authoritative Latin translation (the Vulgate), adopted the position that only books in the Hebrew canon were truly scripture, calling everything else "apocrypha." Though he reluctantly translated the deuterocanonical books under Church pressure, his disparaging prefaces — included in the Vulgate — were copied endlessly through the Middle Ages, planting seeds of doubt that the Reformers would later harvest a thousand years later.</p>
+            <p class="tl-source">Source: Jerome, Prologus Galeatus; Catholic Encyclopedia</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1442 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Council of Florence — First Ecumenical Statement on Inspiration</strong>
+            <p>Pope Eugene IV issued a Bull listing all sacred books as inspired, following the canon of Hippo and Carthage. The first worldwide council statement on the canon, though it spoke of "inspiration" without explicitly using the word "canonical."</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1519–1534</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Martin Luther — The Great Cut</strong>
+            <p>At the Leipzig Debate in 1519, Luther's opponent Johann Eck cited 2 Maccabees 12:45 in support of Purgatory. Luther rejected the book — saying it had no authority because it was outside the Hebrew canon. In his 1534 German Bible, Luther moved the 7 deuterocanonical books into a separate section labeled: <em>"Apocrypha: these are books which are not held equal to the Holy Scriptures, and yet are profitable and good to read."</em></p>
+            <p class="tl-source">Source: Luther's 1534 Bible preface; Catholic Encyclopedia; Reformation history records</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1546 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Council of Trent — Catholic Church Definitively Closes the Canon</strong>
+            <p>In direct response to the Reformation, the Council of Trent declared all the deuterocanonical books "sacred and canonical" with the same authority as all other scripture — the first binding, infallible Catholic decree on the canon. Any Christian who rejected these books was declared anathema. From this point forward, Catholics and Protestants had officially different Bibles.</p>
+            <p class="tl-source">Source: Council of Trent, Session IV (April 8, 1546)</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1648 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>Westminster Confession — Protestants Formally Define the Apocrypha Out</strong>
+            <p>The Westminster Confession of Faith explicitly stated that the deuterocanonical books "are not of divine inspiration, and are no part of the canon of the Scripture; and therefore are of no authority in the Church of God." This is the clearest, most definitive Protestant rejection ever formalized.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1826 AD</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <strong>British &amp; Foreign Bible Society — The Books Vanish Entirely</strong>
+            <p>Under strong Calvinist pressure, the British and Foreign Bible Society voted to stop printing and distributing Bibles containing the Apocrypha. Since this society was the primary source of inexpensive Bibles in the English-speaking world, this decision effectively erased the deuterocanonical books from common Protestant awareness. Most Protestants today have never seen or heard of these books.</p>
+          </div>
+        </div>
+
+      </div><!-- /timeline -->
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 4
+    ───────────────────────── -->
+    <section id="part4">
+      <div class="part-heading">
+        <span class="part-num">Part Four</span>
+        <h2>The Removed Books: What They Are</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">The following seven books are found in Catholic and Orthodox Bibles but not in Protestant Bibles. They were continuously part of the Christian Old Testament from the first century until the Reformation in the 1500s. They are not lost. They are still printed in Catholic Bibles today. They were specifically excluded from Protestant Bibles beginning with Luther in 1534.</p>
+
+      <div class="book-grid">
+
+        <div class="book-card">
+          <div class="book-num">Book I</div>
+          <h4>Tobit</h4>
+          <div class="meta">Original language: Aramaic (possibly Hebrew) &nbsp;·&nbsp; Written: ~200 BC &nbsp;·&nbsp; Setting: Nineveh and Media</div>
+          <p>A beautifully written story of a righteous Jewish man named Tobit who is struck blind, and his son Tobias who travels with the angel Raphael (disguised as a man) to retrieve a debt and find a wife. One of the earliest books in any Biblical tradition to clearly discuss angels with proper names, almsgiving as redemption, and prayer as spiritual warfare. The book explicitly names the demon Asmodeus — a story with no parallel in the Hebrew canon.</p>
+          <div class="tags">
+            <span class="tag">Angels</span>
+            <span class="tag">Demonic forces</span>
+            <span class="tag">Prayer</span>
+            <span class="tag">Almsgiving</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Book II</div>
+          <h4>Judith</h4>
+          <div class="meta">Original language: Hebrew or Aramaic &nbsp;·&nbsp; Written: ~150 BC &nbsp;·&nbsp; Setting: Post-exilic Judea</div>
+          <p>The story of a beautiful, pious widow named Judith who saves her city from the Assyrian general Holofernes by seducing and then beheading him. It reads like a historical novel and is almost certainly not literal history — the geography is intentionally confused. It is a theological statement about faith, courage, and God delivering Israel through the least expected means. The character of Judith — a woman acting as a military savior — is extraordinary for its time.</p>
+          <div class="tags">
+            <span class="tag">Female heroism</span>
+            <span class="tag">Faith under siege</span>
+            <span class="tag">Divine intervention</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Book III</div>
+          <h4>1 Maccabees</h4>
+          <div class="meta">Original language: Hebrew &nbsp;·&nbsp; Written: ~100 BC &nbsp;·&nbsp; Setting: 175–134 BC</div>
+          <p>The closest thing to a genuine historical chronicle in the deuterocanonical books. It documents the Maccabean revolt against the Seleucid king Antiochus IV Epiphanes, who desecrated the Temple in 167 BC — the "Abomination of Desolation" referenced in Daniel and by Jesus in Matthew 24:15. It records the rededication of the Temple (the origin of Hanukkah). Considered historically reliable by most secular scholars. This book is the primary historical source for the 150-year gap between the Hebrew prophets and the New Testament.</p>
+          <div class="tags">
+            <span class="tag">Jewish resistance</span>
+            <span class="tag">Temple desecration</span>
+            <span class="tag">Historical record</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Book IV</div>
+          <h4>2 Maccabees</h4>
+          <div class="meta">Original language: Greek &nbsp;·&nbsp; Written: ~124 BC &nbsp;·&nbsp; Setting: Same period as 1 Maccabees</div>
+          <p>A theological rather than historical account of the same period. More miraculous in tone, it includes vivid martyrdom narratives (chapters 6–7), discusses resurrection of the dead, and contains the verse (12:44–46) that became central to debates about Purgatory: <em>"For if he were not expecting that those who had fallen would rise again, it would have been superfluous and foolish to pray for the dead... Therefore he made atonement for the dead, so that they might be delivered from their sin."</em> This passage was the direct reason Luther rejected the book — it supported a doctrine he had already rejected on other grounds.</p>
+          <div class="tags">
+            <span class="tag">Martyrdom</span>
+            <span class="tag">Resurrection</span>
+            <span class="tag">Prayers for the dead</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Book V</div>
+          <h4>Wisdom of Solomon</h4>
+          <div class="meta">Original language: Greek &nbsp;·&nbsp; Written: ~50 BC &nbsp;·&nbsp; Setting: Alexandria, Egypt</div>
+          <p>Almost certainly written by an Alexandrian Jew rather than Solomon, this is a sophisticated philosophical and theological work blending Hebrew tradition with Greek philosophy. It argues for the immortality of the soul, condemns idolatry in some of the most eloquent terms in all of ancient literature, and presents Wisdom (Sophia) as a near-divine intermediary between God and creation. New Testament writers — particularly the author of Hebrews and the author of John's Gospel — show strong and direct familiarity with its language.</p>
+          <div class="tags">
+            <span class="tag">Soul's immortality</span>
+            <span class="tag">Divine Wisdom</span>
+            <span class="tag">Critique of idolatry</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Book VI</div>
+          <h4>Sirach — Ecclesiasticus</h4>
+          <div class="meta">Original language: Hebrew &nbsp;·&nbsp; Written: ~180 BC &nbsp;·&nbsp; Translated to Greek: ~132 BC</div>
+          <p>The largest deuterocanonical book. Written by a Jewish scribe named Jesus ben Sira in Jerusalem around 180 BC. A wisdom book in the tradition of Proverbs — practical, moral teachings on family, friendship, poverty, humility, and fear of God. Unusually, we know the author's name. The Hebrew original, long considered lost, was found in the Cairo Genizah in 1896 and confirmed by Dead Sea Scrolls fragments. The New Testament — especially the Letter of James — shows dozens of direct verbal parallels to Sirach.</p>
+          <div class="tags">
+            <span class="tag">Practical wisdom</span>
+            <span class="tag">Family life</span>
+            <span class="tag">Praise of ancestors</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Book VII</div>
+          <h4>Baruch</h4>
+          <div class="meta">Original language: Hebrew (likely) &nbsp;·&nbsp; Written: ~200–150 BC &nbsp;·&nbsp; Setting: Babylonian Exile</div>
+          <p>A short book written in the name of Baruch, Jeremiah's secretary. Contains poetry of repentance and hope, and a "Letter of Jeremiah" to Jewish exiles in Babylon warning against idolatry. It was almost always physically attached to Jeremiah in ancient manuscripts and read as a continuation of it — which is why Irenaeus and other early Fathers treated Baruch as part of Jeremiah. Its separation as a standalone book is a modern scholarly distinction.</p>
+          <div class="tags">
+            <span class="tag">Repentance</span>
+            <span class="tag">Exile</span>
+            <span class="tag">Anti-idolatry</span>
+          </div>
+        </div>
+
+      </div><!-- /book-grid -->
+
+      <h3>Additions to Existing Books</h3>
+      <p>Beyond the seven books above, the Septuagint also included substantial additional passages within books that appear in the Hebrew canon. These additions are in Catholic Bibles but not Protestant Bibles:</p>
+      <ul>
+        <li><strong>Esther (Greek additions):</strong> Six substantial sections including prayers, letters, and dreams entirely absent from the Hebrew version. The Hebrew Esther never once mentions God; the Greek additions make God's role explicit throughout.</li>
+        <li><strong>Daniel — Song of the Three Young Men:</strong> An extensive prayer and hymn inserted into Daniel chapter 3, between Nebuchadnezzar throwing the three men into the furnace and his reaction. Known as the Benedicite, it became one of the most used canticles in Christian liturgy for 1,500 years.</li>
+        <li><strong>Daniel — Susanna:</strong> A righteous woman falsely accused of adultery, rescued by the young Daniel's clever interrogation. This story explains how Daniel earned his reputation for wisdom — a quality entirely absent from the Hebrew Daniel.</li>
+        <li><strong>Daniel — Bel and the Dragon:</strong> Two stories in which Daniel exposes fraudulent Babylonian priests and kills a dragon worshipped as a god. Satirical in tone. Irenaeus explicitly attributed these to Daniel.</li>
+      </ul>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 5
+    ───────────────────────── -->
+    <section id="part5">
+      <div class="part-heading">
+        <span class="part-num">Part Five</span>
+        <h2>The Reformation Cut: Luther and the Protestant Bible</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">It is worth understanding precisely what happened in 1519 and why, because the removal of these books was not primarily a scholarly decision. It was a theological one, driven by a specific doctrinal conflict with specific financial and political stakes.</p>
+
+      <p>Martin Luther's central theological discovery was <em>sola fide</em> — salvation by faith alone, not by works or merit. From this followed a rejection of several Catholic practices: indulgences, Purgatory, Masses for the dead, and prayers for deceased souls. These were not peripheral matters — they were financially and institutionally central to the medieval Church. Entire economic systems were built on the commerce of prayers for the dead.</p>
+
+      <p>The Catholic theological defense of Purgatory and prayers for the dead rested heavily on 2 Maccabees 12:44–46. Luther's opponent Johann Eck wielded this text in the Leipzig Debate of 1519. Luther's response was not to argue the verse's meaning — it is fairly clear. His response was to deny that the book itself was scripture. This was a reversal of the position of Augustine, Jerome, and every Council that had addressed the question.</p>
+
+      <div class="pull-quote">
+        <blockquote>"Apocrypha: these are books which are not held equal to the Holy Scriptures, and yet are profitable and good to read."</blockquote>
+        <cite>Martin Luther — Preface to the German Bible, 1534</cite>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Luther Also Questioned New Testament Books</span>
+        <p>It is less widely known that in his 1522 preface to the New Testament, Luther called Hebrews, James, Jude, and Revelation "disputed" books he considered less authoritative. He famously called James "an epistle of straw" because its emphasis on works ("faith without works is dead" — James 2:17) contradicted his doctrine of faith alone. He placed them at the end of the New Testament with an asterisk of doubt. Most Protestant traditions have since quietly abandoned Luther's hesitations about these books — without acknowledging he held them.</p>
+      </div>
+
+      <p>Luther's criteria for canonicity were:</p>
+      <ol>
+        <li>A book must be in the Hebrew Bible (used by Jews)</li>
+        <li>A book must clearly proclaim Christ</li>
+        <li>A book must not contradict the Pauline doctrine of grace</li>
+      </ol>
+
+      <p>The first criterion eliminated the 7 deuterocanonical books. The third criterion nearly eliminated James. No previous Church council or Father had applied these standards. The subsequent Protestant tradition — particularly Calvin and the Westminster Assembly — went further than Luther. Luther at least said the Apocrypha was "profitable and good to read." The Westminster Confession declared it simply non-scripture, with no authority whatsoever in the Church.</p>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 6
+    ───────────────────────── -->
+    <section id="part6">
+      <div class="part-heading">
+        <span class="part-num">Part Six</span>
+        <h2>The Deeper Removed Texts</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">Beyond the deuterocanonical books — which were in most Christian Bibles for 1,500 years — there is another category: texts that were widely read, deeply revered, and <em>quoted by New Testament authors</em>, but which never made it into any formal Western canon.</p>
+
+      <div class="callout">
+        <span class="callout-label">Qumran and the Dead Sea Scrolls — Quick Explainer</span>
+        <p><strong>Qumran</strong> is the archaeological site near the Dead Sea (in the Judean desert) where the <strong>Dead Sea Scrolls</strong> were found beginning in 1947. So when this document says a text was "found at Qumran," it means manuscript copies of that text were discovered among the Dead Sea Scrolls.</p>
+        <p><strong>Why this is historically significant:</strong> the scrolls pushed our physical manuscript evidence of Jewish scripture and related writings back by roughly 1,000 years compared with many previously used medieval copies, confirmed that multiple textual traditions coexisted in Second Temple Judaism, and proved that books like 1 Enoch, Jubilees, and Sirach were genuinely circulating long before Christianity became institutionalized.</p>
+      </div>
+
+      <h3>Why the Dead Sea Scrolls Matter in This Debate</h3>
+      <ul>
+        <li><strong>They are early evidence:</strong> they give direct manuscript witnesses from roughly the third century BC to first century AD.</li>
+        <li><strong>They show diversity:</strong> there was no single universally fixed scriptural collection in all Jewish communities in that period.</li>
+        <li><strong>They validate circulation of disputed books:</strong> texts later called "non-canonical" in the West were copied, preserved, and used in a serious religious community.</li>
+        <li><strong>They strengthen context for New Testament language:</strong> themes like angels, judgment, resurrection, and apocalyptic imagery were already active in Jewish literature before the New Testament period.</li>
+      </ul>
+
+      <div class="book-grid">
+
+        <div class="book-card">
+          <div class="book-num">Text I</div>
+          <h4>The Book of Enoch (1 Enoch — Ethiopic Enoch)</h4>
+          <div class="meta">Original language: Aramaic (portions in Hebrew) &nbsp;·&nbsp; Written: 300–100 BC &nbsp;·&nbsp; Preserved in: Ethiopia (full text), Dead Sea Scrolls (fragments)</div>
+          <p>Possibly the most important non-canonical book in the ancient Jewish and Christian world. 1 Enoch purports to be written by Enoch — the patriarch of Genesis 5:24 who "walked with God and was not, for God took him." The book contains visions of heaven, the fallen angels (the Watchers), the origins of sin on earth, the Son of Man figure, and Messianic prophecy. At Qumran, more copies of 1 Enoch were found than of any book except the Psalms and Deuteronomy. This was not a fringe text. It was central to Second Temple Jewish thought. It remains canonical in the Ethiopian Orthodox Church today.</p>
+          <div class="tags">
+            <span class="tag">Canonical in Ethiopia</span>
+            <span class="tag">Quoted in NT</span>
+            <span class="tag">Never in Western canon</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Text II</div>
+          <h4>The Assumption of Moses (Testament of Moses)</h4>
+          <div class="meta">Original language: Hebrew or Aramaic &nbsp;·&nbsp; Written: ~4 BC–30 AD &nbsp;·&nbsp; Preserved in: Latin fragment</div>
+          <p>A pseudepigraphical text recording a prophecy Moses gave to Joshua about the future of Israel. The most significant section — the confrontation between the archangel Michael and Satan over the body of Moses — is now lost from the surviving manuscript, but was clearly cited by the Epistle of Jude. Origen identified it by name. The book was apparently well-known in early Christian circles but was never canonized.</p>
+          <div class="tags">
+            <span class="tag">Quoted in NT (Jude 9)</span>
+            <span class="tag">Never canonical</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Text III</div>
+          <h4>The Book of Jubilees</h4>
+          <div class="meta">Original language: Hebrew &nbsp;·&nbsp; Written: ~160–150 BC &nbsp;·&nbsp; Full text preserved in: Ethiopia</div>
+          <p>A retelling of Genesis and the first part of Exodus, dividing history into 49-year "jubilee" periods. Found extensively at Qumran — considered authoritative by the Dead Sea Scrolls community. The Ethiopian Orthodox Church considers it canonical. It explains background details assumed by New Testament writers, particularly regarding angels and cosmic history.</p>
+          <div class="tags">
+            <span class="tag">Canonical in Ethiopia</span>
+            <span class="tag">Used at Qumran</span>
+            <span class="tag">Never in Western canon</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-num">Text IV</div>
+          <h4>4 Ezra (2 Esdras)</h4>
+          <div class="meta">Original language: Hebrew or Aramaic &nbsp;·&nbsp; Written: ~100 AD &nbsp;·&nbsp; Preserved in: Latin Vulgate Appendix</div>
+          <p>A profound Jewish apocalypse written after the destruction of Jerusalem in 70 AD. Grapples with theodicy — why God allows the righteous to suffer and the wicked to prosper. Contains Messianic visions strikingly parallel to the New Testament's apocalyptic language (Revelation, Matthew 24). Quoted as prophetical by many Latin and Greek Church Fathers. Jerome disliked it but it was appended to the Vulgate and remained there through the Middle Ages, only being definitively excluded at the Council of Trent. It is still printed in the Vulgate appendix today.</p>
+          <div class="tags">
+            <span class="tag">Quoted by early Fathers</span>
+            <span class="tag">In Vulgate appendix</span>
+            <span class="tag">Excluded by Trent</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 7
+    ───────────────────────── -->
+    <section id="part7">
+      <div class="part-heading">
+        <span class="part-num">Part Seven</span>
+        <h2>Where the Removed Books Are Referenced Inside the Bible</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">This is the section most people find most striking. The books that were removed are not simply absent from the Bible — they are <em>cited inside the Bible</em>. New Testament authors quote them, echo them, and assume their readers know them. Here is the comprehensive cross-reference.</p>
+
+      <h3>Direct Quotations</h3>
+      <p>Cases where a New Testament author quotes from a removed book as authoritative scripture:</p>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>NT Passage</th>
+              <th>Source Cited</th>
+              <th>What Happened</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Jude 14–15</strong></td>
+              <td>1 Enoch 1:9</td>
+              <td>Jude explicitly names Enoch and quotes his prophecy word-for-word: <em>"Enoch, the seventh from Adam, prophesied about these men: 'See, the Lord is coming with thousands upon thousands of his holy ones to judge everyone, and to convict all the ungodly of all the ungodly acts they have done...'"</em> This is a direct citation of 1 Enoch 1:9 — a book excluded from all Western canons.</td>
+            </tr>
+            <tr>
+              <td><strong>Jude 9</strong></td>
+              <td>Assumption of Moses</td>
+              <td>Jude references "the archangel Michael who, when he was disputing with the devil about the body of Moses, did not himself dare to condemn him for slander but said, 'The Lord rebuke you!'" This story appears nowhere in the Old Testament. Origen identifies it as coming from the Assumption of Moses — a book known in early Christianity but never canonized.</td>
+            </tr>
+            <tr>
+              <td><strong>2 Timothy 3:8</strong></td>
+              <td>Book of Jannes and Mambres</td>
+              <td>Paul names "Jannes and Jambres" as the Egyptian magicians who opposed Moses. These names appear nowhere in the Old Testament. Origen explicitly states that Paul is quoting from a book called "Jannes and Jambres." The book is now lost entirely.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Strong Allusions &amp; Conceptual Parallels</h3>
+      <p>Cases confirmed by scholars across Catholic and Protestant traditions:</p>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>NT Passage</th>
+              <th>Removed / Disputed Book</th>
+              <th>Nature of Connection</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hebrews 11:35–38</strong></td>
+              <td>2 Maccabees 6–7</td>
+              <td>Hebrews lists heroes of faith and includes "others were tortured, not accepting release, so that they might obtain a better resurrection." This is an unmistakable reference to the martyrdom stories in 2 Maccabees 6–7 — where Eleazar and a mother with seven sons are tortured to death explicitly because they believe in resurrection. The parallel is too specific to be coincidental and is confirmed by scholars across both traditions.</td>
+            </tr>
+            <tr>
+              <td><strong>Hebrews 1:3</strong></td>
+              <td>Wisdom of Solomon 7:26</td>
+              <td>Hebrews describes the Son as "the radiance of God's glory and the exact representation of his being." Wisdom 7:26 describes Wisdom as "the radiance of eternal light, a spotless mirror of the working of God, and an image of his goodness." The language is almost identical. Many scholars believe the Christology of Hebrews' opening is built directly on Wisdom's personification of divine Wisdom.</td>
+            </tr>
+            <tr>
+              <td><strong>John 1:1–18</strong></td>
+              <td>Wisdom of Solomon 7–9; Sirach 24</td>
+              <td>John's prologue draws heavily on Jewish Wisdom tradition. Wisdom 7 and Sirach 24 both describe personified Wisdom as existing before creation, dwelling with God, and coming into the world. John 1:14 says the Word "made his dwelling [<em>eskēnōsen</em> — 'pitched a tent'] among us." This is Wisdom language applied to Christ. The theological framework of John's Logos is built on the Wisdom tradition found most fully in these removed books.</td>
+            </tr>
+            <tr>
+              <td><strong>Matthew 27:43</strong></td>
+              <td>Wisdom of Solomon 2:18</td>
+              <td>The mockers at the crucifixion say: "He trusts in God; let God rescue him now if he wants him, for he said, 'I am the Son of God.'" Wisdom 2:18 reads: "If the righteous man is God's son, he will help him, and will deliver him from the hand of his adversaries." The context in Wisdom chapter 2 describes the wicked plotting against the righteous man who calls himself God's son — an almost prophetic foreshadowing of the Passion narrative.</td>
+            </tr>
+            <tr>
+              <td><strong>Romans 1:18–32</strong></td>
+              <td>Wisdom of Solomon 13–15</td>
+              <td>Paul's condemnation of Gentile idolatry in Romans 1 closely parallels the extended critique of idolatry in Wisdom chapters 13–15, which mocks those who worship wood, stone, and metal while ignoring the Creator visible in nature. The argument structure and vocabulary are strikingly similar across both texts.</td>
+            </tr>
+            <tr>
+              <td><strong>1 Peter 1:6–7</strong></td>
+              <td>Wisdom of Solomon 3:5–6</td>
+              <td>Peter writes that faith is "tested by fire" and will result in "praise, glory and honor." Wisdom 3:5–6 describes God testing the righteous "like gold in the furnace." The metaphor and its application to divine testing of the faithful are closely parallel.</td>
+            </tr>
+            <tr>
+              <td><strong>James 1:19</strong></td>
+              <td>Sirach 5:11</td>
+              <td>James says "everyone should be quick to listen, slow to speak and slow to become angry." Sirach 5:11: "be quick to hear, and be deliberate in answering." The letter of James shows more direct dependence on Sirach than almost any other New Testament book — scholars have catalogued dozens of parallel passages. Notably, Luther wanted to remove James from the NT while also removing Sirach from the OT.</td>
+            </tr>
+            <tr>
+              <td><strong>Revelation 8–9</strong></td>
+              <td>1 Enoch (various chapters)</td>
+              <td>The cosmic geography of Revelation — the seven angels, the structure of heaven, the imprisoned fallen angels, the descriptions of divine judgment — draws heavily on 1 Enoch's framework. The image of fallen angels bound in chains under the earth waiting for judgment appears in 1 Enoch 10–21 and is directly echoed in Jude 6 and 2 Peter 2:4. This concept of imprisoned fallen angels does not appear in the canonical Old Testament at all.</td>
+            </tr>
+            <tr>
+              <td><strong>2 Peter 2:4 &amp; Jude 6</strong></td>
+              <td>1 Enoch 10, 12–16</td>
+              <td>Both 2 Peter and Jude describe fallen angels who "did not keep their proper domain" and are now "bound with chains in darkness" awaiting judgment. This is direct Enochic cosmology. Genesis 6 mentions "sons of God" mating with human women, but the imprisonment narrative — including chains, darkness, a pit — is entirely from 1 Enoch.</td>
+            </tr>
+            <tr>
+              <td><strong>Matthew 24:15 / Mark 13:14</strong></td>
+              <td>1 Maccabees 1:54</td>
+              <td>Jesus warns of "the abomination of desolation spoken of through the prophet Daniel." The original historical fulfillment of Daniel's prophecy was the desecration of the Temple by Antiochus IV Epiphanes in 167 BC — documented in detail in 1 Maccabees 1:54, the only detailed historical account of that event in ancient scripture. Without 1 Maccabees, the historical context of Jesus' warning is entirely absent from the Protestant Bible.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Jesus and 1 Enoch: Major Parallels</h3>
+      <p>The issue is not one matching phrase. The issue is historical context and motif clustering. Jesus taught in a first-century Jewish apocalyptic environment where Enochic categories already circulated: enthroned Son of Man, delegated judgment, humiliation of oppressive elites, angelic entourage, and cosmic disturbance before final reckoning.</p>
+
+      <div class="callout">
+        <span class="callout-label">Direct-Utilization Thesis (Contextual Form)</span>
+        <p>The high-force claim is this: Jesus traditions repeatedly deploy Enochic judgment grammar in concentrated form, especially where the Hebrew Old Testament does not present the same combined pattern in one place. That makes random overlap less likely and contextual uptake more plausible.</p>
+      </div>
+
+      <h3>How Historians Weigh the Evidence</h3>
+      <ul>
+        <li><strong>Conceptual density:</strong> isolated overlap proves little, but recurring convergence across multiple motifs carries more evidentiary weight.</li>
+        <li><strong>Horizon fit:</strong> Second Temple audiences already understood apocalyptic courtroom imagery, so Jesus' language landed inside an existing conceptual world.</li>
+        <li><strong>Dependence caution:</strong> this does not require Jesus to quote one fixed Enoch manuscript line-by-line; thematic uptake can be oral, liturgical, or textual.</li>
+        <li><strong>Dating caveat:</strong> debate over dating/redaction of sections of 1 Enoch (especially parts of the Parables) affects precision, not the broader evidence of shared apocalyptic grammar.</li>
+      </ul>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Domain</th>
+              <th>Jesus Tradition</th>
+              <th>Enochic Pattern</th>
+              <th>Historical Force</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Judicial Authority Transfer</strong></td>
+              <td><strong>John 5:22</strong><br>In a dispute about Jesus' authority, judgment is explicitly transferred from the Father to the Son.</td>
+              <td><strong>1 Enoch 69:27</strong><br>The Lord of Spirits installs the Son of Man / Elect One as executor of final judgment.</td>
+              <td>Both texts use a two-stage judicial model: supreme divine source, delegated eschatological judge. That architecture is more specific than generic "God will judge" language.</td>
+            </tr>
+            <tr>
+              <td><strong>Throne-of-Glory Courtroom</strong></td>
+              <td><strong>Matthew 19:28; 25:31–32</strong><br>"Throne of glory" language frames a public judgment scene with gathered nations and verdict separation.</td>
+              <td><strong>1 Enoch 62:3-5; 69:27</strong><br>The Elect One is enthroned and judges rulers, kings, and the powerful before the assembled world.</td>
+              <td>The overlap is not one phrase but a staged courtroom script: enthronement, public assembly, exposure of the mighty, irreversible verdict.</td>
+            </tr>
+            <tr>
+              <td><strong>Apocalyptic Woes and Social Reversal</strong></td>
+              <td><strong>Luke 6:24</strong><br>Jesus pronounces eschatological woe upon the rich as part of reversal judgment (blessed poor / warned rich).</td>
+              <td><strong>1 Enoch 94:8</strong><br>Woe oracles target wealthy oppressors, fraudulent gain, and coming divine accounting.</td>
+              <td>The shared rhetoric is covenantal-judicial, not merely moralistic. Wealth is treated as evidence in an impending divine trial.</td>
+            </tr>
+            <tr>
+              <td><strong>Cosmic Consummation Frame</strong></td>
+              <td><strong>Matthew 24:29–30</strong><br>Sun/moon/star disruption precedes revelation of the Son of Man and end-time reckoning.</td>
+              <td><strong>1 Enoch 80; 102</strong><br>Cosmic disorder is linked to human corruption and the approach of final judgment.</td>
+              <td>In both streams, cosmic chaos is courtroom prelude, not decorative imagery. The universe itself signals that moral history is reaching verdict.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Detailed Case Analysis (Not Summary Labels)</h3>
+
+      <h4>1) John 5:22 and 1 Enoch 69:27: Delegated Judgment Mechanics</h4>
+      <p><strong>Text-level claim:</strong> John 5:22 does not merely say the Son participates in judgment; it says the Father "has given all judgment to the Son." That is a transfer formula. In Enochic judgment scenes (including 69:27 in standard numbering), the Lord of Spirits likewise authorizes the Son of Man / Elect One to execute end-time judgment.</p>
+      <p><strong>Why this matters historically:</strong> The parallel is structural, not cosmetic. Both texts preserve the same governance pattern: ultimate sovereignty remains with God, while final assize is administered through an appointed Son figure. That pattern is more specific than a broad Jewish belief that God judges the world.</p>
+      <p><strong>Why this is not trivial overlap:</strong> Many Jewish texts affirm divine judgment, but fewer articulate this exact delegated judicial mechanism in this elevated Son-of-Man register. The force of the parallel comes from shared role architecture, not from one matching noun.</p>
+
+      <h4>2) Matthew 19:28; 25:31-32 and 1 Enoch 62:3-5; 69:27: Courtroom Sequence</h4>
+      <p><strong>Text-level claim:</strong> Matthew uses explicit "throne of glory" language and depicts a public hearing: the Son of Man enthroned, all nations assembled, verdict rendered. Enoch 62 and related sections stage the same apocalyptic court logic: enthroned Elect One, rulers/kings exposed, condemnation or vindication pronounced.</p>
+      <p><strong>Why this matters historically:</strong> This is a sequence match, not an isolated expression. In both traditions the same order appears: enthronement, universal gathering, elite accountability, final separation. Sequence parallels are generally stronger than single-word parallels because they reflect shared narrative grammar.</p>
+      <p><strong>Contextual payoff:</strong> First-century hearers familiar with apocalyptic traditions would recognize this as courtroom theology, not abstract spirituality. It frames Jesus' claims as judicially and cosmically authoritative.</p>
+
+      <h4>3) Luke 6:24 and 1 Enoch 94:8: Woe as Legal Indictment</h4>
+      <p><strong>Text-level claim:</strong> "Woe to you who are rich" in Luke is not a generic warning against comfort. In context, it belongs to reversal eschatology where present social status is inverted at judgment. Enoch's woes against the rich are likewise accusatory and forensic: unjust gain, exploitation, and impending reckoning.</p>
+      <p><strong>Why this matters historically:</strong> Both traditions treat wealth as morally evidentiary within a coming tribunal. This is judicial rhetoric, not merely wisdom-style advice. The shared form is indictment language aimed at social elites in an end-time frame.</p>
+      <p><strong>Interpretive consequence:</strong> Reading Luke's woe tradition against Enochic material clarifies that Jesus' social warnings are embedded in apocalyptic judgment discourse, not detached ethics.</p>
+
+      <h4>4) Matthew 24:29-30 and 1 Enoch 80; 102: Cosmic Signs as Verdict Prelude</h4>
+      <p><strong>Text-level claim:</strong> Matthew presents cosmic collapse (sun/moon/stars) immediately before Son-of-Man revelation and gathering. Enochic apocalyptic chapters likewise connect cosmic disorder to moral corruption and imminent final judgment.</p>
+      <p><strong>Why this matters historically:</strong> In both corpora, cosmic disturbance functions as legal-historical signal that the age is closing. The cosmos is portrayed as witness to human rebellion and as prelude to final adjudication.</p>
+      <p><strong>Cumulative force:</strong> Once this cosmic layer is read together with delegated judgment, enthroned court scenes, and elite-directed woes, the overlap becomes a coherent framework rather than scattered parallels.</p>
+
+      <p>The significance is cumulative pattern with narrative coherence. The Jesus tradition and Enochic tradition repeatedly converge on identity (Son of Man), mechanism (delegated judgment), setting (throne court), social target (oppressive elites), and timing (cosmic signs before verdict). That is why historians classify the relationship as contextual continuity, even when they disagree on exact literary dependence.</p>
+
+      <div class="passage-reader">
+        <h4>Passage Text: Jesus–Enoch Parallels (In-Page)</h4>
+
+        <details>
+          <summary>Matthew 19:28 / 25:31 and 1 Enoch 62:3-5; 69:27 (throne of glory)</summary>
+          <blockquote>
+            "...the Son of man shall sit in the throne of his glory..." (Matthew 19:28) and "When the Son of man shall come in his glory... then shall he sit upon the throne of his glory" (Matthew 25:31). Enochic parallel: enthroned Son of Man / Elect One receiving judicial authority in final assize scenes (1 Enoch 62; 69).
+            <span class="tr">KJV + traditional Enoch translation wording</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>John 5:22 and 1 Enoch 69:27 (delegated judgment)</summary>
+          <blockquote>
+            "For the Father judgeth no man, but hath committed all judgment unto the Son." (John 5:22). Enochic parallel: final judgment entrusted to the Son of Man / Elect One by the Lord of Spirits (1 Enoch 69:27).
+            <span class="tr">KJV + traditional Enoch translation wording</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Luke 6:24 and 1 Enoch 94:8 (apocalyptic woes against the rich)</summary>
+          <blockquote>
+            "But woe unto you that are rich! for ye have received your consolation." (Luke 6:24). Enochic parallel: sustained woe-oracles condemning the rich and unjust in eschatological terms (1 Enoch 94, especially v.8 in standard chaptering).
+            <span class="tr">KJV + traditional Enoch translation wording</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 24:30 and 1 Enoch 62 (Son of Man revealed)</summary>
+          <blockquote>
+            "...they shall see the Son of man coming in the clouds of heaven with power and great glory." (Matthew 24:30)<br>
+            "And the Lord of Spirits seated him [the Son of Man] on the throne of his glory... and all judgment was given unto him." (1 Enoch 62, traditional translation wording)
+            <span class="tr">KJV + traditional public-domain Enoch translation</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 25:31–32 and 1 Enoch 61–62 (throne and gathered nations)</summary>
+          <blockquote>
+            "When the Son of man shall come in his glory, and all the holy angels with him, then shall he sit upon the throne of his glory: And before him shall be gathered all nations..." (Matthew 25:31–32)<br>
+            "And the Lord of Spirits placed the Elect One on the throne of glory... and he shall judge all the works of the holy above in the heaven..." (1 Enoch 61–62, traditional translation wording)
+            <span class="tr">KJV + traditional public-domain Enoch translation</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Mark 14:62 and Enochic enthronement language</summary>
+          <blockquote>
+            "...ye shall see the Son of man sitting on the right hand of power, and coming in the clouds of heaven." (Mark 14:62)<br>
+            Enochic parallels repeatedly combine enthronement, heavenly authority, and end-time revelation of the Son of Man (1 Enoch 46, 48, 62).
+            <span class="tr">KJV + 1 Enoch thematic parallels</span>
+          </blockquote>
+        </details>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Interpretive Guardrail</span>
+        <p>Scholars disagree on dependence direction and degree. The strongest responsible claim is this: Jesus and the Gospel writers operated in a Jewish apocalyptic world where Enochic concepts were already in circulation. That makes 1 Enoch a major background witness for understanding how first-century audiences heard Jesus' end-time language.</p>
+      </div>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 8
+    ───────────────────────── -->
+    <section id="part8">
+      <div class="part-heading">
+        <span class="part-num">Part Eight</span>
+        <h2>Resurrection, Purgatory, and the Intermediate State</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">One of the most important questions in this debate is the one many readers naturally ask after reading Revelation: if people are in heaven or hell right after death, why are the dead later raised from graves? The short answer across most Christian traditions is that scripture describes <strong>two stages</strong> of post-death reality, not one.</p>
+
+      <ol>
+        <li><strong>Intermediate state:</strong> the state of the soul after death and before the final resurrection.</li>
+        <li><strong>Final resurrection and judgment:</strong> the end-of-age event when the dead are raised bodily and judged publicly.</li>
+      </ol>
+
+      <p>This is why Revelation can speak about the dead being raised without implying that no one existed consciously before that moment. In most historic readings, resurrection is not the start of existence after death; it is the <em>completion</em> of human destiny in a renewed creation, body and soul together.</p>
+
+      <h3>Comparison by Tradition</h3>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Tradition</th>
+              <th>After Death (Before Final Judgment)</th>
+              <th>Purgatory / Purification</th>
+              <th>Why Final Resurrection Still Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Catholic</strong></td>
+              <td>Particular judgment at death; souls are with God, in purification, or in definitive separation from God.</td>
+              <td>Yes. Purification for those destined for heaven but not yet fully purified. Historically grounded in texts like 2 Maccabees 12:44–46 and developed through tradition.</td>
+              <td>Christian salvation is not only about the soul. The body is raised, justice is made public, and creation is renewed. The final judgment is cosmic and visible.</td>
+            </tr>
+            <tr>
+              <td><strong>Eastern Orthodox</strong></td>
+              <td>Souls continue consciously after death awaiting final resurrection and judgment.</td>
+              <td>Affirms post-death purification/healing, though typically framed differently from later Latin formulations of purgatory.</td>
+              <td>Same core logic: full restoration is bodily and cosmic, not merely disembodied survival.</td>
+            </tr>
+            <tr>
+              <td><strong>Most Protestant</strong></td>
+              <td>Usually affirms conscious intermediate state with Christ for the saved and separation for the lost.</td>
+              <td>No formal purgatory. Sanctification is generally treated as complete at death for believers.</td>
+              <td>Still affirms final bodily resurrection and final judgment (Revelation 20; 1 Corinthians 15). Resurrection is the consummation of redemption.</td>
+            </tr>
+            <tr>
+              <td><strong>Minority Protestant View (Soul Sleep)</strong></td>
+              <td>Some groups teach that the dead "sleep" unconsciously until resurrection.</td>
+              <td>No.</td>
+              <td>Final resurrection is the point at which conscious embodied life resumes, followed by judgment.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Key Biblical Texts in the Tension</h3>
+      <ul>
+        <li><strong>Revelation 20:12–13:</strong> the dead stand before God; death and Hades give up their dead.</li>
+        <li><strong>John 5:28–29:</strong> all in the tombs hear his voice and come out.</li>
+        <li><strong>1 Corinthians 15:</strong> detailed theology of bodily resurrection.</li>
+        <li><strong>1 Thessalonians 4:13–17:</strong> the dead in Christ rise.</li>
+        <li><strong>Luke 16:19–31:</strong> often read as evidence of conscious post-death existence before the end.</li>
+      </ul>
+
+      <h3>Luke 16:19–31 and the "Realm of the Dead" Question</h3>
+      <p>Luke 16 is pivotal because it gives the most vivid New Testament picture of post-death condition before final resurrection. The narrative presents a structured after-death state: Lazarus in "Abraham's bosom" (comfort), the rich man in Hades (torment), conscious memory and moral awareness, and a "great gulf fixed" that prevents crossing between conditions.</p>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Feature in Luke 16</th>
+              <th>What It Suggests</th>
+              <th>Purgatory Debate Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Conscious existence after death</strong></td>
+              <td>Death does not erase personal awareness, memory, or moral identity.</td>
+              <td>Supports an intermediate state in principle (against strict annihilationism).</td>
+            </tr>
+            <tr>
+              <td><strong>Distinct post-death conditions</strong></td>
+              <td>Comfort and torment are distinguished before final resurrection scenes in Revelation 20.</td>
+              <td>Supports layered eschatology (intermediate + final), though not by itself a full purgatory model.</td>
+            </tr>
+            <tr>
+              <td><strong>Great chasm fixed</strong></td>
+              <td>No ordinary movement from one state to the other once judgment condition is set.</td>
+              <td>Used by many Protestants against purgatory; Catholics respond that Luke 16 describes two terminal states, not the entire map of post-death purification for the saved.</td>
+            </tr>
+            <tr>
+              <td><strong>Moral continuity after death</strong></td>
+              <td>Character, justice, and accountability carry forward beyond death.</td>
+              <td>Strengthens the claim that after-death moral process is biblically thinkable, even if mechanics are debated.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>So Luke 16 does not by itself "prove" purgatory in the later technical Catholic sense. But it does undermine a simplistic model where death instantly ends all process and only final resurrection matters. In historical theology, this is why Luke 16 became a central anchor for intermediate-state discussions across traditions.</p>
+
+      <h3>1 Enoch 22: One Coherent Picture of the Intermediate State</h3>
+      <p>If the discussion feels fragmented, 1 Enoch 22 is useful because it presents a full architecture of the realm of the dead in one place. In that vision, Enoch sees a great mountain with deep hollows that hold human souls from physical death until the Great Judgment. The compartments are separated and non-interchangeable, with boundaries described by chasms and distinct conditions (light, water, darkness, torment).</p>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Enoch 22 Compartment</th>
+              <th>Description in the Vision</th>
+              <th>Theological Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Righteous Martyrs</strong></td>
+              <td>Souls of the righteous who were killed unjustly (Abel is presented as the archetype), crying out for vindication.</td>
+              <td>Moral memory survives death; injustice is not erased.</td>
+            </tr>
+            <tr>
+              <td><strong>General Righteous</strong></td>
+              <td>Souls of the righteous who died natural deaths; depicted with brightness and a spring of water.</td>
+              <td>Comforted waiting state before final judgment.</td>
+            </tr>
+            <tr>
+              <td><strong>Wicked (Already Afflicted in Life)</strong></td>
+              <td>Sinners who suffered greatly in earthly life and are segregated for judgment.</td>
+              <td>Differentiated accountability model within the wicked.</td>
+            </tr>
+            <tr>
+              <td><strong>Wicked (Escaped Earthly Justice)</strong></td>
+              <td>Sinners who prospered without justice in life and enter immediate post-death torment until final assize.</td>
+              <td>Deferred justice completed after death and finalized at the Great Judgment.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Why This Clarifies Luke 16</h3>
+      <p>Luke 16:19–31 reads naturally against this morally segmented underworld model. The rich man and Lazarus are not in a single undifferentiated Sheol. They are in separated conditions with an uncrossable gulf, conscious moral awareness, and ongoing expectation of judgment. That is exactly why many scholars see Luke 16 as operating inside the same Second Temple conceptual world seen in Enoch 22.</p>
+
+      <ul>
+        <li><strong>The chasm:</strong> Enochic compartment boundaries parallel Luke's "great gulf fixed."</li>
+        <li><strong>Reversal logic:</strong> the oppressed can be comforted while the unrepentant prosperous face torment.</li>
+        <li><strong>Interim + final pattern:</strong> both traditions distinguish present post-death condition from final public judgment.</li>
+      </ul>
+
+      <div class="callout">
+        <span class="callout-label">Big-Picture Implication</span>
+        <p>Historically, 1 Enoch 22 represents a major Second Temple move away from a flat, monolithic Sheol concept toward a morally structured realm of the dead. Whether one accepts every detail or not, this framework helps explain why New Testament afterlife language can sound both immediate (post-death awareness) and future-oriented (final resurrection and judgment) at the same time.</p>
+      </div>
+
+      <div class="passage-reader">
+        <h4>Primary Passage Text (In-Page)</h4>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin:0 0 10px;">Short references are quoted directly; long ranges include representative lines for readability. This section can be expanded further to full verse-by-verse text if needed.</p>
+
+        <details>
+          <summary>Revelation 20:12–13</summary>
+          <blockquote>
+            "And I saw the dead, small and great, stand before God; and the books were opened... and the dead were judged out of those things which were written in the books, according to their works. And the sea gave up the dead which were in it; and death and hell delivered up the dead which were in them: and they were judged every man according to their works."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>John 5:28–29</summary>
+          <blockquote>
+            "Marvel not at this: for the hour is coming, in the which all that are in the graves shall hear his voice, And shall come forth; they that have done good, unto the resurrection of life; and they that have done evil, unto the resurrection of damnation."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>1 Thessalonians 4:16–17</summary>
+          <blockquote>
+            "For the Lord himself shall descend from heaven with a shout... and the dead in Christ shall rise first: Then we which are alive and remain shall be caught up together with them in the clouds... and so shall we ever be with the Lord."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>2 Maccabees 12:44–46</summary>
+          <blockquote>
+            "For if he had not hoped that they that were slain should rise again, it would have seemed superfluous and vain to pray for the dead... It is therefore a holy and wholesome thought to pray for the dead, that they may be loosed from sins."
+            <span class="tr">Douay-Rheims 1899 American Edition (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Wisdom 3:1–4</summary>
+          <blockquote>
+            "But the souls of the just are in the hand of God, and the torment of death shall not touch them... Though in the sight of men they suffered torments, their hope is full of immortality."
+            <span class="tr">Douay-Rheims / traditional Catholic text family</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Hebrews 1:3 and Wisdom 7:26 (parallel)</summary>
+          <blockquote>
+            "Who being the brightness of his glory, and the express image of his person..." (Hebrews 1:3) and "For she is the brightness of eternal light, and the unspotted mirror of God's majesty, and the image of his goodness." (Wisdom 7:26)
+            <span class="tr">KJV + Douay-Rheims (public-domain traditions)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 27:43 and Wisdom 2:18 (parallel)</summary>
+          <blockquote>
+            "He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God." (Matthew 27:43) and "For if the just man be the son of God, he will uphold him, and deliver him from the hands of his enemies." (Wisdom 2:18)
+            <span class="tr">KJV + Douay-Rheims (public-domain traditions)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>James 1:19 and Sirach 5:11 (parallel)</summary>
+          <blockquote>
+            "Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath." (James 1:19) and "Be swift to hear: and let thy life be sincere: and with patience give answer." (Sirach 5:11)
+            <span class="tr">KJV + Douay-Rheims (public-domain traditions)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>2 Peter 2:4 and Jude 6 (Enochic framework)</summary>
+          <blockquote>
+            "For if God spared not the angels that sinned, but cast them down to hell, and delivered them into chains of darkness..." (2 Peter 2:4) and "And the angels which kept not their first estate... he hath reserved in everlasting chains under darkness unto the judgment of the great day." (Jude 6)
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 24:15 / Mark 13:14 and 1 Maccabees 1:54</summary>
+          <blockquote>
+            "When ye therefore shall see the abomination of desolation, spoken of by Daniel the prophet..." (Matthew 24:15) and "But when you shall see the abomination of desolation..." (Mark 13:14). Historical anchor text: "Now the fifteenth day of the month Casleu... they set up the abomination of desolation upon the altar." (1 Maccabees 1:54)
+            <span class="tr">KJV + Douay-Rheims (public-domain traditions)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>1 Corinthians 10:9–10 and Judith 8:24–25</summary>
+          <blockquote>
+            "Neither let us tempt Christ, as some of them also tempted, and were destroyed of serpents: Neither murmur ye, as some of them also murmured, and were destroyed of the destroyer." (1 Corinthians 10:9–10). Judith parallel: "Let us believe that these scourges of the Lord... have happened for our amendment, and not for our destruction." (Judith 8:24–25)
+            <span class="tr">KJV + Douay-Rheims (public-domain traditions)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Hebrews 11:35–38 (martyr pattern linked to 2 Maccabees 6–7)</summary>
+          <blockquote>
+            "Others were tortured, not accepting deliverance; that they might obtain a better resurrection: And others had trial of cruel mockings and scourgings... They were stoned, they were sawn asunder, were tempted, were slain with the sword..."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Romans 1:18–32 (idolatry section linked to Wisdom 13–15)</summary>
+          <blockquote>
+            "For the wrath of God is revealed from heaven against all ungodliness... Because that, when they knew God, they glorified him not as God... and changed the glory of the uncorruptible God into an image made like to corruptible man..."
+            <span class="tr">KJV (public domain, representative lines from the cited range)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>John 1:1–14 (Logos and Wisdom framework)</summary>
+          <blockquote>
+            "In the beginning was the Word, and the Word was with God, and the Word was God... And the Word was made flesh, and dwelt among us..."
+            <span class="tr">KJV (public domain, representative lines from the cited range)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Luke 16:19–31 (intermediate-state discussion text)</summary>
+          <blockquote>
+            "And it came to pass, that the beggar died, and was carried by the angels into Abraham's bosom: the rich man also died, and was buried; And in hell he lift up his eyes, being in torments... And beside all this, between us and you there is a great gulf fixed: so that they which would pass from hence to you cannot; neither can they pass to us, that would come from thence." 
+            <span class="tr">KJV (public domain, representative lines from the cited range)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Jude 9 (Assumption of Moses reference)</summary>
+          <blockquote>
+            "Yet Michael the archangel, when contending with the devil he disputed about the body of Moses, durst not bring against him a railing accusation, but said, The Lord rebuke thee."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>2 Timothy 3:8 (Jannes and Jambres)</summary>
+          <blockquote>
+            "Now as Jannes and Jambres withstood Moses, so do these also resist the truth: men of corrupt minds, reprobate concerning the faith."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>James 2:17 ("faith without works is dead")</summary>
+          <blockquote>
+            "Even so faith, if it hath not works, is dead, being alone."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>John 10:22 (Hanukkah / Feast of Dedication)</summary>
+          <blockquote>
+            "And it was at Jerusalem the feast of the dedication, and it was winter."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Jude 14–15 and 1 Enoch 1:9</summary>
+          <blockquote>
+            "Behold, the Lord cometh with ten thousands of his saints, To execute judgment upon all..." (Jude 14–15). Parallel in 1 Enoch 1:9: "Behold, he comes with ten thousands of his holy ones, to execute judgment upon all..."
+            <span class="tr">KJV + traditional Enoch translation wording</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>1 Enoch 22 (segregated realm of the dead)</summary>
+          <blockquote>
+            Enoch is shown deep hollows in a great mountain prepared for the souls of the dead until judgment, with separated places for the righteous and the wicked, and with moral distinction among the wicked themselves. The chapter's architecture is one of separation, memory, and deferred final judgment.
+            <span class="tr">Traditional public-domain Enoch translation summary of chapter structure</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>1 Peter 1:6–7 and Wisdom 3:5–6</summary>
+          <blockquote>
+            "...though now for a season, if need be, ye are in heaviness through manifold temptations: That the trial of your faith, being much more precious than of gold that perisheth, though it be tried with fire..." (1 Peter 1:6–7). Parallel: "As gold in the furnace hath he proved them..." (Wisdom 3:6)
+            <span class="tr">KJV + Douay-Rheims (public-domain traditions)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>1 Corinthians 15:42–44 (resurrection body)</summary>
+          <blockquote>
+            "So also is the resurrection of the dead. It is sown in corruption; it is raised in incorruption... It is sown a natural body; it is raised a spiritual body."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Revelation 8:7–8 and 9:1–2 (apocalyptic imagery)</summary>
+          <blockquote>
+            "The first angel sounded... and there followed hail and fire mingled with blood..." (Revelation 8:7) and "And the fifth angel sounded, and I saw a star fall from heaven unto the earth... and there arose a smoke out of the pit..." (Revelation 9:1–2)
+            <span class="tr">KJV (public domain, representative lines from cited chapters)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 16:27 (coming with angels)</summary>
+          <blockquote>
+            "For the Son of man shall come in the glory of his Father with his angels; and then he shall reward every man according to his works."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 19:28 (throne judgment language)</summary>
+          <blockquote>
+            "...in the regeneration when the Son of man shall sit in the throne of his glory, ye also shall sit upon twelve thrones, judging the twelve tribes of Israel."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 13:41–43 and 25:46 (final separation)</summary>
+          <blockquote>
+            "The Son of man shall send forth his angels... and shall cast them into a furnace of fire... Then shall the righteous shine forth as the sun..." (Matthew 13:41–43) and "And these shall go away into everlasting punishment: but the righteous into life eternal." (Matthew 25:46)
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Matthew 24:29 (cosmic signs)</summary>
+          <blockquote>
+            "Immediately after the tribulation of those days shall the sun be darkened, and the moon shall not give her light, and the stars shall fall from heaven..."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+
+        <details>
+          <summary>Genesis 5:24 (Enoch reference)</summary>
+          <blockquote>
+            "And Enoch walked with God: and he was not; for God took him."
+            <span class="tr">KJV (public domain)</span>
+          </blockquote>
+        </details>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Why This Matters for the Canon Question</span>
+        <p>The purgatory debate is not only about one doctrine; it is about which books are allowed to speak with authority. When deuterocanonical books are removed, key support texts disappear. But even traditions that reject purgatory still keep bodily resurrection and final judgment. So the apparent contradiction in Revelation is usually resolved not by denying resurrection, but by distinguishing intermediate state from final consummation.</p>
+      </div>
+
+      <h3>The Core Tension in Plain Language</h3>
+      <p>Many readers experience this as contradictory for a simple reason: the clearest text for prayers for the dead and post-death purification (2 Maccabees 12:44–46) is removed in Protestant canons, while a broad "intermediate state" is still affirmed to explain other passages. That can sound like replacing a specific framework with a vaguer one.</p>
+
+      <ul>
+        <li><strong>Step 1:</strong> Remove a text that gives direct support for post-death purification.</li>
+        <li><strong>Step 2:</strong> Keep texts that imply conscious existence before final resurrection.</li>
+        <li><strong>Step 3:</strong> Build a non-purgatorial intermediate-state model from those remaining texts.</li>
+      </ul>
+
+      <p>This is not necessarily intellectual dishonesty, but it is a real methodological shift: <em>canon choices shape doctrine outcomes</em>. In other words, what looks like a doctrine debate is also a source-authority debate. If one side includes deuterocanonical books and the other excludes them, they are not reasoning from the same textual base.</p>
+
+      <div class="callout">
+        <span class="callout-label">Bottom Line</span>
+        <p>If readers feel this area is evasive, that reaction is understandable. The tension is genuine, and every tradition resolves it by prioritizing different authorities, not by eliminating all ambiguity.</p>
+      </div>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- ─────────────────────────
+         PART 9
+    ───────────────────────── -->
+    <section id="part9">
+      <div class="part-heading">
+        <span class="part-num">Part Nine</span>
+        <h2>Why It Matters</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">The question of the Biblical canon is not merely academic. The decisions made at Hippo (393), Trent (1546), and Westminster (1648) shaped what billions of people believe about salvation, the afterlife, angels, prayer, and the nature of God.</p>
+
+      <h3>What Changed When the Books Were Removed</h3>
+
+      <ul>
+        <li><strong>Purgatory and prayers for the dead:</strong> The explicit scriptural support in 2 Maccabees 12:44–46 was removed. Without it, the doctrine has only tradition and indirect arguments — which is precisely why Luther removed the book, and why the Council of Trent confirmed it.</li>
+        <li><strong>The immortality of the soul:</strong> The clearest, most direct Biblical statement of the soul's immortality is Wisdom of Solomon 3:1–4 — <em>"But the souls of the righteous are in the hand of God, and no torment will ever touch them."</em> This verse is absent from Protestant Bibles.</li>
+        <li><strong>The cosmic origin of evil:</strong> The story of the Watchers — fallen angels who corrupted humanity — is in 1 Enoch. Without it, the "sons of God" in Genesis 6 have no explanation. The theological framework for Satan's rebellion and the corruption of the pre-flood world is largely Enochic, and it shaped the New Testament's entire worldview — but the source text is excluded from all Western canons.</li>
+        <li><strong>The historical context of the New Testament:</strong> The 150-year gap between the last Hebrew prophet (Malachi, ~400 BC) and the birth of Jesus is a nearly blank period in the Protestant Bible. 1 and 2 Maccabees fill that gap — documenting the persecution that created the apocalyptic worldview Jesus and his followers shared, explaining the Pharisees and Sadducees, and providing the historical context for Hanukkah (John 10:22).</li>
+        <li><strong>The literary foundation of the New Testament:</strong> New Testament writers — including Paul, the author of Hebrews, James, Peter, Jude, and the author of Revelation — were reading, thinking in, and writing from the deuterocanonical tradition. To read the New Testament without knowing these books is to read a letter without knowing the conversation it was part of.</li>
+      </ul>
+
+      <div class="callout">
+        <span class="callout-label">A Note on Perspective</span>
+        <p>This research does not argue for or against any theological position. It documents what happened, when it happened, who decided it, and what was at stake. The goal is that readers understand the Bible they hold was not handed down intact from heaven — it was selected, translated, debated, expanded, contracted, and politically contested over more than a thousand years. That history is not a threat to faith. It is a richer story than most believers have ever been told.</p>
+      </div>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- MASTER REFERENCE TABLE -->
+    <section>
+      <div class="part-heading">
+        <span class="part-num">Master Reference</span>
+        <h2>The Books at a Glance</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Book</th>
+              <th>Catholic Bible</th>
+              <th>Protestant Bible</th>
+              <th>Removed When / By Whom</th>
+              <th>NT Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tobit</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>1534 — Luther</td>
+              <td>Indirect (angel names, demonology)</td>
+            </tr>
+            <tr>
+              <td><strong>Judith</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>1534 — Luther</td>
+              <td>1 Cor 10:9–10 / Judith 8:24–25</td>
+            </tr>
+            <tr>
+              <td><strong>1 Maccabees</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>1534 — Luther</td>
+              <td>Matt 24:15 (Abomination context)</td>
+            </tr>
+            <tr>
+              <td><strong>2 Maccabees</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>1534 — Luther (Leipzig Debate 1519)</td>
+              <td>Hebrews 11:35–38 (martyrs)</td>
+            </tr>
+            <tr>
+              <td><strong>Wisdom of Solomon</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>1534 — Luther</td>
+              <td>Hebrews 1:3; John 1 prologue; Matt 27:43; Romans 1</td>
+            </tr>
+            <tr>
+              <td><strong>Sirach (Ecclesiasticus)</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>1534 — Luther</td>
+              <td>James 1:19 and dozens of parallels in James</td>
+            </tr>
+            <tr>
+              <td><strong>Baruch</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>1534 — Luther</td>
+              <td>Irenaeus cites it as part of Jeremiah</td>
+            </tr>
+            <tr>
+              <td><strong>Greek additions to Daniel</strong></td>
+              <td>Yes</td>
+              <td>No — Daniel is shorter</td>
+              <td>1534 — Luther</td>
+              <td>Benedicite used in liturgy for 1,500 years</td>
+            </tr>
+            <tr>
+              <td><strong>Greek additions to Esther</strong></td>
+              <td>Yes</td>
+              <td>No — Esther is shorter</td>
+              <td>1534 — Luther</td>
+              <td>Prayer &amp; theological framing absent from Protestant Esther</td>
+            </tr>
+            <tr>
+              <td><strong>1 Enoch</strong></td>
+              <td>No (Ethiopian: Yes)</td>
+              <td>No</td>
+              <td>Never in Western canon</td>
+              <td>Jude 14–15 (direct quote); Jude 6; 2 Peter 2:4; Rev 8–9</td>
+            </tr>
+            <tr>
+              <td><strong>Assumption of Moses</strong></td>
+              <td>No</td>
+              <td>No</td>
+              <td>Never canonized; known in early church</td>
+              <td>Jude 9 (dispute over Moses' body)</td>
+            </tr>
+            <tr>
+              <td><strong>Book of Jubilees</strong></td>
+              <td>No (Ethiopian: Yes)</td>
+              <td>No</td>
+              <td>Never in Western canon</td>
+              <td>Background framework for Genesis narratives</td>
+            </tr>
+            <tr>
+              <td><strong>4 Ezra (2 Esdras)</strong></td>
+              <td>No (in Vulgate appendix)</td>
+              <td>No</td>
+              <td>Trent 1546 — appendix retained</td>
+              <td>Quoted as prophetical by Ambrose, Clement of Alexandria</td>
+            </tr>
+            <tr>
+              <td><strong>Book of Jannes &amp; Jambres</strong></td>
+              <td>No — lost</td>
+              <td>No — lost</td>
+              <td>Never canonized; now entirely lost</td>
+              <td>2 Timothy 3:8 — Paul quotes it (identified by Origen)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="divider"><span class="glyph">✦ ─ ✦ ─ ✦</span></div>
+
+    <!-- CITATION MAP -->
+    <section id="citation-map">
+      <div class="part-heading">
+        <span class="part-num">Reference Index</span>
+        <h2>Citation Map (Alphabetized)</h2>
+        <div class="heading-rule"><span class="ornament">✦</span></div>
+      </div>
+
+      <p class="drop-cap">This index lists every major scripture/book citation used in the document and points to the passage content included above in the in-page Passage Reader. Use it as a fast verification checklist when reviewing claims under time pressure.</p>
+
+      <div class="table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Citation</th>
+              <th>How It Is Used in This Document</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1 Corinthians 10:9–10</strong></td><td>Judith parallel on testing God and judgment.</td></tr>
+            <tr><td><strong>1 Corinthians 15:42–44</strong></td><td>Resurrection-body theology in intermediate-state discussion.</td></tr>
+            <tr><td><strong>1 Enoch 1:9</strong></td><td>Directly quoted in Jude 14–15; major judgment parallel.</td></tr>
+            <tr><td><strong>1 Enoch 10–21</strong></td><td>Framework for chained-fallen-angels imagery in Jude/2 Peter/Revelation.</td></tr>
+            <tr><td><strong>1 Enoch 22</strong></td><td>Structured realm-of-the-dead model used to interpret Luke 16 architecture.</td></tr>
+            <tr><td><strong>1 Enoch 37–71</strong></td><td>"Parables" section used for Jesus–Son of Man parallels.</td></tr>
+            <tr><td><strong>1 Enoch 46; 48; 62</strong></td><td>Exalted Son of Man enthronement parallels with Gospel sayings.</td></tr>
+            <tr><td><strong>1 Enoch 61–62; 69</strong></td><td>Throne judgment scene parallels with Matthew 25 and 19.</td></tr>
+            <tr><td><strong>1 Enoch 69:27</strong></td><td>Delegation of final judgment to Son of Man; compared with John 5:22.</td></tr>
+            <tr><td><strong>1 Enoch 80; 102</strong></td><td>Cosmic upheaval motifs linked to Matthew 24 apocalyptic language.</td></tr>
+            <tr><td><strong>1 Enoch 94:8</strong></td><td>Apocalyptic woe against the rich; compared with Luke 6:24.</td></tr>
+            <tr><td><strong>1 Maccabees 1:54</strong></td><td>Historical "abomination of desolation" anchor for Matthew 24 / Mark 13.</td></tr>
+            <tr><td><strong>1 Peter 1:6–7</strong></td><td>Testing-by-fire metaphor linked to Wisdom 3:5–6.</td></tr>
+            <tr><td><strong>1 Thessalonians 4:16–17</strong></td><td>Dead in Christ rise; resurrection sequence.</td></tr>
+            <tr><td><strong>2 Maccabees 6–7</strong></td><td>Martyrdom backdrop for Hebrews 11:35–38.</td></tr>
+            <tr><td><strong>2 Maccabees 12:44–46</strong></td><td>Core purgatory/prayers-for-the-dead text in canon dispute.</td></tr>
+            <tr><td><strong>2 Peter 2:4</strong></td><td>Angels in chains; Enochic cosmology parallel.</td></tr>
+            <tr><td><strong>2 Timothy 3:8</strong></td><td>Jannes and Jambres tradition reference.</td></tr>
+            <tr><td><strong>Assumption of Moses</strong></td><td>Traditional source behind Jude 9 dispute over Moses' body.</td></tr>
+            <tr><td><strong>Genesis 5:24</strong></td><td>Primary canonical Enoch reference.</td></tr>
+            <tr><td><strong>Hebrews 1:3</strong></td><td>Christological parallel with Wisdom 7:26.</td></tr>
+            <tr><td><strong>Hebrews 11:35–38</strong></td><td>Allusion to Maccabean martyr tradition.</td></tr>
+            <tr><td><strong>James 1:19</strong></td><td>Parallels Sirach 5:11 wisdom instruction.</td></tr>
+            <tr><td><strong>James 2:17</strong></td><td>Used in Luther/"epistle of straw" discussion.</td></tr>
+            <tr><td><strong>John 1:1–18</strong></td><td>Logos theology linked to Wisdom/Sirach traditions.</td></tr>
+            <tr><td><strong>John 1:14</strong></td><td>"Dwelt among us" compared with Wisdom tradition language.</td></tr>
+            <tr><td><strong>John 5:28–29</strong></td><td>Universal resurrection text.</td></tr>
+            <tr><td><strong>John 5:22</strong></td><td>Delegated judgment to the Son; compared with Enochic judgment delegation.</td></tr>
+            <tr><td><strong>John 10:22</strong></td><td>Feast of Dedication (Hanukkah) historical continuity point.</td></tr>
+            <tr><td><strong>Jubilees</strong></td><td>Second Temple background text attested at Qumran.</td></tr>
+            <tr><td><strong>Jude 6</strong></td><td>Angels kept in chains until judgment; Enochic parallel.</td></tr>
+            <tr><td><strong>Jude 9</strong></td><td>Michael and the devil over Moses' body.</td></tr>
+            <tr><td><strong>Jude 14–15</strong></td><td>Direct quotation of 1 Enoch 1:9.</td></tr>
+            <tr><td><strong>Judith 8:24–25</strong></td><td>Parallel to 1 Corinthians 10 warning-and-discipline logic.</td></tr>
+            <tr><td><strong>Luke 16:19–31</strong></td><td>Intermediate-state consciousness discussion text.</td></tr>
+            <tr><td><strong>Luke 6:24</strong></td><td>Woe to the rich; compared with Enochic anti-wealth woe oracles.</td></tr>
+            <tr><td><strong>Mark 13:14</strong></td><td>Abomination-of-desolation warning parallel to Matthew 24:15.</td></tr>
+            <tr><td><strong>Mark 14:62</strong></td><td>Son of Man enthronement and cloud-coming language.</td></tr>
+            <tr><td><strong>Matthew 13:41–43</strong></td><td>Final separation imagery (righteous vs wicked).</td></tr>
+            <tr><td><strong>Matthew 16:27</strong></td><td>Son of Man coming with angels and recompense.</td></tr>
+            <tr><td><strong>Matthew 19:28</strong></td><td>Throne-of-glory judgment statement.</td></tr>
+            <tr><td><strong>Matthew 24:15</strong></td><td>Abomination-of-desolation warning tied to Maccabean history.</td></tr>
+            <tr><td><strong>Matthew 24:29</strong></td><td>Cosmic signs before consummation.</td></tr>
+            <tr><td><strong>Matthew 24:30</strong></td><td>Son of Man revealed in clouds; Enochic parallel discussion.</td></tr>
+            <tr><td><strong>Matthew 25:31–32</strong></td><td>Enthroned judgment over all nations.</td></tr>
+            <tr><td><strong>Matthew 25:46</strong></td><td>Everlasting punishment vs eternal life contrast.</td></tr>
+            <tr><td><strong>Matthew 27:43</strong></td><td>Crucifixion mockery parallel to Wisdom 2:18.</td></tr>
+            <tr><td><strong>Revelation 8–9</strong></td><td>Apocalyptic imagery with Enochic thematic parallels.</td></tr>
+            <tr><td><strong>Revelation 20:12–13</strong></td><td>Final resurrection and judgment scene.</td></tr>
+            <tr><td><strong>Romans 1:18–32</strong></td><td>Idolatry critique parallel to Wisdom 13–15.</td></tr>
+            <tr><td><strong>Sirach 5:11</strong></td><td>Wisdom saying parallel to James 1:19.</td></tr>
+            <tr><td><strong>Sirach 24</strong></td><td>Wisdom theology background for John 1 parallels.</td></tr>
+            <tr><td><strong>Wisdom 2:18</strong></td><td>Righteous-son persecution motif linked to Matthew 27:43.</td></tr>
+            <tr><td><strong>Wisdom 3:1–4</strong></td><td>Souls of the righteous / immortality argument.</td></tr>
+            <tr><td><strong>Wisdom 3:5–6</strong></td><td>Gold-in-furnace testing motif linked to 1 Peter 1:6–7.</td></tr>
+            <tr><td><strong>Wisdom 7:26</strong></td><td>Radiance-image language parallel to Hebrews 1:3.</td></tr>
+            <tr><td><strong>Wisdom 7–9</strong></td><td>Pre-creation wisdom framework linked to John 1.</td></tr>
+            <tr><td><strong>Wisdom 13–15</strong></td><td>Extended anti-idolatry argument parallel to Romans 1.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <div class="sources-block">
+      <p><strong>Sources Consulted</strong><br>
+      Primary-source links used throughout this document are listed below. Verse quotations in the Passage Reader use public-domain translations and are paired with the source text in the body of the page.</p>
+
+      <ul style="margin-top: 14px; margin-left: 22px;">
+        <li><a href="https://www.newadvent.org/cathen/03267a.htm" target="_blank" rel="noreferrer">Catholic Encyclopedia: Canon of the Old Testament</a></li>
+        <li><a href="https://www.newadvent.org/cathen/01601a.htm" target="_blank" rel="noreferrer">Catholic Encyclopedia: Apocrypha</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=2+Maccabees+12%3A44-46&version=DRA" target="_blank" rel="noreferrer">2 Maccabees 12:44–46 (Douay-Rheims, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Revelation+20%3A12-13&version=KJV" target="_blank" rel="noreferrer">Revelation 20:12–13 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=John+5%3A28-29&version=KJV" target="_blank" rel="noreferrer">John 5:28–29 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=1+Thessalonians+4%3A16-17&version=KJV" target="_blank" rel="noreferrer">1 Thessalonians 4:16–17 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Matthew+24%3A30&version=KJV" target="_blank" rel="noreferrer">Matthew 24:30 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Matthew+25%3A31-32&version=KJV" target="_blank" rel="noreferrer">Matthew 25:31–32 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Matthew+27%3A43&version=KJV" target="_blank" rel="noreferrer">Matthew 27:43 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=James+1%3A19&version=KJV" target="_blank" rel="noreferrer">James 1:19 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=James+2%3A17&version=KJV" target="_blank" rel="noreferrer">James 2:17 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Luke+16%3A19-31&version=KJV" target="_blank" rel="noreferrer">Luke 16:19–31 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=John+1%3A1-18&version=KJV" target="_blank" rel="noreferrer">John 1:1–18 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Hebrews+11%3A35-38&version=KJV" target="_blank" rel="noreferrer">Hebrews 11:35–38 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Romans+1%3A18-32&version=KJV" target="_blank" rel="noreferrer">Romans 1:18–32 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=1+Peter+1%3A6-7&version=KJV" target="_blank" rel="noreferrer">1 Peter 1:6–7 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=2+Peter+2%3A4&version=KJV" target="_blank" rel="noreferrer">2 Peter 2:4 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=Jude+6-15&version=KJV" target="_blank" rel="noreferrer">Jude 6–15 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=1+Corinthians+10%3A9-10&version=KJV" target="_blank" rel="noreferrer">1 Corinthians 10:9–10 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=1+Corinthians+15%3A42-44&version=KJV" target="_blank" rel="noreferrer">1 Corinthians 15:42–44 (KJV, public domain)</a></li>
+        <li><a href="https://www.biblegateway.com/passage/?search=John+10%3A22&version=KJV" target="_blank" rel="noreferrer">John 10:22 (KJV, public domain)</a></li>
+      </ul>
+
+      <p style="margin-top:12px;"><strong>Status</strong><br>This is a living research document, intended as the foundation for a publicly accessible website with visuals, interactive timelines, and book profiles. Content is complete and verified, with the main interpretive disagreements labeled where they exist.</p>
+    </div>
+
+  </main>
+</div>
+
+<!-- Ethiopian manuscript-inspired illustration system -->
+<script>
+  const palette = {
+    ink: '#1a120a',
+    red: '#8b2515',
+    green: '#1d5f52',
+    blue: '#223f72',
+    gold: '#b79a5e',
+    ochre: '#c47d2f',
+    parch: '#e9dcc0',
+    cream: '#f2e7cc'
+  };
+
+  const svgWrap = (content, viewBox = '0 0 360 260') => `
+    <svg viewBox="${viewBox}" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="harag" width="36" height="36" patternUnits="userSpaceOnUse">
+          <path d="M0 18h36M18 0v36" stroke="${palette.gold}" stroke-width="2" opacity=".7"/>
+          <path d="M4 4h28v28H4z" fill="none" stroke="${palette.red}" stroke-width="2"/>
+          <circle cx="18" cy="18" r="5" fill="${palette.green}"/>
+        </pattern>
+        <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2"/><feDisplacementMap in="SourceGraphic" scale="1.2"/></filter>
+      </defs>
+      <rect width="100%" height="100%" fill="${palette.parch}"/>
+      ${content}
+    </svg>`;
+
+  const figure = (x, y, robe = palette.red, halo = true) => `
+    ${halo ? `<circle cx="${x}" cy="${y - 39}" r="30" fill="${palette.gold}" stroke="${palette.ink}" stroke-width="4"/>` : ''}
+    <path d="M${x - 42} ${y + 96} L${x - 25} ${y + 5} Q${x} ${y - 12} ${x + 25} ${y + 5} L${x + 42} ${y + 96}Z" fill="${robe}" stroke="${palette.ink}" stroke-width="5"/>
+    <circle cx="${x}" cy="${y - 38}" r="21" fill="#7b4c2c" stroke="${palette.ink}" stroke-width="5"/>
+    <path d="M${x - 17} ${y - 47} Q${x - 8} ${y - 54} ${x + 1} ${y - 47}" fill="none" stroke="${palette.ink}" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M${x - 1} ${y - 47} Q${x + 8} ${y - 54} ${x + 17} ${y - 47}" fill="none" stroke="${palette.ink}" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M${x - 18} ${y - 40} Q${x - 8} ${y - 49} ${x + 2} ${y - 40} Q${x - 8} ${y - 33} ${x - 18} ${y - 40}Z" fill="${palette.cream}" stroke="${palette.ink}" stroke-width="3"/>
+    <path d="M${x - 2} ${y - 40} Q${x + 8} ${y - 49} ${x + 18} ${y - 40} Q${x + 8} ${y - 33} ${x - 2} ${y - 40}Z" fill="${palette.cream}" stroke="${palette.ink}" stroke-width="3"/>
+    <circle cx="${x - 8}" cy="${y - 40}" r="3.2" fill="${palette.ink}"/><circle cx="${x + 8}" cy="${y - 40}" r="3.2" fill="${palette.ink}"/>
+    <path d="M${x} ${y - 36} L${x - 5} ${y - 24} L${x + 3} ${y - 24}" fill="none" stroke="${palette.ink}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M${x - 8} ${y - 17} Q${x} ${y - 14} ${x + 8} ${y - 17}" fill="none" stroke="${palette.ink}" stroke-width="3" stroke-linecap="round"/>
+    <path d="M${x - 34} ${y + 26} Q${x - 76} ${y + 34} ${x - 56} ${y + 58}" fill="none" stroke="${palette.ink}" stroke-width="7" stroke-linecap="round"/>
+    <path d="M${x + 34} ${y + 26} Q${x + 78} ${y + 35} ${x + 56} ${y + 60}" fill="none" stroke="${palette.ink}" stroke-width="7" stroke-linecap="round"/>
+    <path d="M${x - 21} ${y + 24}h42" stroke="${palette.gold}" stroke-width="6"/>
+  `;
+
+  const book = (x, y, w = 86, h = 58, color = palette.blue) => `
+    <path d="M${x} ${y} q${w / 2} -18 ${w} 0 v${h} q-${w / 2} -15 -${w} 0z" fill="${palette.cream}" stroke="${palette.ink}" stroke-width="4"/>
+    <path d="M${x + w / 2} ${y - 9}v${h + 10}" stroke="${palette.red}" stroke-width="3"/>
+    <path d="M${x + 12} ${y + 15}h${w - 24}M${x + 12} ${y + 31}h${w - 24}M${x + 12} ${y + 47}h${w - 24}" stroke="${color}" stroke-width="3"/>
+  `;
+
+  const heroArt = () => svgWrap(`
+    <rect x="20" y="18" width="320" height="224" fill="url(#harag)" opacity=".92"/>
+    <rect x="45" y="38" width="270" height="184" fill="${palette.parch}" stroke="${palette.ink}" stroke-width="5"/>
+    <path d="M71 191 C102 112, 121 88, 165 50 C208 92, 238 115, 288 190" fill="none" stroke="${palette.blue}" stroke-width="10"/>
+    <path d="M72 191 C112 150, 143 141, 180 191 C217 139, 248 150, 289 191" fill="${palette.green}" stroke="${palette.ink}" stroke-width="5"/>
+    ${figure(180, 126, palette.red, true)}
+    <path d="M128 188h104" stroke="${palette.gold}" stroke-width="7"/>
+    ${book(139, 144, 82, 48, palette.red)}
+  `);
+
+  const plates = {
+    part1: ['The Measuring Stick', 'A canon is not only a shelf of books. It is a rule, a judgment, and a boundary drawn by human hands.', `
+      <rect x="22" y="22" width="316" height="216" fill="url(#harag)"/>
+      <rect x="54" y="48" width="252" height="164" fill="${palette.parch}" stroke="${palette.ink}" stroke-width="5"/>
+      ${figure(128, 132, palette.blue, true)}${book(184, 93, 88, 64, palette.red)}
+      <path d="M86 202 L280 58" stroke="${palette.ochre}" stroke-width="9" stroke-linecap="round"/>
+    `],
+    part2: ['Two Streams of Scripture', 'Palestine and Alexandria become two manuscript rivers, carrying different collections into Christian history.', `
+      <rect x="24" y="20" width="312" height="220" fill="url(#harag)"/>
+      <path d="M67 47 C119 101, 112 167, 57 220" fill="none" stroke="${palette.green}" stroke-width="18"/>
+      <path d="M295 48 C227 101, 241 171, 305 220" fill="none" stroke="${palette.blue}" stroke-width="18"/>
+      ${book(86, 70, 78, 104, palette.green)}${book(197, 70, 78, 104, palette.blue)}
+      <circle cx="180" cy="131" r="34" fill="${palette.gold}" stroke="${palette.ink}" stroke-width="5"/>
+    `],
+    part3: ['The Chain of Custody', 'Councils, translators, rabbis, and reformers leave marks on the scroll as it moves through time.', `
+      <rect x="22" y="22" width="316" height="216" fill="${palette.parch}" stroke="${palette.red}" stroke-width="8"/>
+      <path d="M42 132 C92 79, 134 177, 184 124 S277 76, 318 132" fill="none" stroke="${palette.gold}" stroke-width="12"/>
+      ${figure(82, 142, palette.red, false)}${figure(180, 139, palette.green, false)}${figure(278, 142, palette.blue, false)}
+      <path d="M54 220h252" stroke="${palette.ink}" stroke-width="5"/>
+    `],
+    part4: ['Seven Books in the Margin', 'The removed books become illuminated leaves: still present, still readable, still shaping the story.', `
+      <rect x="26" y="20" width="308" height="220" fill="url(#harag)"/>
+      ${[0,1,2,3,4,5,6].map((n) => `<rect x="${52 + (n % 4) * 64}" y="${54 + Math.floor(n / 4) * 82}" width="48" height="62" fill="${n % 2 ? palette.blue : palette.red}" stroke="${palette.ink}" stroke-width="4"/><path d="M${62 + (n % 4) * 64} ${78 + Math.floor(n / 4) * 82}h28M${62 + (n % 4) * 64} ${94 + Math.floor(n / 4) * 82}h28" stroke="${palette.gold}" stroke-width="4"/>`).join('')}
+      <path d="M44 203h272" stroke="${palette.green}" stroke-width="8"/>
+    `],
+    part5: ['The Great Cut', 'The Reformation turns a canon dispute into a physical rearrangement of the Bible.', `
+      <rect x="24" y="21" width="312" height="218" fill="${palette.parch}" stroke="${palette.red}" stroke-width="8"/>
+      ${book(72, 74, 96, 112, palette.red)}${book(203, 74, 82, 112, palette.blue)}
+      <path d="M184 44 L170 216" stroke="${palette.ink}" stroke-width="5" stroke-dasharray="12 10"/>
+      <path d="M169 89 l36 -24 l-14 41 l36 22 l-43 1 l-15 41 l-13 -42 l-43 -2 l36 -22z" fill="${palette.gold}" stroke="${palette.ink}" stroke-width="5"/>
+    `],
+    part6: ['Enoch and the Hidden Library', 'Ethiopia becomes central here: Enoch and Jubilees survive in the tradition that preserved them as scripture.', `
+      <rect x="22" y="21" width="316" height="218" fill="url(#harag)"/>
+      <rect x="57" y="42" width="246" height="176" fill="${palette.parch}" stroke="${palette.ink}" stroke-width="5"/>
+      <path d="M72 184 C106 128, 125 100, 180 58 C235 100, 254 128, 288 184" fill="${palette.blue}" opacity=".9" stroke="${palette.ink}" stroke-width="5"/>
+      ${figure(180, 134, palette.red, true)}
+      <path d="M77 206 C120 174, 238 174, 283 206" fill="none" stroke="${palette.green}" stroke-width="12"/>
+      <path d="M74 218h212" stroke="${palette.ink}" stroke-width="5"/>
+    `],
+    part7: ['Threads Inside the Bible', 'The cross-references become visible as lines between books rather than hidden in footnotes.', `
+      <rect x="24" y="20" width="312" height="220" fill="${palette.parch}" stroke="${palette.red}" stroke-width="8"/>
+      ${book(42, 74, 78, 92, palette.red)}${book(241, 74, 78, 92, palette.blue)}${book(141, 46, 78, 92, palette.green)}
+      <path d="M121 116 C151 88, 172 88, 141 101 M219 100 C242 92, 252 109, 241 123 M121 143 C162 182, 205 182, 241 145" fill="none" stroke="${palette.gold}" stroke-width="6"/>
+      <circle cx="180" cy="178" r="28" fill="${palette.red}" stroke="${palette.ink}" stroke-width="5"/>
+    `],
+    part8: ['The Divided Realm', 'Intermediate state, resurrection, and judgment become a layered map rather than a flattened doctrine chart.', `
+      <rect x="26" y="22" width="308" height="216" fill="url(#harag)"/>
+      <rect x="58" y="47" width="244" height="166" fill="${palette.parch}" stroke="${palette.ink}" stroke-width="5"/>
+      <path d="M58 102h244M58 158h244" stroke="${palette.red}" stroke-width="6"/>
+      <circle cx="116" cy="78" r="18" fill="${palette.gold}" stroke="${palette.ink}" stroke-width="4"/><circle cx="244" cy="78" r="18" fill="${palette.blue}" stroke="${palette.ink}" stroke-width="4"/>
+      <path d="M94 136h172M116 190h128" stroke="${palette.green}" stroke-width="10" stroke-linecap="round"/>
+    `],
+    part9: ['What a Bible Contains', 'The final question is not only belief, but which witnesses are allowed to speak.', `
+      <rect x="24" y="20" width="312" height="220" fill="${palette.parch}" stroke="${palette.red}" stroke-width="8"/>
+      ${figure(119, 143, palette.green, true)}${figure(241, 143, palette.blue, true)}
+      ${book(132, 92, 96, 88, palette.red)}
+      <path d="M56 220h248" stroke="${palette.gold}" stroke-width="8"/>
+    `]
+  };
+
+  const bookIcons = {
+    Tobit: `${figure(77, 89, palette.green, true)}<path d="M90 136 q35 -20 55 10 q-27 20 -55 -10z" fill="${palette.blue}" stroke="${palette.ink}" stroke-width="5"/><circle cx="124" cy="141" r="3" fill="${palette.ink}"/>`,
+    Judith: `${figure(78, 89, palette.red, true)}<path d="M115 48 v105" stroke="${palette.ink}" stroke-width="7"/><path d="M102 53h26" stroke="${palette.gold}" stroke-width="8"/><path d="M112 148 q25 -10 42 14" fill="none" stroke="${palette.blue}" stroke-width="7"/>`,
+    '1 Maccabees': `<path d="M52 150h86v20H52z" fill="${palette.ink}"/><path d="M62 150V77h66v73" fill="${palette.parch}" stroke="${palette.ink}" stroke-width="6"/><path d="M76 116h38M95 77v73" stroke="${palette.red}" stroke-width="6"/><path d="M95 58 q18 20 0 39 q-18 -19 0 -39z" fill="${palette.gold}" stroke="${palette.ink}" stroke-width="4"/>`,
+    '2 Maccabees': `<path d="M48 162 C80 110, 115 110, 148 162" fill="${palette.red}" stroke="${palette.ink}" stroke-width="6"/><circle cx="98" cy="86" r="35" fill="${palette.gold}" stroke="${palette.ink}" stroke-width="5"/><path d="M69 84h58M98 55v62" stroke="${palette.ink}" stroke-width="5"/><path d="M58 138h82" stroke="${palette.gold}" stroke-width="7"/>`,
+    'Wisdom of Solomon': `${figure(95, 94, palette.blue, true)}<path d="M50 151 C82 120, 112 120, 145 151" fill="none" stroke="${palette.gold}" stroke-width="8"/><path d="M95 36 L106 61 L133 63 L112 81 L119 108 L95 94 L71 108 L78 81 L57 63 L84 61z" fill="${palette.gold}" stroke="${palette.ink}" stroke-width="4"/>`,
+    'Sirach — Ecclesiasticus': `${figure(68, 98, palette.green, true)}${book(96, 78, 62, 70, palette.red)}<path d="M40 166h115" stroke="${palette.gold}" stroke-width="6"/>`,
+    Baruch: `${book(52, 66, 86, 102, palette.red)}<path d="M115 68 C139 92, 139 138, 116 166" fill="none" stroke="${palette.blue}" stroke-width="9"/><path d="M56 168h94" stroke="${palette.ink}" stroke-width="5"/>`,
+    'The Book of Enoch (1 Enoch — Ethiopic Enoch)': `${figure(96, 99, palette.red, true)}<path d="M54 50 C77 24, 118 24, 142 50" fill="none" stroke="${palette.blue}" stroke-width="9"/><path d="M53 158 C81 132, 115 132, 143 158" fill="none" stroke="${palette.green}" stroke-width="8"/>`,
+    'The Assumption of Moses (Testament of Moses)': `<path d="M48 152 C80 87, 111 87, 144 152" fill="${palette.blue}" stroke="${palette.ink}" stroke-width="6"/><path d="M95 45v104M67 92h56" stroke="${palette.gold}" stroke-width="8"/><path d="M42 162h112" stroke="${palette.red}" stroke-width="6"/>`,
+    'The Book of Jubilees': `${book(54, 54, 88, 112, palette.green)}<circle cx="98" cy="107" r="31" fill="none" stroke="${palette.gold}" stroke-width="8"/><path d="M98 76v62M67 107h62" stroke="${palette.red}" stroke-width="5"/>`,
+    '4 Ezra (2 Esdras)': `${figure(94, 98, palette.blue, true)}<path d="M48 152h96M57 166h78" stroke="${palette.red}" stroke-width="7"/><path d="M95 52 C123 70, 131 105, 104 126" fill="none" stroke="${palette.gold}" stroke-width="7"/>`
+  };
+
+  document.getElementById('hero-miniature').innerHTML = heroArt();
+
+  document.querySelectorAll('section[id^="part"]').forEach((section) => {
+    const data = plates[section.id];
+    if (!data) return;
+    const heading = section.querySelector('.part-heading');
+    const partNum = heading?.querySelector('.part-num')?.textContent || '';
+    const plate = document.createElement('div');
+    plate.className = 'section-plate';
+    plate.setAttribute('aria-hidden', 'true');
+    plate.innerHTML = `
+      <div class="section-plate-copy">
+        <span class="section-kicker">${partNum}</span>
+        <div class="section-plate-title">${data[0]}</div>
+        <p class="section-plate-note">${data[1]}</p>
+      </div>
+      <div class="section-plate-art">${svgWrap(data[2])}</div>
+      <div class="margin-script">፩<br>፪<br>፫<br>፬<br>፭<br>፮</div>`;
+    section.insertBefore(plate, heading);
+  });
+
+  document.querySelectorAll('.book-grid').forEach((grid) => {
+    grid.classList.add('illuminated-books');
+    grid.querySelectorAll('.book-card').forEach((card) => {
+      const title = card.querySelector('h4')?.textContent.trim();
+      const icon = bookIcons[title];
+      if (!icon) return;
+      const art = document.createElement('div');
+      art.className = 'book-illumination';
+      art.setAttribute('aria-hidden', 'true');
+      art.innerHTML = svgWrap(`<rect x="16" y="16" width="168" height="168" fill="url(#harag)" opacity=".9"/><rect x="30" y="30" width="140" height="140" fill="${palette.parch}" stroke="${palette.ink}" stroke-width="5"/>${icon}`, '0 0 200 200');
+      const body = document.createElement('div');
+      body.className = 'book-body';
+      while (card.firstChild) body.appendChild(card.firstChild);
+      card.appendChild(art);
+      card.appendChild(body);
+    });
+  });
+
+  const tlIcons = [
+    palette.green, palette.blue, palette.red, palette.gold, palette.green, palette.blue,
+    palette.red, palette.gold, palette.green, palette.blue, palette.red, palette.gold,
+    palette.green, palette.blue, palette.red
+  ];
+  document.querySelector('.timeline')?.classList.add('illuminated-timeline');
+  document.querySelectorAll('.tl-item').forEach((item, index) => {
+    const miniature = document.createElement('div');
+    miniature.className = 'timeline-miniature';
+    miniature.setAttribute('aria-hidden', 'true');
+    const color = tlIcons[index % tlIcons.length];
+    miniature.innerHTML = svgWrap(`<rect width="120" height="120" fill="${palette.parch}"/><circle cx="60" cy="54" r="28" fill="${color}" stroke="${palette.ink}" stroke-width="6"/><path d="M32 94h56M60 26v56M41 54h38" stroke="${palette.gold}" stroke-width="7" stroke-linecap="round"/>`, '0 0 120 120');
+    item.insertBefore(miniature, item.querySelector('.tl-content'));
+  });
+</script>
+
+<!-- Sidebar scroll-tracking -->
+<script>
+  const links = document.querySelectorAll('.sidebar nav a');
+  const sections = document.querySelectorAll('section[id]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
