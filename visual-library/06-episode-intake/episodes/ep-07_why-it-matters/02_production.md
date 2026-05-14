@@ -110,12 +110,12 @@ Primary buckets:
 15. Close with the perspective note that history is not a threat to faith but a richer story.
 16. End on a quiet culmination card.
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 07 title and chapter-card variants
-2. Doctrine consequence cards for 2 Maccabees 12 and Wisdom 3
-3. Watchers and intertestamental-history evidence strips
-4. Final perspective note and richer-story end-card
+1. Place the approved opener, chapter cards, consequence cards, evidence strips, and end-card language from `05_assets_text.md`.
+2. Keep each downstream consequence tied to the earlier episode chain instead of presenting it as a new standalone claim.
+3. Use Watchers and intertestamental-history strips only where they sharpen the cumulative thesis.
+4. Hold the close on perspective and scale so the finale lands quietly rather than polemically.
 
 ## Editing Rules
 
@@ -130,11 +130,10 @@ Primary buckets:
 - Cut the first pass in the order defined by `04_visual_beats.md`.
 - Rehearse against `03_script.md` before tightening final cadence.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-07_titles-why-it-matters-prompt.md`
-- Run `ep-07_consequence-cards-prompt.md`
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` for consequence cards and source strips
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Build one 2 Maccabees 12 card and one intertestamental-gap card first
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Use `05_assets_text.md` for consequence cards, source strips, and the closing perspective note.
+- Rehearse against `03_script.md` before tightening final cadence.
+- Let the first consequence turn land on the approved 2 Maccabees 12 and intertestamental-history beats.

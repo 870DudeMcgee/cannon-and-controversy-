@@ -122,12 +122,12 @@ These should be generated first:
 - Josephus 22-book evidence strip
 - removed, not added end-card
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 02 title and chapter-card variants
-2. Comparison-card text and source strips
-3. Palestine and Alexandria geography surface
-4. Manuscript atmosphere plates for codex and scroll context
+1. Place the approved opener, chapter cards, comparison cards, and end-card language from `05_assets_text.md`.
+2. Keep the Hebrew Bible versus Septuagint comparison legible in motion with minimal on-screen density.
+3. Use Palestine and Alexandria geography only where it clarifies the two-list setup.
+4. Let manuscript atmosphere support the scriptural-world contrast without becoming its own detour.
 
 ## Editing Rules
 
@@ -137,14 +137,11 @@ These should be generated first:
 - Keep comparison cards simple enough to absorb in motion.
 - End on inheritance and removal, not on argument heat.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-02_titles-two-lists-prompt.md`
-- Run `ep-02_comparison-cards-hebrew-vs-septuagint-prompt.md`
-- Rehearse from `03_script.md` before tightening cadence for final voice
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` for general witness beats and the dual-column first-cut cards
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Use `05_assets_text.md` as the first-cut on-screen comparison sheet
-- Start a simple Palestine/Alexandria map study
-- Build one final end-card around `removed, not added`
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Rehearse from `03_script.md` before tightening cadence for final voice.
+- Use `05_assets_text.md` as the default comparison sheet for the dual-column witness beats.
+- Treat the Palestine/Alexandria map study as optional support work after the first cut is assembled.
+- Hold the close on the approved `removed, not added` end-card language.

@@ -140,12 +140,12 @@ These should be generated first:
 - Caiaphas line from John 11:49–50
 - Josephus witness line from Antiquities XVIII.3.3
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Jerusalem map motion study
-2. Lower-third and source-strip copy
-3. Opener and chapter-title variants
-4. Manuscript atmosphere plates for context beds
+1. Place the approved opener, chapter cards, witness cards, and end-card language from `05_assets_text.md`.
+2. Keep lower thirds and source strips on the key authority beats without slowing the collapse-to-consequence arc.
+3. Use the Jerusalem map and manuscript atmosphere only as support layers where they clarify place or pressure.
+4. Protect the final canon-consequence turn so the close lands on meaning, not spectacle.
 
 ## Editing Rules
 
@@ -154,13 +154,10 @@ These should be generated first:
 - Use witness cards to tighten authority, not to stall momentum.
 - End on the canon consequence, not only on the destruction spectacle.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-01_titles-forty-year-fuse-prompt.md`
-- Run `ep-01_quote-cards-josephus-caiaphas-prompt.md`
-- Run `ep-01_lower-thirds-and-source-strips-prompt.md`
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Rehearse from `03_script.md` before tightening for final voice cadence
-- Use `05_assets_text.md` as the first-cut witness-card wording
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Start the Jerusalem map run log
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Rehearse from `03_script.md` before tightening final voice cadence.
+- Use the approved witness-card wording from `05_assets_text.md` for Caiaphas, Josephus, and the canon-consequence close.
+- Treat the Jerusalem map and related atmosphere plates as optional polish, not blockers for the first cut.

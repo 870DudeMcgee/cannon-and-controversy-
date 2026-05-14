@@ -125,12 +125,12 @@ These should be generated first:
 - Wisdom / Sirach allusion cards
 - hidden-in-plain-sight end-card
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 05 title and chapter-card variants
-2. Direct-quotation and allusion evidence text
-3. Jesus-Enoch parallel cards
-4. Citation-board atmosphere plates
+1. Place the approved opener, chapter cards, quotation cards, evidence cards, and end-card language from `05_assets_text.md`.
+2. Lead with the strongest direct-quotation evidence before the denser allusion material.
+3. Use Jesus-Enoch parallel cards only where they sharpen the internal-evidence case.
+4. Treat citation-board atmosphere as a support layer, not a blocker for the first cut.
 
 ## Editing Rules
 
@@ -139,12 +139,10 @@ These should be generated first:
 - Do not overclaim certainty where the site itself frames historians as cautious.
 - End on internal evidence surviving exclusion, not on polemical flourish.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-05_titles-referenced-inside-the-bible-prompt.md`
-- Run `ep-05_quote-and-parallel-prompt.md`
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` for quotation reveals and proof-density cards
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Build one Jude / 1 Enoch quotation card
-- Build one hidden-in-plain-sight end-card
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Use `05_assets_text.md` for quotation reveals, proof-density cards, and the closing beat.
+- Keep the Jude / 1 Enoch quotation reveal clear enough to carry the first evidence turn by itself.
+- End on the approved hidden-in-plain-sight card rather than on extra explanation.

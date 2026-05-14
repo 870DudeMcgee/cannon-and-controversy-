@@ -122,12 +122,12 @@ These should be generated first:
 - 1 Enoch authority card
 - survival-versus-exclusion end-card
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 04 title and chapter-card variants
-2. Qumran, cave, and Enoch evidence-card text
-3. Qumran locator surface
-4. Fragment and archive atmosphere plates
+1. Place the approved opener, chapter cards, evidence cards, and end-card language from `05_assets_text.md`.
+2. Keep Qumran, cave, and Enoch evidence cards factual and concise so the archaeology stays legible.
+3. Use the Qumran locator only where it helps orient the viewer quickly.
+4. Treat fragment and archive atmosphere as support texture, not as a first-cut requirement.
 
 ## Editing Rules
 
@@ -136,14 +136,10 @@ These should be generated first:
 - Use Qumran as evidence for textual survival under pressure, not as a mystery set piece.
 - End on the deeper canon problem: exclusion from later lists does not prove earlier insignificance.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-04_titles-deeper-removed-texts-prompt.md`
-- Run `ep-04_qumran-enoch-prompt.md`
-- Rehearse from `03_script.md` before tightening final voice cadence
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` for thesis and bridge cards
-- Use `05_assets_text.md` as the first-cut Qumran and Enoch evidence sheet
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Build one Qumran disaster-recovery card
-- Build one end-card around survival versus exclusion
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Rehearse from `03_script.md` before tightening final voice cadence.
+- Use `05_assets_text.md` for thesis bridges plus the Qumran and Enoch evidence sheet.
+- Make sure the close lands on the approved survival-versus-exclusion end-card instead of mystery framing.

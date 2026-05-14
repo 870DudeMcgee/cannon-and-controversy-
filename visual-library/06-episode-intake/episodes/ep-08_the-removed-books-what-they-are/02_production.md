@@ -113,12 +113,12 @@ Primary buckets:
 14. Show the Song of the Three Young Men, Susanna, and Bel and the Dragon as missing Daniel material.
 15. Close on the claim that these books were excluded from one canon tradition, not lost to history.
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 08 title and chapter-card variants
-2. Seven book-profile cards and lower thirds
-3. Esther and Daniel additions comparison cards
-4. Excluded-not-erased end-card variants
+1. Place the approved opener, chapter cards, book-profile cards, comparison cards, and end-card language from `05_assets_text.md`.
+2. Keep each book profile short enough to read in motion while still distinguishing the seven books clearly.
+3. Use Esther and Daniel additions comparisons to orient the viewer without turning the episode into a catalog.
+4. Hold the close on the approved excluded-not-erased framing.
 
 ## Editing Rules
 
@@ -133,11 +133,10 @@ Primary buckets:
 - Cut the first pass in the order defined by `04_visual_beats.md`.
 - Rehearse against `03_script.md` before tightening final cadence.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-08_titles-removed-books-prompt.md`
-- Run `ep-08_book-profile-cards-prompt.md`
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` for book-profile cards and additions comparisons
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Build one 1 Maccabees card and one Wisdom of Solomon card first
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Use `05_assets_text.md` for book-profile cards, additions comparisons, and the closing orientation beat.
+- Rehearse against `03_script.md` before tightening final cadence.
+- Make sure the first book-profile turn lands cleanly on 1 Maccabees and Wisdom of Solomon before expanding the catalog.

@@ -118,12 +118,12 @@ Primary buckets:
 19. Clarify that this is not necessarily bad faith; it is a source-authority change with doctrinal consequences.
 20. Close on the thesis that canon choices shape doctrine outcomes.
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 06 title and chapter-card variants
-2. Luke 16 and 1 Enoch 22 evidence cards
-3. 2 Maccabees 12 and Wisdom 3 quote cards
-4. Two-stage afterlife and tradition comparison cards
+1. Place the approved opener, chapter cards, evidence cards, comparison cards, and end-card language from `05_assets_text.md`.
+2. Keep Luke 16, 1 Enoch 22, 2 Maccabees 12, and Wisdom 3 distributed across the argument instead of stacked in one block.
+3. Use the two-stage afterlife and tradition comparison cards to clarify structure, not to over-explain doctrine.
+4. Protect continuity with Episode 05 at the front and Episode 07 stakes at the close.
 
 ## Editing Rules
 
@@ -138,11 +138,10 @@ Primary buckets:
 - Cut the first pass in the order defined by `04_visual_beats.md`.
 - Rehearse against `03_script.md` before tightening final cadence.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-06_titles-intermediate-state-prompt.md`
-- Run `ep-06_afterlife-and-purgatory-prompt.md`
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` for doctrine comparisons and evidence cards
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Build one Luke 16 card and one 2 Maccabees 12 card first
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Use `05_assets_text.md` for doctrine comparisons, evidence cards, and the closing canon-consequence beat.
+- Rehearse against `03_script.md` before tightening final cadence.
+- Make sure the first evidence turn lands cleanly on Luke 16 and 2 Maccabees 12 without front-loading every doctrinal detail.

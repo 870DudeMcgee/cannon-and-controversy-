@@ -116,12 +116,12 @@ Primary buckets:
 14. Present the British and Foreign Bible Society as the point where the books largely vanish from ordinary Protestant print culture.
 15. Close on the line that the canon was shaped by a chain of decisions, not one moment.
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 09 title and chapter-card variants
-2. Milestone cards for the major canon events
-3. Witness cards for Irenaeus, Origen, Jerome, Luther, and Westminster
-4. Finale end-card variants
+1. Place the approved opener, chapter cards, milestone cards, witness cards, and end-card language from `05_assets_text.md`.
+2. Keep the chronology readable by spacing milestone and witness cards across the full episode.
+3. Use Irenaeus, Origen, Jerome, Luther, and Westminster strips to clarify stages, not to overload single beats.
+4. Hold the close on the approved chain-of-decisions framing.
 
 ## Editing Rules
 
@@ -136,11 +136,10 @@ Primary buckets:
 - Cut the first pass in the order defined by `04_visual_beats.md`.
 - Rehearse against `03_script.md` before tightening final cadence.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-09_titles-canon-timeline-prompt.md`
-- Run `ep-09_timeline-cards-prompt.md`
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` for milestone cards and witness strips
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Build one Septuagint card and one Westminster card first
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Use `05_assets_text.md` for milestone cards, witness strips, and the closing thesis beat.
+- Rehearse against `03_script.md` before tightening final cadence.
+- Make sure the early timeline is legible before expanding the later Florence, Trent, Westminster, and Bible Society sequence.

@@ -121,12 +121,12 @@ These should be generated first:
 - Johann Eck / 2 Maccabees source strip
 - Westminster non-scripture end-card
 
-## Generation Priorities
+## Assembly Priorities
 
-1. Episode 03 title and chapter-card variants
-2. Quote-card and source-strip text for Luther, Eck, James, and Westminster
-3. Criteria-card layouts for the canon rules
-4. Print-shop and codex atmosphere plates
+1. Place the approved opener, chapter cards, quote cards, criteria cards, and end-card language from `05_assets_text.md`.
+2. Keep Luther, Eck, James, and Westminster source strips tight so the doctrinal stakes stay readable in motion.
+3. Use the criteria cards to clarify the canon rules without interrupting the conflict arc.
+4. Treat print-shop and codex atmosphere as texture, not as required setup for the first cut.
 
 ## Editing Rules
 
@@ -135,13 +135,10 @@ These should be generated first:
 - Do not caricature Luther; document the move and its consequences.
 - End on hardening and exclusion, not on personality drama.
 
-## Immediate Next Moves
+## Assembly Checklist
 
-- Run `ep-03_titles-reformation-cut-prompt.md`
-- Run `ep-03_luther-eck-james-prompt.md`
-- Rehearse from `03_script.md` before tightening final voice cadence
-- Apply `05_assets_text.md` during first assembly before writing alternates
-- Use `05_assets_text.md` as the first-cut quote and source sheet
-- Cut the first pass in the order defined by `04_visual_beats.md`
-- Build one criteria card for Luther's canon rules
-- Build one end-card around Westminster hardening the line
+- Cut the first pass in the order defined by `04_visual_beats.md`.
+- Apply `05_assets_text.md` before writing or testing any alternates.
+- Rehearse from `03_script.md` before tightening final voice cadence.
+- Use `05_assets_text.md` as the default quote, source-strip, and criteria-card sheet.
+- Make sure the close lands on the approved Westminster hardening beat instead of personality drama.
