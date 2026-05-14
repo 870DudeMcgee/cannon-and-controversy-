@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="700" viewBox="0 0 2400 700" fill="none">
+  <rect width="2400" height="700" fill="#17120D"/>
+  <rect x="120" y="160" width="2160" height="380" fill="#5d4a2e"/>
+  <g>
+    <rect x="122" y="162" width="430" height="376" fill="#241e17"/>
+    <rect x="554" y="162" width="430" height="376" fill="#241e17"/>
+    <rect x="986" y="162" width="430" height="376" fill="#241e17"/>
+    <rect x="1418" y="162" width="430" height="376" fill="#241e17"/>
+    <rect x="1850" y="162" width="428" height="376" fill="#241e17"/>
+  </g>
+  <g font-family="Cinzel, serif" font-weight="700" fill="#b79a5e">
+    <text x="336" y="330" text-anchor="middle" font-size="110">2,500</text>
+    <text x="768" y="330" text-anchor="middle" font-size="110">7</text>
+    <text x="1200" y="330" text-anchor="middle" font-size="110">300+</text>
+    <text x="1632" y="330" text-anchor="middle" font-size="110">1546</text>
+    <text x="2064" y="330" text-anchor="middle" font-size="110">1826</text>
+  </g>
+  <g font-family="Crimson Text, serif" font-size="42" fill="#9a8d77">
+    <text x="336" y="420" text-anchor="middle">years of canon debate</text>
+    <text x="768" y="420" text-anchor="middle">books removed by Luther</text>
+    <text x="1200" y="420" text-anchor="middle">NT quotes favor the LXX</text>
+    <text x="1632" y="420" text-anchor="middle">Trent defines the canon</text>
+    <text x="2064" y="420" text-anchor="middle">books vanish from printings</text>
+  </g>
+</svg>

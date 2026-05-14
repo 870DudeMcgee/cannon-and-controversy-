@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#16120D"/>
+  <rect x="320" y="260" width="3200" height="1640" stroke="#5d4a2e" stroke-width="3"/>
+  <text x="520" y="548" fill="#8b2515" font-family="Cinzel, serif" font-size="42" font-weight="700" letter-spacing="22">COUNCIL TITLE</text>
+  <text x="520" y="860" fill="#ceb27a" font-family="Cinzel, serif" font-size="184" font-weight="700">The Council</text>
+  <text x="520" y="1054" fill="#ceb27a" font-family="Cinzel, serif" font-size="184" font-weight="700">of Carthage</text>
+  <text x="520" y="1288" fill="#e6dac4" font-family="Crimson Text, serif" font-size="72">Use for institutional decisions, canon lists, and doctrinal ratification chapters.</text>
+  <text x="520" y="1470" fill="#8f7750" font-family="Cinzel, serif" font-size="46" letter-spacing="18">393 • 397 • 419</text>
+</svg>

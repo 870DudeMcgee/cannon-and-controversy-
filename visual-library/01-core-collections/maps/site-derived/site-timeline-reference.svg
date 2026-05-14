@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1800" viewBox="0 0 2200 1800" fill="none">
+  <rect width="2200" height="1800" fill="#17120D"/>
+  <path d="M520 160V1640" stroke="url(#spine)" stroke-width="10" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="spine" x1="520" y1="160" x2="520" y2="1640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b2515" stop-opacity="0"/>
+      <stop offset="0.1" stop-color="#8b2515"/>
+      <stop offset="0.5" stop-color="#b79a5e"/>
+      <stop offset="0.9" stop-color="#1d5f52"/>
+      <stop offset="1" stop-color="#1d5f52" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g font-family="Cinzel, serif" font-weight="700">
+    <text x="180" y="404" fill="#b79a5e" font-size="34">382 AD</text>
+    <circle cx="520" cy="388" r="34" fill="#e9dcc0" stroke="#b79a5e" stroke-width="5"/>
+    <circle cx="520" cy="388" r="12" fill="#8b2515"/>
+    <text x="650" y="372" fill="#e6dac4" font-size="48">Rome lists the canon</text>
+    <text x="650" y="438" fill="#9a8d77" font-family="Crimson Text, serif" font-size="42">Year column + medallion + content block rhythm</text>
+
+    <text x="180" y="930" fill="#b79a5e" font-size="34">1546 AD</text>
+    <circle cx="520" cy="914" r="34" fill="#e9dcc0" stroke="#b79a5e" stroke-width="5"/>
+    <circle cx="520" cy="914" r="12" fill="#8b2515"/>
+    <text x="650" y="898" fill="#e6dac4" font-size="48">Trent defines the canon</text>
+    <text x="650" y="964" fill="#9a8d77" font-family="Crimson Text, serif" font-size="42">Use as a spacing and hierarchy reference for timeline comps</text>
+  </g>
+</svg>

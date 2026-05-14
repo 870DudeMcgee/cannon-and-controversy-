@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#15110C"/>
+  <rect x="440" y="312" width="2960" height="1536" fill="#e9dcc0" stroke="#cdb58b" stroke-width="4"/>
+  <rect x="440" y="312" width="2960" height="1536" fill="url(#veil)"/>
+  <defs>
+    <radialGradient id="veil" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1880 1080) rotate(90) scale(980 1420)">
+      <stop stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <text x="1920" y="442" text-anchor="middle" fill="#8f7750" font-family="Cinzel, serif" font-size="38" letter-spacing="18">GLOWING PARCHMENT REVEAL</text>
+  <text x="1920" y="1820" text-anchor="middle" fill="#6a4724" font-family="Cinzel, serif" font-size="30" letter-spacing="16">Hold text or manuscript art inside the reveal field</text>
+</svg>

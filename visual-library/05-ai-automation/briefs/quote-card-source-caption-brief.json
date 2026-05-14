@@ -1,0 +1,79 @@
+{
+  "job_name": "quote-card-source-caption-first-pass",
+  "output_type": "text",
+  "goal": "Generate concise quote-card and source-caption text variants that fit the archival, scholarly tone of the documentary series and can drop into the existing reusable SVG templates.",
+  "priority": "high",
+  "target_use": "quote-card",
+  "episode_scope": "series-wide",
+  "boards_to_match": [
+    "style-board",
+    "quote-source-board"
+  ],
+  "motifs_to_support": [
+    "illuminated-borders",
+    "red-gold-text-reveals",
+    "glowing-parchment-reveal"
+  ],
+  "visual_requirements": {
+    "tone": "scholarly, sober, cinematic, readable on screen",
+    "color_notes": "designed to sit on dark parchment, aged gold headings, restrained red accents",
+    "composition_notes": "short lines, fast readability, clear hierarchy between quotation, source, and date",
+    "must_include": [
+      "one safest scholarly option",
+      "one slightly more dramatic but credible option",
+      "one shortest on-screen option",
+      "clear source attribution language"
+    ],
+    "must_avoid": [
+      "clickbait phrasing",
+      "modern marketing voice",
+      "unsupported certainty",
+      "long paragraph-length text",
+      "sensational claims"
+    ]
+  },
+  "source_inputs": {
+    "reference_files": [
+      "visual-library/quote-source-board.html",
+      "visual-library/02-series-kits/episode-neutral/quote-card-template-01.svg",
+      "visual-library/02-series-kits/episode-neutral/quote-window-card-01.svg",
+      "visual-library/02-series-kits/episode-neutral/source-citation-card-01.svg"
+    ],
+    "reference_folders": [
+      "visual-library/02-series-kits/episode-neutral/",
+      "visual-library/02-series-kits/frame-elements/"
+    ],
+    "tracker_rows": [],
+    "source_urls": []
+  },
+  "text_inputs": {
+    "primary_text": "Replace with the exact quotation or thesis line.",
+    "secondary_text": "Replace with the speaker, source title, or source caption line.",
+    "dates": [
+      "Replace with date or period if needed"
+    ],
+    "names": [
+      "Replace with speaker, author, institution, or location"
+    ],
+    "citations": [
+      "Replace with exact citation text if needed"
+    ]
+  },
+  "output_spec": {
+    "aspect_ratio": "16:9",
+    "orientation": "landscape",
+    "resolution_target": "text-only output",
+    "duration_seconds": 0,
+    "variant_count": 5,
+    "file_format": "md"
+  },
+  "review_checks": [
+    "Fits the quote/source board",
+    "Readable in under two seconds for major lines",
+    "Preserves caution and accuracy",
+    "Works inside the existing reusable card templates",
+    "Still sounds like the same documentary voice"
+  ],
+  "destination_after_approval": "Approved copy can be pasted into reusable files under visual-library/02-series-kits/episode-neutral/ or stored as episode-specific text drafts outside the reusable kit.",
+  "run_notes": "Best paired with text-population-template.md. After generation, keep only the most legible 1 to 3 options and log the chosen variant in 05-ai-automation/runs/."
+}

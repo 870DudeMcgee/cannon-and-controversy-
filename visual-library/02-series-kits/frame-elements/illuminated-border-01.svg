@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect x="78" y="78" width="3684" height="2004" stroke="#8b2515" stroke-width="10"/>
+  <rect x="118" y="118" width="3604" height="1924" stroke="#1d5f52" stroke-width="5"/>
+  <rect x="162" y="162" width="3516" height="1836" stroke="#b79a5e" stroke-opacity="0.4" stroke-width="2"/>
+  <g stroke="#b79a5e" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M200 354C285 354 334 322 378 236C420 320 469 354 554 354"/>
+    <path d="M3286 354C3371 354 3420 322 3464 236C3506 320 3555 354 3640 354"/>
+    <path d="M200 1806C285 1806 334 1838 378 1924C420 1840 469 1806 554 1806"/>
+    <path d="M3286 1806C3371 1806 3420 1838 3464 1924C3506 1840 3555 1806 3640 1806"/>
+  </g>
+  <g fill="#8b2515" fill-opacity="0.85">
+    <circle cx="378" cy="236" r="11"/>
+    <circle cx="3464" cy="236" r="11"/>
+    <circle cx="378" cy="1924" r="11"/>
+    <circle cx="3464" cy="1924" r="11"/>
+  </g>
+  <g fill="#b79a5e" fill-opacity="0.85" font-family="Cinzel, serif" font-size="42" letter-spacing="14">
+    <text x="1886" y="170" text-anchor="middle">✦  ✚  ✦</text>
+    <text x="1886" y="2062" text-anchor="middle">✦  ✚  ✦</text>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#17120D"/>
+  <rect x="286" y="220" width="3268" height="1720" stroke="#8b2515" stroke-width="10"/>
+  <rect x="332" y="266" width="3176" height="1628" stroke="#1d5f52" stroke-width="4"/>
+  <rect x="680" y="486" width="2480" height="924" fill="#000" fill-opacity="0" stroke="#b79a5e" stroke-width="4" stroke-dasharray="22 18"/>
+  <text x="1920" y="408" text-anchor="middle" fill="#8f7750" font-family="Cinzel, serif" font-size="42" letter-spacing="18">QUOTE WINDOW TEMPLATE</text>
+  <text x="720" y="1580" fill="#ceb27a" font-family="Cinzel, serif" font-size="72" font-weight="700">Drop manuscript art or map detail in the center window.</text>
+  <text x="720" y="1700" fill="#e6dac4" font-family="Crimson Text, serif" font-size="60">Use this for witness quotations, scripture cards, and visual-text hybrids.</text>
+  <text x="1920" y="1862" text-anchor="middle" fill="#8f7750" font-family="Cinzel, serif" font-size="36" letter-spacing="18">✦  ─  IMAGE  ─  WORD  ─  IMAGE  ─  ✦</text>
+</svg>

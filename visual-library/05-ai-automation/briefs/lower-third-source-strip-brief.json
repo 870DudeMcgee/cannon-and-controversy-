@@ -1,0 +1,68 @@
+{
+  "job_name": "lower-third-source-strip-first-pass",
+  "output_type": "text",
+  "goal": "Generate concise lower-third and source-strip text variants that can populate recurring documentary identifiers without breaking the series tone.",
+  "priority": "medium",
+  "target_use": "other",
+  "episode_scope": "series-wide",
+  "boards_to_match": [
+    "quote-source-board"
+  ],
+  "motifs_to_support": [
+    "illuminated-borders",
+    "red-gold-text-reveals"
+  ],
+  "visual_requirements": {
+    "tone": "concise, sober, on-screen readable, authoritative",
+    "color_notes": "designed for dark parchment beds and aged gold/red accent systems",
+    "composition_notes": "short primary line, optional secondary descriptor, fast readability, clear emphasis",
+    "must_include": [
+      "one safest descriptive option",
+      "one shortest option",
+      "one slightly more dramatic but still credible option"
+    ],
+    "must_avoid": [
+      "marketing tone",
+      "sensationalism",
+      "long explanatory phrasing",
+      "overly modern language"
+    ]
+  },
+  "source_inputs": {
+    "reference_files": [
+      "visual-library/quote-source-board.html",
+      "visual-library/02-series-kits/frame-elements/source-tab-01.svg",
+      "visual-library/02-series-kits/frame-elements/source-tab-02.svg",
+      "visual-library/02-series-kits/frame-elements/divider-rule-01.svg"
+    ],
+    "reference_folders": [
+      "visual-library/02-series-kits/frame-elements/"
+    ],
+    "tracker_rows": [],
+    "source_urls": []
+  },
+  "text_inputs": {
+    "primary_text": "Replace with subject or speaker name.",
+    "secondary_text": "Replace with role, institution, location, or short descriptor.",
+    "dates": [],
+    "names": [],
+    "citations": []
+  },
+  "output_spec": {
+    "aspect_ratio": "16:9",
+    "orientation": "landscape",
+    "resolution_target": "text-only output",
+    "duration_seconds": 0,
+    "variant_count": 5,
+    "file_format": "md"
+  },
+  "review_checks": [
+    "Readable quickly on screen",
+    "Fits lower-third or citation-strip use",
+    "Avoids clickbait or modern copy tone",
+    "Works with existing source-tab assets",
+    "Maintains documentary voice"
+  ],
+  "destination_after_approval": "Use approved text in episode-specific script or graphics notes, or populate reusable citation-strip comps under visual-library/02-series-kits/episode-neutral/.",
+  "run_notes": "Best paired with text-population-template.md. Keep variants short and screen-ready."
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <defs>
+    <radialGradient id="redWash" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(980 1620) rotate(-12) scale(1600 680)">
+      <stop stop-color="#8b2515" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#8b2515" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="greenWash" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3120 520) rotate(18) scale(1320 720)">
+      <stop stop-color="#1d5f52" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#1d5f52" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.42" numOctaves="3" seed="31"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.12"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="3840" height="2160" fill="url(#redWash)"/>
+  <rect width="3840" height="2160" fill="url(#greenWash)"/>
+  <rect width="3840" height="2160" filter="url(#grain)" opacity="0.48"/>
+</svg>

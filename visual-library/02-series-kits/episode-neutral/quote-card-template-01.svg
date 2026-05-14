@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1812"/>
+      <stop offset="1" stop-color="#15110c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1120 920) rotate(20) scale(1160 820)">
+      <stop stop-color="#b79a5e" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#b79a5e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <rect width="3840" height="2160" fill="url(#glow)"/>
+  <rect x="392" y="302" width="3056" height="1456" fill="#e9dcc0" stroke="#cdb58b" stroke-width="4"/>
+  <rect x="448" y="356" width="2944" height="1348" stroke="#8b2515" stroke-width="10"/>
+  <rect x="476" y="384" width="2888" height="1292" stroke="#1d5f52" stroke-width="4"/>
+  <text x="1920" y="316" text-anchor="middle" fill="#8f7750" font-family="IM Fell English, serif" font-size="90">“</text>
+  <text x="720" y="700" fill="#2a1d10" font-family="IM Fell English, serif" font-size="132">The canon was never a discovery</text>
+  <text x="720" y="848" fill="#2a1d10" font-family="IM Fell English, serif" font-size="132">it was a decision.</text>
+  <path d="M724 1052H1320" stroke="#b79a5e" stroke-width="6"/>
+  <text x="720" y="1168" fill="#8b2515" font-family="Cinzel, serif" font-size="44" font-weight="700" letter-spacing="18">KEY PRINCIPLE</text>
+  <text x="720" y="1298" fill="#5b3f18" font-family="Crimson Text, serif" font-size="66">Use for major claims, witness lines, or thesis statements.</text>
+  <text x="720" y="1390" fill="#5b3f18" font-family="Crimson Text, serif" font-size="66">Pair with parchment textures or illuminated borders.</text>
+  <text x="720" y="1558" fill="#8f7750" font-family="Cinzel, serif" font-size="40" letter-spacing="16">JOSEPHUS  •  AUGUSTINE  •  ORIGEN  •  MISHNAH</text>
+</svg>

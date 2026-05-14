@@ -1,0 +1,89 @@
+{
+  "job_name": "jerusalem-map-sequence-first-pass",
+  "output_type": "video",
+  "goal": "Generate a slow archival map-sequence study that orients the viewer to Jerusalem, Judea, and the broader Rome-facing geography for recurring documentary use.",
+  "priority": "high",
+  "target_use": "map-sequence",
+  "episode_scope": "series-wide",
+  "boards_to_match": [
+    "style-board",
+    "map-board"
+  ],
+  "motifs_to_support": [
+    "map-zooms",
+    "timeline-animations",
+    "glowing-parchment-reveal"
+  ],
+  "visual_requirements": {
+    "tone": "archival, cinematic, tactile, scholarly, geographically legible",
+    "color_notes": "aged parchment base, muted gold route lines, restrained deep red markers, subdued green only as a minor accent",
+    "composition_notes": "slow camera travel, one destination emphasis per shot, clean labels, generous negative space, readable first and last frames",
+    "must_include": [
+      "Jerusalem as the dominant destination",
+      "regional geography around Judea or Palestine",
+      "antique parchment map surface",
+      "one restrained route or locator system",
+      "usable start and end frames for editing"
+    ],
+    "must_avoid": [
+      "modern satellite-map appearance",
+      "frantic zoom speed",
+      "busy labels everywhere",
+      "bright white paper",
+      "plastic CGI terrain",
+      "video-game UI markers"
+    ]
+  },
+  "source_inputs": {
+    "reference_files": [
+      "visual-library/map-board.html",
+      "visual-library/02-series-kits/frame-elements/locator-badge-jerusalem.svg",
+      "visual-library/02-series-kits/frame-elements/map-marker-01.svg",
+      "visual-library/02-series-kits/frame-elements/timeline-spine-overlay-01.svg"
+    ],
+    "reference_folders": [
+      "visual-library/01-core-collections/maps/raw/",
+      "visual-library/01-core-collections/temple-jerusalem/raw/"
+    ],
+    "tracker_rows": [
+      "pending-maps-judea-palestine-001",
+      "pending-temple-jerusalem-illustration-001",
+      "pending-maps-nypl-jerusalem-001",
+      "pending-maps-rumsey-environs-001",
+      "pending-maps-rumsey-judaea-samaria-001"
+    ],
+    "source_urls": []
+  },
+  "text_inputs": {
+    "primary_text": "Jerusalem",
+    "secondary_text": "Judea, Temple context, and Rome-facing regional orientation",
+    "dates": [
+      "first century",
+      "70 AD"
+    ],
+    "names": [
+      "Jerusalem",
+      "Judea",
+      "Rome",
+      "Temple"
+    ],
+    "citations": []
+  },
+  "output_spec": {
+    "aspect_ratio": "16:9",
+    "orientation": "landscape",
+    "resolution_target": "1920x1080 minimum",
+    "duration_seconds": 10,
+    "variant_count": 3,
+    "file_format": "mp4"
+  },
+  "review_checks": [
+    "Fits the map board immediately",
+    "Jerusalem remains visually dominant and readable",
+    "Motion feels deliberate rather than trailer-like",
+    "Could be reused in more than one episode",
+    "No obvious historical or stylistic contradiction"
+  ],
+  "destination_after_approval": "visual-library/01-core-collections/maps/curated/ for approved references, or visual-library/02-series-kits/motion-presets/ if the motion study becomes a reusable system reference.",
+  "run_notes": "Best paired with the video-generation-template.md prompt. Save the selected prompt and output notes in 05-ai-automation/runs/ before promoting anything."
+}

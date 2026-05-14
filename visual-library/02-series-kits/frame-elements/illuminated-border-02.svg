@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="2160" viewBox="0 0 2160 2160" fill="none">
+  <rect x="70" y="70" width="2020" height="2020" stroke="#8b2515" stroke-width="9"/>
+  <rect x="108" y="108" width="1944" height="1944" stroke="#1d5f52" stroke-width="4"/>
+  <g opacity="0.92">
+    <path d="M190 440C334 426 416 352 468 196C520 352 602 426 746 440C602 454 520 528 468 684C416 528 334 454 190 440Z" fill="#b79a5e"/>
+    <path d="M1414 440C1558 426 1640 352 1692 196C1744 352 1826 426 1970 440C1826 454 1744 528 1692 684C1640 528 1558 454 1414 440Z" fill="#b79a5e"/>
+    <path d="M190 1720C334 1706 416 1632 468 1476C520 1632 602 1706 746 1720C602 1734 520 1808 468 1964C416 1808 334 1734 190 1720Z" fill="#b79a5e"/>
+    <path d="M1414 1720C1558 1706 1640 1632 1692 1476C1744 1632 1826 1706 1970 1720C1826 1734 1744 1808 1692 1964C1640 1808 1558 1734 1414 1720Z" fill="#b79a5e"/>
+  </g>
+  <g stroke="#ceb27a" stroke-opacity="0.82" stroke-width="5" stroke-linecap="round">
+    <path d="M468 332V596"/>
+    <path d="M332 440H596"/>
+    <path d="M1692 332V596"/>
+    <path d="M1556 440H1820"/>
+    <path d="M468 1584V1848"/>
+    <path d="M332 1720H596"/>
+    <path d="M1692 1584V1848"/>
+    <path d="M1556 1720H1820"/>
+  </g>
+  <text x="1080" y="132" text-anchor="middle" fill="#8f7750" font-family="Cinzel, serif" font-size="32" letter-spacing="18">ETHIOPIAN MANUSCRIPT INSPIRED FRAME</text>
+</svg>

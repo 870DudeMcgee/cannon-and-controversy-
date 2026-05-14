@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#17120D"/>
+  <rect x="360" y="360" width="3120" height="1440" fill="#211A13" stroke="#5d4a2e" stroke-width="3"/>
+  <path d="M360 520H3480" stroke="#5d4a2e" stroke-width="2"/>
+  <path d="M360 1640H3480" stroke="#5d4a2e" stroke-width="2"/>
+  <text x="520" y="498" fill="#8b2515" font-family="Cinzel, serif" font-size="40" font-weight="700" letter-spacing="18">PRIMARY SOURCE</text>
+  <text x="520" y="748" fill="#ceb27a" font-family="Cinzel, serif" font-size="114" font-weight="700">Josephus, Antiquities XVIII.3.3</text>
+  <text x="520" y="920" fill="#e6dac4" font-family="Crimson Text, serif" font-size="68">The tribe of Christians, so named from him, are not extinct to this day.</text>
+  <text x="520" y="1114" fill="#9a8d77" font-family="Crimson Text, serif" font-size="52">Use this template for citations, textual witness cards, and chapter source intros.</text>
+  <path d="M520 1288H1000" stroke="#b79a5e" stroke-width="5"/>
+  <text x="520" y="1410" fill="#8f7750" font-family="Cinzel, serif" font-size="38" letter-spacing="16">SOURCE  •  DATE  •  CONTEXT  •  TRANSMISSION</text>
+  <text x="3320" y="1710" text-anchor="end" fill="#8f7750" font-family="Cinzel, serif" font-size="36" letter-spacing="18">✦  ─  DOCUMENT  ─  ✚  ─  WITNESS  ─  ✦</text>
+</svg>

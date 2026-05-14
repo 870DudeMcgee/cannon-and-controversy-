@@ -1,0 +1,78 @@
+{
+  "job_name": "manuscript-atmosphere-plates-first-pass",
+  "output_type": "image",
+  "goal": "Generate dark archival manuscript atmosphere plates that can support codex transitions, quote reveals, and chapter openings across the series.",
+  "priority": "high",
+  "target_use": "background",
+  "episode_scope": "series-wide",
+  "boards_to_match": [
+    "style-board"
+  ],
+  "motifs_to_support": [
+    "glowing-parchment-reveal",
+    "codex-opening-transition",
+    "illuminated-borders"
+  ],
+  "visual_requirements": {
+    "tone": "archival, tactile, moody, manuscript-rich, cinematic",
+    "color_notes": "dark parchment browns, aged gold, deep red accents, restrained green only if subtle",
+    "composition_notes": "room for overlaid titles or quotes, believable paper grain, soft vignettes, tactile shadow depth",
+    "must_include": [
+      "aged parchment texture",
+      "subtle manuscript ornament or marginalia",
+      "usable negative space for overlays",
+      "soft directional light"
+    ],
+    "must_avoid": [
+      "flat beige stock-paper look",
+      "bright white page fields",
+      "generic fantasy scroll styling",
+      "modern clean graphic design",
+      "overcrowded ornament"
+    ]
+  },
+  "source_inputs": {
+    "reference_files": [
+      "visual-library/style-board.html",
+      "visual-library/02-series-kits/episode-neutral/parchment-background-01.svg",
+      "visual-library/02-series-kits/episode-neutral/parchment-background-02.svg",
+      "visual-library/02-series-kits/frame-elements/manuscript-wash-01.svg",
+      "visual-library/02-series-kits/frame-elements/edge-burn-mask-01.svg"
+    ],
+    "reference_folders": [
+      "visual-library/01-core-collections/manuscripts/raw/",
+      "visual-library/01-core-collections/scroll-textures/raw/"
+    ],
+    "tracker_rows": [
+      "pending-manuscripts-rubricated-page-001",
+      "pending-manuscripts-codex-spread-001",
+      "pending-manuscripts-open-bible-page-001",
+      "pending-scroll-textures-leaf-001"
+    ],
+    "source_urls": []
+  },
+  "text_inputs": {
+    "primary_text": "",
+    "secondary_text": "",
+    "dates": [],
+    "names": [],
+    "citations": []
+  },
+  "output_spec": {
+    "aspect_ratio": "16:9",
+    "orientation": "landscape",
+    "resolution_target": "1920x1080 minimum",
+    "duration_seconds": 0,
+    "variant_count": 4,
+    "file_format": "png"
+  },
+  "review_checks": [
+    "Fits the style board immediately",
+    "Supports codex or parchment-based motifs",
+    "Leaves room for reusable overlays or titles",
+    "Avoids generic fantasy styling",
+    "Looks reusable across multiple episodes"
+  ],
+  "destination_after_approval": "visual-library/01-core-collections/scroll-textures/curated/ for reference atmospheres or visual-library/02-series-kits/episode-neutral/ if refined into reusable background plates.",
+  "run_notes": "Best paired with image-generation-template.md. Save variant notes and keep only the most composable plates."
+}

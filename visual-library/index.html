@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Library Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #120e0a;
+      --panel: rgba(31, 24, 18, 0.88);
+      --panel-2: rgba(20, 16, 11, 0.96);
+      --gold: #b79a5e;
+      --gold-lt: #ceb27a;
+      --gold-dim: #8f7750;
+      --red: #8b2515;
+      --green: #1d5f52;
+      --text: #e6dac4;
+      --muted: #9a8d77;
+      --rule: #5d4a2e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: 'Crimson Text', serif;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(183,154,94,0.14), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(139,37,21,0.14), transparent 22%),
+        radial-gradient(circle at 70% 100%, rgba(29,95,82,0.12), transparent 26%),
+        linear-gradient(180deg, #1a140f, #0d0907 72%);
+    }
+    .shell {
+      width: min(1560px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 36px 0 72px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.42);
+      overflow: hidden;
+    }
+    .hero-copy { padding: 40px; }
+    .kicker {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; }
+    h1 {
+      margin: 0 0 18px;
+      color: var(--gold-lt);
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.98;
+      max-width: 11ch;
+    }
+    .hero-copy p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.16rem;
+      line-height: 1.66;
+      max-width: 60ch;
+    }
+    .hero-stage {
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(180deg, rgba(23,18,13,0.86), rgba(14,10,8,0.96)),
+        url('./02-series-kits/episode-neutral/parchment-background-02.svg') center/cover;
+      position: relative;
+    }
+    .stack {
+      position: relative;
+      width: min(90%, 980px);
+      aspect-ratio: 16 / 9;
+    }
+    .stack img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-bottom: 30px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+    .metric { background: var(--panel-2); padding: 18px 20px; }
+    .metric .num {
+      display: block;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .metric .label {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+    .section { margin-top: 34px; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-head h2 {
+      margin: 0;
+      color: var(--gold-lt);
+      font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+    }
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule), transparent);
+    }
+    .grid { display: grid; gap: 20px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { padding: 18px; }
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .link-list {
+      display: grid;
+      gap: 10px;
+    }
+    .link-list a {
+      color: var(--gold-lt);
+      text-decoration: none;
+      padding: 12px 14px;
+      border: 1px solid rgba(183,154,94,0.18);
+      background: rgba(0,0,0,0.12);
+      font-family: 'Cinzel', serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .asset {
+      width: 100%;
+      display: block;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(183,154,94,0.22);
+    }
+    .note {
+      padding: 22px 24px;
+      margin-top: 22px;
+      background: linear-gradient(135deg, rgba(233,220,192,0.96), rgba(216,196,154,0.94));
+      color: #1a120a;
+      border: 1px solid #cdb58b;
+    }
+    .note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 1100px) {
+      .hero,
+      .metrics,
+      .grid.two,
+      .grid.three { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <span class="kicker">Visual Library Command Center</span>
+        <h1>One surface for the whole series system.</h1>
+        <p>This page is the operating index for the documentary visual library: boards, reusable packs, sourcing batches, and tracker files all in one place.</p>
+        <p><strong>Use this in order:</strong> review the boards, inspect the pack manifests, run a sourcing batch, and log the intake in the tracker before promoting anything into curated folders.</p>
+      </div>
+      <div class="panel hero-stage">
+        <div class="stack">
+          <img src="./02-series-kits/episode-neutral/parchment-background-02.svg" alt="Background preview" />
+          <img src="./02-series-kits/frame-elements/glow-veil-01.svg" alt="Glow preview" />
+          <img src="./02-series-kits/frame-elements/dust-field-01.svg" alt="Dust preview" />
+          <img src="./02-series-kits/episode-neutral/chapter-intro-plate-01.svg" alt="Chapter plate preview" />
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric"><span class="num">6</span><span class="label">Pack rounds built so far</span></div>
+      <div class="metric"><span class="num">3</span><span class="label">Dedicated review boards</span></div>
+      <div class="metric"><span class="num">4</span><span class="label">Source-specific acquisition batches</span></div>
+      <div class="metric"><span class="num">100</span><span class="label">First-wave acquisition targets being tracked</span></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Start Here</span><h2>Onboarding Surfaces</h2></div>
+      <div class="grid three">
+        <article class="panel card">
+          <h3>Automation Hub</h3>
+          <p>The fastest path for image, video, and text AI tools. Use this to generate structured briefs and reusable prompt handoffs.</p>
+          <div class="link-list">
+            <a href="./automation-hub.html">Open Automation Hub</a>
+            <a href="./ai-review-dashboard.html">Open AI Review Dashboard</a>
+            <a href="./episode-intake.html">Open Episode Intake</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>Visual Checklist</h3>
+          <p>The simplest low-overwhelm surface. Use this when you just want the next action without thinking about structure.</p>
+          <div class="link-list">
+            <a href="./checklist.html">Open Visual Checklist</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>10-Minute Guide</h3>
+          <p>The shortest explanation of what the system is, what to ignore, and the safe routine to use when you come back to it.</p>
+          <div class="link-list">
+            <a href="./04-docs/10-minute-operator-guide.md">Open 10-Minute Guide</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>Folder Map</h3>
+          <p>A visual orientation page showing what each top-level folder does and the working order from review to collection to reuse.</p>
+          <div class="link-list">
+            <a href="./folder-map.html">Open Folder Map</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>Example Workflow</h3>
+          <p>A single real path through the system using a Jerusalem map pull so you can learn by doing one narrow batch.</p>
+          <div class="link-list">
+            <a href="./04-docs/example-workflow-jerusalem-map-pull.md">Open Example Workflow</a>
+            <a href="./04-docs/example-workflow-manuscript-pull.md">Open Manuscript Workflow</a>
+            <a href="./04-docs/example-workflow-quote-card-build.md">Open Quote Card Workflow</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Boards</span><h2>Review Surfaces</h2></div>
+      <div class="grid three">
+        <article class="panel card">
+          <h3>Main Style Board</h3>
+          <p>Overall cinematic language: parchment, codex, titles, overlays, and immediate comps.</p>
+          <div class="link-list">
+            <a href="./style-board.html">Open Style Board</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>Map Board</h3>
+          <p>Geography language: routes, locator badges, markers, and conflict-zone map comps.</p>
+          <div class="link-list">
+            <a href="./map-board.html">Open Map Board</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>Quote / Source Board</h3>
+          <p>Witness cards, source intros, thesis plates, and textual coherence checks.</p>
+          <div class="link-list">
+            <a href="./quote-source-board.html">Open Quote Board</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Packs</span><h2>Reusable Asset Packs</h2></div>
+      <div class="grid two">
+        <article class="panel card">
+          <h3>Pack Manifests</h3>
+          <div class="link-list">
+            <a href="./02-series-kits/first-pack-manifest.md">First Pack Manifest</a>
+            <a href="./02-series-kits/second-pack-manifest.md">Second Pack Manifest</a>
+            <a href="./02-series-kits/fourth-pack-manifest.md">Fourth Pack Manifest</a>
+            <a href="./02-series-kits/fifth-pack-manifest.md">Fifth Pack Manifest</a>
+            <a href="./02-series-kits/sixth-pack-manifest.md">Sixth Pack Manifest</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>Current Preview</h3>
+          <img class="asset" src="./02-series-kits/episode-neutral/council-title-card-01.svg" alt="Council title preview" />
+          <p>Institutional title systems now sit alongside the codex, map, quote, and overlay language.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Sourcing</span><h2>Acquisition Workflow</h2></div>
+      <div class="grid two">
+        <article class="panel card">
+          <h3>Batch Docs</h3>
+          <div class="link-list">
+            <a href="./04-docs/batch-british-library.md">British Library Batch</a>
+            <a href="./04-docs/batch-library-of-congress.md">Library of Congress Batch</a>
+            <a href="./04-docs/batch-wikimedia-openverse.md">Wikimedia + Openverse Batch</a>
+            <a href="./04-docs/batch-david-rumsey.md">David Rumsey Batch</a>
+          </div>
+        </article>
+        <article class="panel card">
+          <h3>Tracker and Pull Lists</h3>
+          <div class="link-list">
+            <a href="./04-docs/asset-tracker.csv">Asset Tracker</a>
+            <a href="./04-docs/first-100-asset-pull-list.md">First 100 Pull List</a>
+            <a href="./04-docs/source-hit-list.md">Source Hit List</a>
+            <a href="./04-docs/acquisition-sprint-plan.md">Acquisition Sprint Plan</a>
+          </div>
+        </article>
+      </div>
+      <div class="note">
+        <strong>Operating Rule</strong>
+        Nothing enters the core series language until it survives all three tests: it fits a board, supports a recurring motif, and is logged in the tracker with clear source status.
+      </div>
+    </section>
+  </div>
+</body>
+</html>

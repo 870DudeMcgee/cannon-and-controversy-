@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#17120D"/>
+  <g transform="translate(1880 1080) rotate(2) translate(-760 -1020)">
+    <path d="M96 70L1660 110L1716 2208L1608 2332L74 2250L96 70Z" fill="#e9dcc0" stroke="#d1b77d" stroke-width="8"/>
+    <path d="M184 224L1576 254L1612 2066L1516 2162L160 2104L184 224Z" stroke="#8b2515" stroke-width="14"/>
+    <path d="M232 272L1522 300L1554 2020L1464 2102L212 2050L232 272Z" stroke="#1d5f52" stroke-width="8"/>
+    <rect x="306" y="416" width="1132" height="1368" rx="18" stroke="#8b2515" stroke-width="10"/>
+    <rect x="346" y="456" width="1052" height="1288" rx="12" stroke="#1d5f52" stroke-width="5"/>
+  </g>
+  <text x="520" y="412" fill="#8b2515" font-family="Cinzel, serif" font-size="42" font-weight="700" letter-spacing="20">SOURCE REVEAL</text>
+  <text x="520" y="570" fill="#ceb27a" font-family="Cinzel, serif" font-size="124" font-weight="700">Codex Opening Plate</text>
+  <text x="520" y="712" fill="#e6dac4" font-family="Crimson Text, serif" font-size="64">Use this as the ceremonial surface before manuscript art or text enters the frame.</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="3840" viewBox="0 0 2160 3840" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#211a13"/>
+      <stop offset="1" stop-color="#15110c"/>
+    </linearGradient>
+    <radialGradient id="gold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1010 1180) rotate(90) scale(1240 840)">
+      <stop stop-color="#b79a5e" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#b79a5e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="2160" height="3840" fill="url(#bg)"/>
+  <rect width="2160" height="3840" fill="url(#gold)"/>
+  <rect x="148" y="148" width="1864" height="3544" stroke="#8b2515" stroke-width="8"/>
+  <rect x="184" y="184" width="1792" height="3472" stroke="#1d5f52" stroke-width="4"/>
+  <text x="1080" y="684" text-anchor="middle" fill="#8b2515" font-family="Cinzel, serif" font-size="52" font-weight="700" letter-spacing="26">SOURCE FILE</text>
+  <text x="1080" y="1420" text-anchor="middle" fill="#ceb27a" font-family="Cinzel, serif" font-size="196" font-weight="700">Wisdom</text>
+  <text x="1080" y="1656" text-anchor="middle" fill="#ceb27a" font-family="Cinzel, serif" font-size="196" font-weight="700">of Solomon</text>
+  <text x="1080" y="1908" text-anchor="middle" fill="#e6dac4" font-family="Crimson Text, serif" font-size="72">Red and gold vertical title card for reels, interstitials,</text>
+  <text x="1080" y="2002" text-anchor="middle" fill="#e6dac4" font-family="Crimson Text, serif" font-size="72">or mobile documentary excerpts.</text>
+  <text x="1080" y="3100" text-anchor="middle" fill="#8f7750" font-family="Cinzel, serif" font-size="44" letter-spacing="20">✦  ─  SCRIPTURE  ─  HISTORY  ─  MEMORY  ─  ✦</text>
+</svg>

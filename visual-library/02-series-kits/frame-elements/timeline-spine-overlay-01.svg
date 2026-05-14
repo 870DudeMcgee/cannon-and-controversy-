@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="2160" viewBox="0 0 360 2160" fill="none">
+  <defs>
+    <linearGradient id="spine" x1="180" y1="0" x2="180" y2="2160" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b2515" stop-opacity="0"/>
+      <stop offset="0.08" stop-color="#8b2515" stop-opacity="0.92"/>
+      <stop offset="0.48" stop-color="#b79a5e" stop-opacity="0.88"/>
+      <stop offset="0.92" stop-color="#1d5f52" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#1d5f52" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M180 120V2040" stroke="url(#spine)" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="180" cy="420" r="38" fill="#e9dcc0" stroke="#b79a5e" stroke-width="6"/>
+  <circle cx="180" cy="420" r="16" fill="#8b2515"/>
+  <circle cx="180" cy="1020" r="38" fill="#e9dcc0" stroke="#b79a5e" stroke-width="6"/>
+  <circle cx="180" cy="1020" r="16" fill="#8b2515"/>
+  <circle cx="180" cy="1620" r="38" fill="#e9dcc0" stroke="#b79a5e" stroke-width="6"/>
+  <circle cx="180" cy="1620" r="16" fill="#8b2515"/>
+</svg>

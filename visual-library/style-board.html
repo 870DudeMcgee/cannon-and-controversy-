@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Series Style Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #15110c;
+      --bg-panel: rgba(36, 30, 23, 0.84);
+      --bg-panel-strong: rgba(24, 19, 14, 0.96);
+      --parch: #e9dcc0;
+      --gold: #b79a5e;
+      --gold-lt: #ceb27a;
+      --gold-dim: #8f7750;
+      --red: #8b2515;
+      --green: #1d5f52;
+      --text: #e6dac4;
+      --muted: #9a8d77;
+      --rule: #5d4a2e;
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: 'Crimson Text', serif;
+      background:
+        radial-gradient(circle at top left, rgba(183, 154, 94, 0.12), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(139, 37, 21, 0.14), transparent 24%),
+        radial-gradient(circle at 70% 100%, rgba(29, 95, 82, 0.11), transparent 26%),
+        linear-gradient(180deg, #1b150f, #120e0a 68%);
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(183, 154, 94, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(183, 154, 94, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 84%);
+      opacity: 0.35;
+    }
+
+    .shell {
+      width: min(1500px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 40px 0 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 32px;
+    }
+
+    .hero-copy,
+    .hero-preview,
+    .panel,
+    .combo {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-panel);
+      border: 1px solid var(--rule);
+      box-shadow: 0 24px 60px var(--shadow), inset 0 1px 0 rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-copy {
+      padding: 42px;
+      min-height: 520px;
+    }
+
+    .hero-kicker,
+    h2.section-kicker {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      color: var(--gold-lt);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.96;
+      letter-spacing: 0.03em;
+      max-width: 10ch;
+    }
+
+    .hero-copy p {
+      max-width: 60ch;
+      font-size: 1.28rem;
+      line-height: 1.72;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .hero-copy strong { color: var(--text); }
+
+    .hero-preview {
+      padding: 18px;
+      display: grid;
+      place-items: center;
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(36, 30, 23, 0.9), rgba(18, 15, 11, 0.98)),
+        url('./02-series-kits/episode-neutral/parchment-background-02.svg') center/cover;
+    }
+
+    .hero-preview img {
+      width: min(100%, 520px);
+      height: auto;
+      filter: drop-shadow(0 28px 40px rgba(0,0,0,0.55));
+    }
+
+    .meta-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-bottom: 32px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .meta-card {
+      padding: 20px 22px;
+      background: var(--bg-panel-strong);
+    }
+
+    .meta-card .num {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .meta-card .label {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .section {
+      margin-top: 42px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--gold-lt);
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.55rem, 3vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule), transparent);
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .panel p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    .asset {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(183,154,94,0.22);
+      background: rgba(0,0,0,0.18);
+    }
+
+    .asset.tall {
+      max-height: 560px;
+      object-fit: contain;
+    }
+
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .combo {
+      padding: 0;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      background: #14100b;
+    }
+
+    .combo.stage-dark {
+      background: linear-gradient(180deg, rgba(20,16,11,0.95), rgba(13,10,8,0.98));
+    }
+
+    .combo-stack {
+      position: relative;
+      width: min(88%, 1080px);
+      aspect-ratio: 16 / 9;
+    }
+
+    .combo-stack img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .caption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .note {
+      padding: 22px 24px;
+      margin-top: 24px;
+      background: linear-gradient(135deg, rgba(233,220,192,0.96), rgba(216,196,154,0.94));
+      color: #1a120a;
+      border: 1px solid #cdb58b;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .links a {
+      color: var(--gold-lt);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(206,178,122,0.36);
+      font-family: 'Cinzel', serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .grid.two,
+      .grid.three,
+      .meta-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .strip {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-preview {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="hero-kicker">Cinematic Vocabulary Board</span>
+        <h1>History, parchment, empire, memory.</h1>
+        <p>This board previews the reusable visual grammar for the full documentary series. It combines the site-derived language, the motif kits, and the first review comps into one surface.</p>
+        <p><strong>What should stay consistent:</strong> ceremonial typography, aged gold against charcoal, parchment geometry, Ethiopian-inspired frame logic, deliberate map annotation, and archival transition rhythm.</p>
+        <p><strong>What this prevents:</strong> every episode inventing a new look from scratch.</p>
+        <div class="links">
+          <a href="./index.html">Open Command Center</a>
+          <a href="./map-board.html">Open Map Board</a>
+          <a href="./02-series-kits/fourth-pack-manifest.md">Open Overlay Manifest</a>
+          <a href="./04-docs/asset-tracker.csv">Open Asset Tracker</a>
+        </div>
+      </div>
+      <div class="hero-preview">
+        <img src="./02-series-kits/frame-elements/codex-silhouette-01.svg" alt="Codex silhouette preview" />
+      </div>
+    </section>
+
+    <section class="meta-bar">
+      <div class="meta-card"><span class="num">4</span><span class="label">Reusable pack rounds created so far</span></div>
+      <div class="meta-card"><span class="num">24+</span><span class="label">Working SVG assets for recurring motifs</span></div>
+      <div class="meta-card"><span class="num">7</span><span class="label">Site-derived exports already reconstructed</span></div>
+      <div class="meta-card"><span class="num">2</span><span class="label">Review boards for keeping the language coherent</span></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Pack One</span>
+        <h2>Foundations</h2>
+      </div>
+      <div class="grid three">
+        <article class="panel">
+          <h3>Parchment Beds</h3>
+          <img class="asset" src="./02-series-kits/episode-neutral/parchment-background-01.svg" alt="Parchment background light" />
+          <p class="caption">Light parchment for scripture cards, inserts, and codex reveals.</p>
+        </article>
+        <article class="panel">
+          <h3>Dark Archival Field</h3>
+          <img class="asset" src="./02-series-kits/episode-neutral/parchment-background-02.svg" alt="Parchment background dark" />
+          <p class="caption">Dark field for map cards, thesis cards, and episode openers.</p>
+        </article>
+        <article class="panel">
+          <h3>Illuminated Border</h3>
+          <img class="asset" src="./02-series-kits/frame-elements/illuminated-border-01.svg" alt="Illuminated border" />
+          <p class="caption">Ceremonial widescreen frame with Ethiopian-inflected corner logic.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Pack Two</span>
+        <h2>Timeline, Map, Citation</h2>
+      </div>
+      <div class="grid three">
+        <article class="panel">
+          <h3>Timeline Medallions</h3>
+          <div class="strip">
+            <img class="asset" src="./02-series-kits/frame-elements/timeline-medallion-01.svg" alt="Timeline medallion one" />
+            <img class="asset" src="./02-series-kits/frame-elements/timeline-medallion-02.svg" alt="Timeline medallion two" />
+            <img class="asset" src="./02-series-kits/frame-elements/timeline-spine-overlay-01.svg" alt="Timeline spine overlay" />
+          </div>
+          <p class="caption">Core chronology language: medallions plus a lit ceremonial spine.</p>
+        </article>
+        <article class="panel">
+          <h3>Map Markers</h3>
+          <div class="strip">
+            <img class="asset tall" src="./02-series-kits/frame-elements/map-marker-01.svg" alt="Map marker pointed" />
+            <img class="asset" src="./02-series-kits/frame-elements/map-marker-02.svg" alt="Map marker round" />
+            <img class="asset" src="./02-series-kits/frame-elements/locator-badge-jerusalem.svg" alt="Jerusalem locator badge" />
+          </div>
+          <p class="caption">Destination emphasis plus calm locator labeling for geography sequences.</p>
+        </article>
+        <article class="panel">
+          <h3>Source Tabs</h3>
+          <div class="strip">
+            <img class="asset" src="./02-series-kits/frame-elements/source-tab-01.svg" alt="Source tab angled" />
+            <img class="asset" src="./02-series-kits/frame-elements/source-tab-02.svg" alt="Source tab round" />
+            <img class="asset" src="./02-series-kits/frame-elements/locator-badge-rome.svg" alt="Rome locator badge" />
+          </div>
+          <p class="caption">Lower thirds and source witness tags for scholars, councils, and locations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Pack Three</span>
+        <h2>Quote and Witness Templates</h2>
+      </div>
+      <div class="grid two">
+        <article class="panel">
+          <h3>Quote Card</h3>
+          <img class="asset" src="./02-series-kits/episode-neutral/quote-card-template-01.svg" alt="Quote card template" />
+          <p class="caption">Use for thesis lines, witness quotations, or claims that need ceremonial emphasis.</p>
+        </article>
+        <article class="panel">
+          <h3>Window Card + Citation Plate</h3>
+          <div class="strip">
+            <img class="asset" src="./02-series-kits/episode-neutral/quote-window-card-01.svg" alt="Quote window card" />
+            <img class="asset" src="./02-series-kits/episode-neutral/source-citation-card-01.svg" alt="Source citation card" />
+            <img class="asset" src="./02-series-kits/frame-elements/gold-rule-03.svg" alt="Gold rule ornament" />
+          </div>
+          <p class="caption">Image-plus-text hybrid cards and archival citation surfaces.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Pack Four</span>
+        <h2>Atmospheric Overlays</h2>
+      </div>
+      <div class="grid three">
+        <article class="panel">
+          <h3>Dust and Glow</h3>
+          <div class="strip">
+            <img class="asset" src="./02-series-kits/frame-elements/dust-field-01.svg" alt="Dust field overlay" />
+            <img class="asset" src="./02-series-kits/frame-elements/glow-veil-01.svg" alt="Glow veil overlay" />
+            <img class="asset" src="./02-series-kits/frame-elements/manuscript-wash-01.svg" alt="Manuscript wash overlay" />
+          </div>
+          <p class="caption">Tactile mood layers for source reveals, title cards, and archival atmosphere.</p>
+        </article>
+        <article class="panel">
+          <h3>Edge Rupture</h3>
+          <img class="asset" src="./02-series-kits/frame-elements/edge-burn-mask-01.svg" alt="Edge burn mask overlay" />
+          <p class="caption">Use this when history should feel scorched, ruptured, or materially damaged.</p>
+        </article>
+        <article class="panel">
+          <h3>Overlay Stack</h3>
+          <div class="combo stage-dark">
+            <div class="combo-stack">
+              <img src="./02-series-kits/episode-neutral/parchment-background-02.svg" alt="Dark parchment background" />
+              <img src="./02-series-kits/frame-elements/glow-veil-01.svg" alt="Glow veil stack layer" />
+              <img src="./02-series-kits/frame-elements/dust-field-01.svg" alt="Dust field stack layer" />
+              <img src="./02-series-kits/frame-elements/edge-burn-mask-01.svg" alt="Edge burn stack layer" />
+            </div>
+          </div>
+          <p class="caption">This is the baseline transition mood for documentary ruptures and ceremonial reveals.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Site-Derived</span>
+        <h2>Reconstructed From The Website</h2>
+      </div>
+      <div class="grid three">
+        <article class="panel">
+          <h3>Palette and Heading System</h3>
+          <img class="asset" src="./01-core-collections/typography-references/site-derived/site-palette-sheet.svg" alt="Site palette sheet" />
+          <img class="asset" src="./01-core-collections/typography-references/site-derived/site-heading-system.svg" alt="Site heading system" style="margin-top:12px;" />
+        </article>
+        <article class="panel">
+          <h3>Callout and Fact Rhythm</h3>
+          <img class="asset" src="./01-core-collections/scroll-textures/site-derived/site-callout-panel.svg" alt="Site callout panel" />
+          <img class="asset" src="./01-core-collections/typography-references/site-derived/site-fact-bar.svg" alt="Site fact bar" style="margin-top:12px;" />
+        </article>
+        <article class="panel">
+          <h3>Codex, Plate, Timeline</h3>
+          <img class="asset" src="./01-core-collections/manuscripts/site-derived/site-codex-frame.svg" alt="Site codex frame" />
+          <img class="asset" src="./01-core-collections/ethiopian-art/site-derived/site-section-plate.svg" alt="Site section plate" style="margin-top:12px;" />
+          <img class="asset" src="./01-core-collections/maps/site-derived/site-timeline-reference.svg" alt="Site timeline reference" style="margin-top:12px;" />
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Comps</span>
+        <h2>Immediate Uses</h2>
+      </div>
+      <div class="grid two">
+        <article class="panel">
+          <h3>Chapter Card Stack</h3>
+          <div class="combo stage-dark">
+            <div class="combo-stack">
+              <img src="./02-series-kits/episode-neutral/parchment-background-02.svg" alt="Dark background" />
+              <img src="./02-series-kits/episode-neutral/title-card-red-gold-01.svg" alt="Title card overlay" />
+            </div>
+          </div>
+          <p class="caption">Dark archival background plus red/gold chapter card.</p>
+        </article>
+        <article class="panel">
+          <h3>Quote Plate Stack</h3>
+          <div class="combo">
+            <div class="combo-stack">
+              <img src="./02-series-kits/episode-neutral/parchment-background-01.svg" alt="Light background" />
+              <img src="./02-series-kits/frame-elements/illuminated-border-01.svg" alt="Border overlay" />
+            </div>
+          </div>
+          <p class="caption">Light parchment bed plus illuminated border for witness or scripture cards.</p>
+        </article>
+      </div>
+      <div class="note">
+        <strong>Review Standard</strong>
+        If a new asset, template, or external image looks wrong on this board, it should not enter the core series language yet. The board is the coherence test.
+      </div>
+    </section>
+  </div>
+</body>
+</html>

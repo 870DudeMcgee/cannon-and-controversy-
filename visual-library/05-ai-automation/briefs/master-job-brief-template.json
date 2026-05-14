@@ -1,0 +1,64 @@
+{
+  "job_name": "replace-with-task-name",
+  "output_type": "image | video | text",
+  "goal": "Describe the exact output needed in one sentence.",
+  "priority": "high | medium | low",
+  "target_use": "background | transition | quote-card | map-sequence | title-treatment | research-summary | other",
+  "episode_scope": "series-wide | episode-specific",
+  "boards_to_match": [
+    "style-board",
+    "map-board",
+    "quote-source-board"
+  ],
+  "motifs_to_support": [
+    "glowing-parchment-reveal",
+    "timeline-animations",
+    "codex-opening-transition",
+    "map-zooms",
+    "illuminated-borders",
+    "red-gold-text-reveals"
+  ],
+  "visual_requirements": {
+    "tone": "archival, cinematic, tactile, scholarly",
+    "color_notes": "aged gold, deep red, dark parchment, restrained green accents",
+    "composition_notes": "slow, legible, centered hierarchy, strong margins",
+    "must_include": [],
+    "must_avoid": [
+      "modern UI styling",
+      "plastic CGI look",
+      "bright white paper",
+      "neon color",
+      "generic fantasy medieval design"
+    ]
+  },
+  "source_inputs": {
+    "reference_files": [],
+    "reference_folders": [],
+    "tracker_rows": [],
+    "source_urls": []
+  },
+  "text_inputs": {
+    "primary_text": "",
+    "secondary_text": "",
+    "dates": [],
+    "names": [],
+    "citations": []
+  },
+  "output_spec": {
+    "aspect_ratio": "16:9 | 9:16 | 1:1 | custom",
+    "orientation": "landscape | portrait | square",
+    "resolution_target": "",
+    "duration_seconds": 0,
+    "variant_count": 3,
+    "file_format": "png | jpg | svg | mp4 | txt | md | json"
+  },
+  "review_checks": [
+    "Fits the selected board",
+    "Supports at least one recurring motif",
+    "Readable in under two seconds if text-based",
+    "Reusable beyond one single shot if possible",
+    "No obvious historical or stylistic contradiction"
+  ],
+  "destination_after_approval": "Specify the exact folder where approved outputs should go.",
+  "run_notes": "Paste prompt variations, tool name, and decisions here after the run."
+}

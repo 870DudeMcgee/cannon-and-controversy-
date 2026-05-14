@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #120e0a;
+      --panel: rgba(30, 24, 18, 0.88);
+      --panel-2: rgba(20, 16, 11, 0.96);
+      --gold: #b79a5e;
+      --gold-lt: #ceb27a;
+      --gold-dim: #8f7750;
+      --red: #8b2515;
+      --green: #1d5f52;
+      --text: #e6dac4;
+      --muted: #9a8d77;
+      --rule: #5d4a2e;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Crimson Text', serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(183,154,94,0.14), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(139,37,21,0.18), transparent 24%),
+        radial-gradient(circle at 70% 100%, rgba(29,95,82,0.12), transparent 30%),
+        linear-gradient(180deg, #1a140e, #0d0907 68%);
+    }
+
+    .shell {
+      width: min(1520px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 36px 0 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.42);
+      overflow: hidden;
+    }
+
+    .hero-copy { padding: 38px; }
+
+    .kicker {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { font-family: 'Cinzel', serif; }
+    h1 {
+      margin: 0 0 18px;
+      color: var(--gold-lt);
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      max-width: 10ch;
+    }
+
+    .hero-copy p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.18rem;
+      line-height: 1.65;
+      max-width: 58ch;
+    }
+
+    .hero-map {
+      min-height: 480px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(24,19,14,0.82), rgba(18,14,10,0.96)),
+        url('./02-series-kits/episode-neutral/parchment-background-02.svg') center/cover;
+    }
+
+    .hero-map .stage {
+      position: relative;
+      width: min(92%, 960px);
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(183,154,94,0.28);
+      background:
+        linear-gradient(135deg, rgba(233,220,192,0.08), rgba(206,178,122,0.02)),
+        url('./01-core-collections/maps/site-derived/site-timeline-reference.svg') center/cover;
+    }
+
+    .hero-map .stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-bottom: 28px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .metric {
+      background: var(--panel-2);
+      padding: 18px 20px;
+    }
+
+    .metric .num {
+      display: block;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--gold-lt);
+      font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+    }
+
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule), transparent);
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card { padding: 16px; }
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .asset {
+      width: 100%;
+      display: block;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(183,154,94,0.22);
+    }
+
+    .map-stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background:
+        linear-gradient(135deg, rgba(233,220,192,0.92), rgba(201,176,126,0.84));
+      border: 1px solid rgba(183,154,94,0.28);
+      overflow: hidden;
+    }
+
+    .map-stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .route-label {
+      position: absolute;
+      color: #2a1d10;
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+    }
+
+    .route-line {
+      position: absolute;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(139,37,21,0), rgba(139,37,21,0.82), rgba(183,154,94,0.82));
+      transform-origin: left center;
+      box-shadow: 0 0 12px rgba(183,154,94,0.18);
+    }
+
+    .note {
+      padding: 22px 24px;
+      margin-top: 22px;
+      background: linear-gradient(135deg, rgba(233,220,192,0.96), rgba(216,196,154,0.94));
+      color: #1a120a;
+      border: 1px solid #cdb58b;
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .links a {
+      color: var(--gold-lt);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(206,178,122,0.38);
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .grid.three,
+      .grid.two,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <span class="kicker">Geography Language Board</span>
+        <h1>Jerusalem, Rome, routes, fracture lines.</h1>
+        <p>This board isolates the map vocabulary so route graphics, locator badges, and timeline geography can be judged as a coherent sub-language inside the larger series identity.</p>
+        <p><strong>What should feel consistent:</strong> parchment ground, ceremonial markers, slow directional logic, and labels that read like archival annotations rather than modern UI.</p>
+        <div class="links">
+          <a href="./index.html">Command Center</a>
+          <a href="./style-board.html">Main Style Board</a>
+          <a href="./02-series-kits/second-pack-manifest.md">Map Pack Manifest</a>
+        </div>
+      </div>
+      <div class="panel hero-map">
+        <div class="stage">
+          <img src="./02-series-kits/frame-elements/edge-burn-mask-01.svg" alt="Edge burn overlay" />
+          <img src="./02-series-kits/frame-elements/glow-veil-01.svg" alt="Glow veil overlay" />
+          <img src="./02-series-kits/frame-elements/timeline-spine-overlay-01.svg" alt="Timeline spine overlay" style="object-position:center; object-fit:contain; opacity:0.72;" />
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric"><span class="num">4</span><span class="label">Core map markers and locator badges</span></div>
+      <div class="metric"><span class="num">1</span><span class="label">Timeline spine overlay for chronology-linked geography</span></div>
+      <div class="metric"><span class="num">3</span><span class="label">Gold rule densities for labels and route breaks</span></div>
+      <div class="metric"><span class="num">2</span><span class="label">Route comp templates previewed below</span></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Markers</span><h2>Core Map Components</h2></div>
+      <div class="grid three">
+        <article class="panel card">
+          <h3>Destination Markers</h3>
+          <img class="asset" src="./02-series-kits/frame-elements/map-marker-01.svg" alt="Destination marker" />
+          <img class="asset" src="./02-series-kits/frame-elements/map-marker-02.svg" alt="Medallion marker" style="margin-top:12px;" />
+          <p>Use the pointed marker for drama and the medallion for calmer scholarly context.</p>
+        </article>
+        <article class="panel card">
+          <h3>Locator Badges</h3>
+          <img class="asset" src="./02-series-kits/frame-elements/locator-badge-jerusalem.svg" alt="Jerusalem badge" />
+          <img class="asset" src="./02-series-kits/frame-elements/locator-badge-rome.svg" alt="Rome badge" style="margin-top:12px;" />
+          <p>These are for hard geographic anchors in chapter transitions and map callouts.</p>
+        </article>
+        <article class="panel card">
+          <h3>Rules and Spine</h3>
+          <img class="asset" src="./02-series-kits/frame-elements/gold-rule-01.svg" alt="Gold rule thin" />
+          <img class="asset" src="./02-series-kits/frame-elements/gold-rule-02.svg" alt="Gold rule double" style="margin-top:12px;" />
+          <img class="asset" src="./02-series-kits/frame-elements/timeline-spine-overlay-01.svg" alt="Timeline spine" style="margin-top:12px; max-height:340px; object-fit:contain;" />
+          <p>Shared line language keeps routes and chronology visually tied together.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Comps</span><h2>Route Studies</h2></div>
+      <div class="grid two">
+        <article class="panel card">
+          <h3>Jerusalem to Rome</h3>
+          <div class="map-stage">
+            <img src="./01-core-collections/maps/site-derived/site-timeline-reference.svg" alt="Map reference background" style="opacity:0.22; mix-blend-mode:multiply;" />
+            <img src="./02-series-kits/frame-elements/manuscript-wash-01.svg" alt="Manuscript wash overlay" style="opacity:0.6; mix-blend-mode:multiply;" />
+            <div class="route-line" style="left:20%; top:64%; width:52%; transform:rotate(-18deg);"></div>
+            <img src="./02-series-kits/frame-elements/map-marker-01.svg" alt="Jerusalem marker" style="width:14%; height:auto; left:14%; top:56%;" />
+            <img src="./02-series-kits/frame-elements/map-marker-02.svg" alt="Rome marker" style="width:12%; height:auto; left:70%; top:28%;" />
+            <div class="route-label" style="left:14%; top:78%;">Jerusalem</div>
+            <div class="route-label" style="left:70%; top:46%;">Rome</div>
+            <img src="./02-series-kits/frame-elements/edge-burn-mask-01.svg" alt="Edge burn mask" style="mix-blend-mode:multiply; opacity:0.78;" />
+          </div>
+          <p>Use this route logic for church spread, imperial oversight, and canon conflict geography.</p>
+        </article>
+        <article class="panel card">
+          <h3>Judea Conflict Zone</h3>
+          <div class="map-stage">
+            <img src="./02-series-kits/episode-neutral/parchment-background-01.svg" alt="Parchment bed" style="object-fit:cover;" />
+            <img src="./02-series-kits/frame-elements/glow-veil-01.svg" alt="Glow overlay" style="mix-blend-mode:screen; opacity:0.82;" />
+            <div class="route-line" style="left:26%; top:42%; width:22%; transform:rotate(10deg);"></div>
+            <div class="route-line" style="left:43%; top:54%; width:18%; transform:rotate(-26deg);"></div>
+            <img src="./02-series-kits/frame-elements/map-marker-02.svg" alt="Jerusalem node" style="width:16%; height:auto; left:36%; top:34%;" />
+            <img src="./02-series-kits/frame-elements/timeline-medallion-01.svg" alt="Conflict node" style="width:13%; height:auto; left:52%; top:50%; opacity:0.9;" />
+            <div class="route-label" style="left:28%; top:28%;">Temple Mount</div>
+            <div class="route-label" style="left:56%; top:68%;">Pella Route</div>
+            <img src="./02-series-kits/frame-elements/dust-field-01.svg" alt="Dust field overlay" style="mix-blend-mode:screen; opacity:0.5;" />
+          </div>
+          <p>Use this for 30 AD to 70 AD pressure geography, flight paths, and collapse sequences.</p>
+        </article>
+      </div>
+      <div class="note">
+        <strong>Map Review Standard</strong>
+        If a route card feels like an infographic instead of an illuminated historical plate, it is off-model. The geography should feel archival, ceremonial, and legible, not app-like.
+      </div>
+    </section>
+  </div>
+</body>
+</html>

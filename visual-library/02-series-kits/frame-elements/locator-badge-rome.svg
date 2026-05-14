@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="260" viewBox="0 0 720 260" fill="none">
+  <rect x="14" y="14" width="692" height="232" rx="116" fill="#17120D" stroke="#b79a5e" stroke-width="8"/>
+  <rect x="34" y="34" width="652" height="192" rx="96" stroke="#1d5f52" stroke-width="4"/>
+  <circle cx="126" cy="130" r="48" fill="#b79a5e"/>
+  <circle cx="126" cy="130" r="18" fill="#17120D"/>
+  <text x="218" y="120" fill="#8f7750" font-family="Cinzel, serif" font-size="34" font-weight="700" letter-spacing="12">LOCATOR</text>
+  <text x="218" y="170" fill="#ceb27a" font-family="Cinzel, serif" font-size="58" font-weight="700">Rome</text>
+</svg>

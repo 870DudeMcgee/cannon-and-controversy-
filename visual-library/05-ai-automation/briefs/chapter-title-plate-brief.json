@@ -1,0 +1,75 @@
+{
+  "job_name": "chapter-title-plate-first-pass",
+  "output_type": "image",
+  "goal": "Generate reusable chapter-title plate concepts that fit the codex, decree, and red-gold textual language of the documentary series.",
+  "priority": "high",
+  "target_use": "title-treatment",
+  "episode_scope": "series-wide",
+  "boards_to_match": [
+    "style-board",
+    "quote-source-board"
+  ],
+  "motifs_to_support": [
+    "red-gold-text-reveals",
+    "illuminated-borders",
+    "glowing-parchment-reveal"
+  ],
+  "visual_requirements": {
+    "tone": "scholarly, authoritative, ceremonial, archival",
+    "color_notes": "aged gold letterforms, deep red accents, dark parchment fields, minimal restrained green",
+    "composition_notes": "central hierarchy, strong margins, one dominant title field, room for subtitle or date line",
+    "must_include": [
+      "aged gold title emphasis",
+      "parchment or dark manuscript field",
+      "border or corner detail",
+      "clear title hierarchy"
+    ],
+    "must_avoid": [
+      "movie trailer bombast",
+      "chrome metallic gold",
+      "modern sans-serif poster look",
+      "busy texture everywhere",
+      "neon highlights"
+    ]
+  },
+  "source_inputs": {
+    "reference_files": [
+      "visual-library/style-board.html",
+      "visual-library/quote-source-board.html",
+      "visual-library/02-series-kits/episode-neutral/chapter-intro-plate-01.svg",
+      "visual-library/02-series-kits/episode-neutral/chapter-intro-plate-02.svg",
+      "visual-library/02-series-kits/episode-neutral/title-card-red-gold-01.svg",
+      "visual-library/02-series-kits/frame-elements/decree-ribbon-01.svg"
+    ],
+    "reference_folders": [
+      "visual-library/02-series-kits/episode-neutral/",
+      "visual-library/02-series-kits/frame-elements/"
+    ],
+    "tracker_rows": [],
+    "source_urls": []
+  },
+  "text_inputs": {
+    "primary_text": "Replace with chapter title.",
+    "secondary_text": "Optional subtitle, date, or section line.",
+    "dates": [],
+    "names": [],
+    "citations": []
+  },
+  "output_spec": {
+    "aspect_ratio": "16:9",
+    "orientation": "landscape",
+    "resolution_target": "1920x1080 minimum",
+    "duration_seconds": 0,
+    "variant_count": 4,
+    "file_format": "png"
+  },
+  "review_checks": [
+    "Fits title language already in the kits",
+    "Readable in under two seconds",
+    "Feels reusable beyond a single episode",
+    "Supports red-gold textual motif",
+    "Avoids modern poster aesthetics"
+  ],
+  "destination_after_approval": "visual-library/02-series-kits/episode-neutral/ if the concept becomes a reusable base asset.",
+  "run_notes": "Best paired with image-generation-template.md or text-population-template.md if testing wording and layout together."
+}

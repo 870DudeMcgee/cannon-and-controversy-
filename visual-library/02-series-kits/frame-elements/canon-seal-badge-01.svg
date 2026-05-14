@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720" fill="none">
+  <circle cx="360" cy="360" r="292" fill="#17120D" stroke="#b79a5e" stroke-width="14"/>
+  <circle cx="360" cy="360" r="246" stroke="#8b2515" stroke-width="10"/>
+  <circle cx="360" cy="360" r="212" stroke="#1d5f52" stroke-width="5"/>
+  <text x="360" y="214" text-anchor="middle" fill="#8f7750" font-family="Cinzel, serif" font-size="32" letter-spacing="12">CANON</text>
+  <text x="360" y="390" text-anchor="middle" fill="#ceb27a" font-family="Cinzel, serif" font-size="106" font-weight="700">1546</text>
+  <text x="360" y="470" text-anchor="middle" fill="#8f7750" font-family="Cinzel, serif" font-size="30" letter-spacing="10">SESSION • DECREE • LIST</text>
+</svg>

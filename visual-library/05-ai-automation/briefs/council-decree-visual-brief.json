@@ -1,0 +1,77 @@
+{
+  "job_name": "council-decree-visual-first-pass",
+  "output_type": "image",
+  "goal": "Generate ceremonial council and decree visual studies that support institutional authority, canon decisions, and synod-style transitional moments.",
+  "priority": "medium",
+  "target_use": "transition",
+  "episode_scope": "series-wide",
+  "boards_to_match": [
+    "style-board",
+    "quote-source-board"
+  ],
+  "motifs_to_support": [
+    "timeline-animations",
+    "red-gold-text-reveals",
+    "illuminated-borders"
+  ],
+  "visual_requirements": {
+    "tone": "institutional, ceremonial, tense, archival",
+    "color_notes": "dark parchment and leather tones, aged gold, restrained red markers, wax-seal warmth",
+    "composition_notes": "one central decree or title element, supporting seal or ribbon detail, strong contrast between field and inscription",
+    "must_include": [
+      "decree or proclamation feel",
+      "seal, ribbon, or council insignia language",
+      "aged materials",
+      "clear compositional hierarchy"
+    ],
+    "must_avoid": [
+      "royal-fantasy aesthetics",
+      "ornament overload",
+      "modern legal-document styling",
+      "bright clean studio lighting",
+      "plastic seal materials"
+    ]
+  },
+  "source_inputs": {
+    "reference_files": [
+      "visual-library/02-series-kits/episode-neutral/council-title-card-01.svg",
+      "visual-library/02-series-kits/frame-elements/decree-ribbon-01.svg",
+      "visual-library/02-series-kits/frame-elements/canon-seal-badge-01.svg",
+      "visual-library/style-board.html"
+    ],
+    "reference_folders": [
+      "visual-library/02-series-kits/episode-neutral/",
+      "visual-library/02-series-kits/frame-elements/"
+    ],
+    "tracker_rows": [
+      "pending-paintings-ecumenical-council-001",
+      "pending-paintings-council-religious-001",
+      "pending-paintings-religious-council-001"
+    ],
+    "source_urls": []
+  },
+  "text_inputs": {
+    "primary_text": "Replace with council or decree title.",
+    "secondary_text": "Optional date, location, or doctrinal line.",
+    "dates": [],
+    "names": [],
+    "citations": []
+  },
+  "output_spec": {
+    "aspect_ratio": "16:9",
+    "orientation": "landscape",
+    "resolution_target": "1920x1080 minimum",
+    "duration_seconds": 0,
+    "variant_count": 3,
+    "file_format": "png"
+  },
+  "review_checks": [
+    "Feels institutional rather than fantasy-royal",
+    "Supports canon or council sequences",
+    "Matches decree and seal assets already in the kits",
+    "Could recur across multiple episodes",
+    "Maintains readable title hierarchy"
+  ],
+  "destination_after_approval": "visual-library/02-series-kits/episode-neutral/ or visual-library/02-series-kits/frame-elements/ depending on whether the surviving output is a full plate or modular detail.",
+  "run_notes": "Best paired with image-generation-template.md. Keep only versions that feel disciplined and reusable."
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="halo" x1="256" y1="52" x2="256" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b2515"/>
+      <stop offset="0.5" stop-color="#b79a5e"/>
+      <stop offset="1" stop-color="#1d5f52"/>
+    </linearGradient>
+    <radialGradient id="paper" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(210 170) rotate(45) scale(240)">
+      <stop offset="0" stop-color="#efdfbe"/>
+      <stop offset="1" stop-color="#d3bb8d"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="214" stroke="url(#halo)" stroke-width="12"/>
+  <circle cx="256" cy="256" r="182" fill="url(#paper)" stroke="#ceb27a" stroke-width="10"/>
+  <circle cx="256" cy="256" r="146" stroke="#8b2515" stroke-width="7" stroke-dasharray="2 18"/>
+  <path d="M256 140L278 220L360 256L278 292L256 372L234 292L152 256L234 220L256 140Z" fill="#b79a5e" fill-opacity="0.9" stroke="#8b2515" stroke-width="6" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" fill="none">
+  <path d="M30 24H1064L1170 130L1064 236H30V24Z" fill="#211A13" stroke="#5d4a2e" stroke-width="3"/>
+  <path d="M30 24H290V236H30" fill="#8b2515" fill-opacity="0.9"/>
+  <text x="158" y="154" text-anchor="middle" fill="#e9dcc0" font-family="Cinzel, serif" font-size="46" font-weight="700" letter-spacing="14">SOURCE</text>
+  <text x="360" y="154" fill="#ceb27a" font-family="Cinzel, serif" font-size="54" font-weight="700">Josephus</text>
+  <text x="740" y="154" fill="#9a8d77" font-family="Crimson Text, serif" font-size="46">Antiquities XVIII.3.3</text>
+</svg>

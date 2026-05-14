@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200" fill="none">
+  <rect width="1800" height="1200" fill="#15110c"/>
+  <text x="120" y="120" fill="#ceb27a" font-family="Cinzel, serif" font-size="54" font-weight="700">Site Palette</text>
+  <g font-family="Crimson Text, serif" font-size="34" fill="#e6dac4">
+    <g transform="translate(120 200)"><rect width="280" height="180" fill="#1c1812"/><text x="0" y="220">bg  #1c1812</text></g>
+    <g transform="translate(470 200)"><rect width="280" height="180" fill="#15110c" stroke="#5d4a2e"/><text x="0" y="220">bg-deep  #15110c</text></g>
+    <g transform="translate(820 200)"><rect width="280" height="180" fill="#241e17"/><text x="0" y="220">bg-card  #241e17</text></g>
+    <g transform="translate(1170 200)"><rect width="280" height="180" fill="#e9dcc0"/><text x="0" y="220" fill="#2a1d10">bg-parch  #e9dcc0</text></g>
+    <g transform="translate(120 520)"><rect width="280" height="180" fill="#b79a5e"/><text x="0" y="220">gold  #b79a5e</text></g>
+    <g transform="translate(470 520)"><rect width="280" height="180" fill="#ceb27a"/><text x="0" y="220">gold-lt  #ceb27a</text></g>
+    <g transform="translate(820 520)"><rect width="280" height="180" fill="#8f7750"/><text x="0" y="220">gold-dim  #8f7750</text></g>
+    <g transform="translate(1170 520)"><rect width="280" height="180" fill="#8b2515"/><text x="0" y="220">red  #8b2515</text></g>
+    <g transform="translate(120 840)"><rect width="280" height="180" fill="#e6dac4"/><text x="0" y="220" fill="#e6dac4">text  #e6dac4</text></g>
+    <g transform="translate(470 840)"><rect width="280" height="180" fill="#9a8d77"/><text x="0" y="220">text-muted  #9a8d77</text></g>
+    <g transform="translate(820 840)"><rect width="280" height="180" fill="#5d4a2e"/><text x="0" y="220">rule-gold  #5d4a2e</text></g>
+    <g transform="translate(1170 840)"><rect width="280" height="180" fill="#1d5f52"/><text x="0" y="220">green accent  #1d5f52</text></g>
+  </g>
+</svg>

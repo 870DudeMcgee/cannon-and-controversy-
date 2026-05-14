@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Review Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #110d09;
+      --panel: rgba(31, 24, 18, 0.9);
+      --panel-2: rgba(18, 14, 10, 0.96);
+      --gold: #b89c63;
+      --gold-soft: #d7bc86;
+      --red: #8f2d1b;
+      --green: #1d5f52;
+      --text: #eadfc9;
+      --muted: #a69780;
+      --rule: #5f4a2e;
+      --paper: #ead8b1;
+      --ink: #24190f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: 'Crimson Text', serif;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(184,156,99,0.15), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(143,45,27,0.16), transparent 24%),
+        linear-gradient(180deg, #17110d, #0c0907 78%);
+    }
+    .shell {
+      width: min(1500px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.42);
+      overflow: hidden;
+    }
+    .hero-copy { padding: 34px; }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin: 0; font-family: 'Cinzel', serif; }
+    h1 {
+      color: var(--gold-soft);
+      font-size: clamp(2.6rem, 4.4vw, 4.2rem);
+      line-height: 1;
+      max-width: 11ch;
+      margin-bottom: 14px;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+      font-size: 1.05rem;
+    }
+    .hero-copy p + p { margin-top: 10px; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .actions a {
+      color: var(--gold-soft);
+      text-decoration: none;
+      border: 1px solid rgba(184,156,99,0.24);
+      background: rgba(0,0,0,0.16);
+      padding: 12px 14px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-card {
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(23,18,14,0.9), rgba(13,10,8,0.98)),
+        url('./02-series-kits/episode-neutral/parchment-background-02.svg') center/cover;
+    }
+    .paper {
+      width: min(100%, 540px);
+      padding: 24px 26px;
+      background: linear-gradient(180deg, rgba(239,226,198,0.96), rgba(228,209,169,0.96));
+      color: var(--ink);
+      border: 1px solid #cdb17a;
+      box-shadow: 0 18px 28px rgba(0,0,0,0.28);
+    }
+    .paper strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .paper p { color: var(--ink); }
+    .section { margin-top: 30px; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .section-head h2 {
+      color: var(--gold-soft);
+      font-size: clamp(1.3rem, 2.2vw, 2rem);
+    }
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule), transparent);
+    }
+    .grid { display: grid; gap: 16px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card {
+      padding: 18px;
+      background: var(--panel-2);
+      border: 1px solid var(--rule);
+    }
+    .card h3 {
+      color: var(--gold);
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .card p { margin-bottom: 12px; }
+    .card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .link-list {
+      display: grid;
+      gap: 10px;
+    }
+    .link-list a {
+      color: var(--gold-soft);
+      text-decoration: none;
+      border: 1px solid rgba(184,156,99,0.22);
+      background: rgba(0,0,0,0.15);
+      padding: 12px 14px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .status {
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(239,226,198,0.96), rgba(228,209,169,0.96));
+      border: 1px solid #cdb17a;
+      color: var(--ink);
+    }
+    .status h3 {
+      color: var(--red);
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .status p { color: var(--ink); }
+    .status ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .status a {
+      color: #5c2b18;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    @media (max-width: 1100px) {
+      .hero,
+      .grid.three,
+      .grid.two,
+      .status-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <span class="eyebrow">Review Surface</span>
+        <h1>Track AI work before it pollutes the library.</h1>
+        <p>This dashboard is the holding area for generated outputs, prompt runs, and approval decisions. It exists so first-pass AI work stays visible and reviewable before anything gets promoted into the real archive or reusable kits.</p>
+        <p>Use this page to keep generation honest: brief, generate, review, keep or reject, then file the survivors.</p>
+        <div class="actions">
+          <a href="./automation-hub.html">Automation Hub</a>
+          <a href="./index.html">Command Center</a>
+          <a href="./checklist.html">Visual Checklist</a>
+          <a href="./episode-intake.html">Episode Intake</a>
+        </div>
+      </div>
+      <div class="panel hero-card">
+        <div class="paper">
+          <strong>Approval rule</strong>
+          <p>No generated output should enter curated folders or reusable kits until it matches a board, supports a motif, and has a saved prompt/run trail.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Ready-To-Run Briefs</h2></div>
+      <div class="grid three">
+        <article class="card">
+          <h3>Jerusalem Map Sequence</h3>
+          <p>Use this for slow map zoom prototypes, destination orientation, and recurring Jerusalem geography motion studies.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/briefs/jerusalem-map-sequence-brief.json">Open Jerusalem Brief</a>
+            <a href="./05-ai-automation/prompts/video-generation-template.md">Open Video Prompt Template</a>
+            <a href="./map-board.html">Open Map Board</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Quote Card / Source Caption</h3>
+          <p>Use this for card copy, source intros, and text variants that fit the existing quote and citation templates.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/briefs/quote-card-source-caption-brief.json">Open Quote Brief</a>
+            <a href="./05-ai-automation/prompts/text-population-template.md">Open Text Prompt Template</a>
+            <a href="./quote-source-board.html">Open Quote Board</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Manuscript Atmosphere Plates</h3>
+          <p>Use this for reusable parchment, codex, and manuscript-rich background plates.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/briefs/manuscript-atmosphere-plates-brief.json">Open Manuscript Atmosphere Brief</a>
+            <a href="./05-ai-automation/prompts/image-generation-template.md">Open Image Prompt Template</a>
+            <a href="./style-board.html">Open Style Board</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Chapter Title Plate</h3>
+          <p>Use this for recurring chapter-intro concepts and reusable title treatment studies.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/briefs/chapter-title-plate-brief.json">Open Chapter Title Brief</a>
+            <a href="./05-ai-automation/prompts/image-generation-template.md">Open Image Prompt Template</a>
+            <a href="./style-board.html">Open Style Board</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Council / Decree Visual</h3>
+          <p>Use this for canon, council, and institutional authority visuals tied to seals and decree systems.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/briefs/council-decree-visual-brief.json">Open Council Brief</a>
+            <a href="./05-ai-automation/prompts/image-generation-template.md">Open Image Prompt Template</a>
+            <a href="./quote-source-board.html">Open Quote Board</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Lower Third / Source Strip</h3>
+          <p>Use this for fast on-screen identifiers and concise source-strip variants.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/briefs/lower-third-source-strip-brief.json">Open Lower Third Brief</a>
+            <a href="./05-ai-automation/prompts/text-population-template.md">Open Text Prompt Template</a>
+            <a href="./quote-source-board.html">Open Quote Board</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Production Board</h2></div>
+      <div class="status-grid">
+        <article class="status">
+          <h3>Queued</h3>
+          <ul>
+            <li><a href="./05-ai-automation/briefs/manuscript-atmosphere-plates-brief.json">Manuscript atmosphere plates</a></li>
+            <li><a href="./05-ai-automation/briefs/chapter-title-plate-brief.json">Chapter title plate</a></li>
+            <li><a href="./05-ai-automation/briefs/council-decree-visual-brief.json">Council / decree visual</a></li>
+            <li><a href="./05-ai-automation/briefs/lower-third-source-strip-brief.json">Lower third / source strip</a></li>
+          </ul>
+        </article>
+        <article class="status">
+          <h3>Ready To Generate</h3>
+          <ul>
+            <li><a href="./05-ai-automation/briefs/jerusalem-map-sequence-brief.json">Jerusalem map sequence</a> with video prompt</li>
+            <li><a href="./05-ai-automation/briefs/quote-card-source-caption-brief.json">Quote card / source caption</a> with text prompt</li>
+            <li>Each task already has a clear board match and destination path</li>
+          </ul>
+        </article>
+        <article class="status">
+          <h3>In Review</h3>
+          <ul>
+            <li><a href="./05-ai-automation/runs/2026-05-14_jerusalem-map-run_starter_v001.md">Jerusalem map starter log</a></li>
+            <li><a href="./05-ai-automation/runs/2026-05-14_quote-card-copy-run_starter_v001.md">Quote card starter log</a></li>
+            <li>Fill tool, prompt, variants, and keep/reject notes here before promotion</li>
+          </ul>
+        </article>
+        <article class="status">
+          <h3>Approved Targets</h3>
+          <ul>
+            <li>Maps that survive: `01-core-collections/maps/curated/` or `02-series-kits/motion-presets/`</li>
+            <li>Reusable text/card systems: `02-series-kits/episode-neutral/`</li>
+            <li>Discarded variants stay documented in `05-ai-automation/runs/`</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Live Run Logs</h2></div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Jerusalem Map Run Starter</h3>
+          <p>The first motion-study run log is already prepared so you can paste results directly after generation.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/runs/2026-05-14_jerusalem-map-run_starter_v001.md">Open Jerusalem Starter Log</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Quote Card Copy Starter</h3>
+          <p>The first text-variant run log is already prepared for copy evaluation, rejection notes, and selected lines.</p>
+          <div class="link-list">
+            <a href="./05-ai-automation/runs/2026-05-14_quote-card-copy-run_starter_v001.md">Open Quote Starter Log</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Episode Promotion</h2></div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Move Approved Work Forward</h3>
+          <p>Once a generated output survives review, hand it off into the episode-intake layer instead of dropping it directly into a final edit folder.</p>
+          <div class="link-list">
+            <a href="./episode-intake.html">Open Episode Intake Workflow</a>
+            <a href="./06-episode-intake/templates/episode-package-template.md">Episode Package Template</a>
+            <a href="./06-episode-intake/templates/shot-bucket-template.csv">Shot Bucket Template</a>
+            <a href="./06-episode-intake/episodes/ep-01_the-leveling-of-jerusalem/01_package.md">Episode 01 Package</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Keep Provenance Intact</h3>
+          <p>Every promoted item should still point back to its brief, prompt pack, and run log so the episode build remains auditable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>What To Review Every Time</h2></div>
+      <div class="grid three">
+        <article class="card">
+          <h3>Style Match</h3>
+          <ul>
+            <li>Does it fit the boards immediately?</li>
+            <li>Does it preserve the archival tone?</li>
+            <li>Does it avoid generic fantasy or modern UI aesthetics?</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Usability</h3>
+          <ul>
+            <li>Is it readable or legible fast enough?</li>
+            <li>Can it be reused beyond one moment?</li>
+            <li>Is the first-pass output worth refining?</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Traceability</h3>
+          <ul>
+            <li>Was the prompt saved?</li>
+            <li>Was the tool used recorded?</li>
+            <li>Is the destination folder known before promotion?</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Suggested Save Destinations</h2></div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Generated References</h3>
+          <ul>
+            <li>Map studies that prove useful: `01-core-collections/maps/curated/` or `02-series-kits/motion-presets/`</li>
+            <li>Reusable quote-card systems: `02-series-kits/episode-neutral/`</li>
+            <li>Discarded or uncertain variants: keep logged in `05-ai-automation/runs/` instead of promoting them</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Run Evidence</h3>
+          <ul>
+            <li>Save each meaningful run using the rules in `05-ai-automation/runs/README.md`</li>
+            <li>Keep prompt variations with the accepted result notes</li>
+            <li>Use one log file per meaningful run to keep handoff clean</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

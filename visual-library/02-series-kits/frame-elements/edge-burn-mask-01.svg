@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <defs>
+    <linearGradient id="topBurn" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#2b1207" stop-opacity="0.92"/>
+      <stop offset="0.18" stop-color="#6d2b13" stop-opacity="0.28"/>
+      <stop offset="0.36" stop-color="#6d2b13" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bottomBurn" x1="0" y1="1" x2="0" y2="0">
+      <stop stop-color="#2b1207" stop-opacity="0.92"/>
+      <stop offset="0.18" stop-color="#6d2b13" stop-opacity="0.22"/>
+      <stop offset="0.34" stop-color="#6d2b13" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sideBurn" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#2b1207" stop-opacity="0.72"/>
+      <stop offset="0.12" stop-color="#6d2b13" stop-opacity="0.14"/>
+      <stop offset="0.24" stop-color="#6d2b13" stop-opacity="0"/>
+      <stop offset="0.76" stop-color="#6d2b13" stop-opacity="0"/>
+      <stop offset="0.88" stop-color="#6d2b13" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#2b1207" stop-opacity="0.72"/>
+    </linearGradient>
+  </defs>
+  <rect width="3840" height="320" fill="url(#topBurn)"/>
+  <rect y="1840" width="3840" height="320" fill="url(#bottomBurn)"/>
+  <rect width="3840" height="2160" fill="url(#sideBurn)"/>
+  <path d="M0 146C264 68 552 132 844 82C1215 18 1534 60 1918 104C2338 152 2712 84 3090 52C3385 27 3612 54 3840 122V0H0V146Z" fill="#1b0803" fill-opacity="0.36"/>
+  <path d="M0 2014C362 2088 644 1990 974 2028C1364 2072 1721 2160 2168 2128C2646 2094 3218 1968 3840 2050V2160H0V2014Z" fill="#1b0803" fill-opacity="0.3"/>
+</svg>

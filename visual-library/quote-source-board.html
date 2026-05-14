@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quote and Source Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #120e0a;
+      --panel: rgba(31,24,18,0.88);
+      --panel-2: rgba(20,16,11,0.96);
+      --gold: #b79a5e;
+      --gold-lt: #ceb27a;
+      --gold-dim: #8f7750;
+      --red: #8b2515;
+      --green: #1d5f52;
+      --text: #e6dac4;
+      --muted: #9a8d77;
+      --rule: #5d4a2e;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: 'Crimson Text', serif;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(183,154,94,0.13), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(139,37,21,0.14), transparent 22%),
+        linear-gradient(180deg, #1a140f, #0e0a07 72%);
+    }
+
+    .shell {
+      width: min(1520px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 36px 0 72px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.42);
+      overflow: hidden;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .hero-copy { padding: 38px; }
+
+    .kicker {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { font-family: 'Cinzel', serif; }
+    h1 {
+      margin: 0 0 16px;
+      color: var(--gold-lt);
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      max-width: 11ch;
+    }
+
+    .hero-copy p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.16rem;
+      line-height: 1.65;
+      max-width: 58ch;
+    }
+
+    .links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .links a {
+      color: var(--gold-lt);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(206,178,122,0.36);
+      font-family: 'Cinzel', serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-stage {
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(180deg, rgba(23,18,13,0.85), rgba(14,10,8,0.96)),
+        url('./02-series-kits/episode-neutral/parchment-background-02.svg') center/cover;
+    }
+
+    .stack {
+      position: relative;
+      width: min(90%, 1000px);
+      aspect-ratio: 16 / 9;
+    }
+
+    .stack img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-bottom: 28px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .metric {
+      background: var(--panel-2);
+      padding: 18px 20px;
+    }
+
+    .metric .num {
+      display: block;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+
+    .section { margin-top: 34px; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--gold-lt);
+      font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+    }
+
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule), transparent);
+    }
+
+    .grid { display: grid; gap: 20px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card { padding: 16px; }
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .asset {
+      width: 100%;
+      display: block;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(183,154,94,0.22);
+    }
+
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .note {
+      padding: 22px 24px;
+      margin-top: 22px;
+      background: linear-gradient(135deg, rgba(233,220,192,0.96), rgba(216,196,154,0.94));
+      color: #1a120a;
+      border: 1px solid #cdb58b;
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--red);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .grid.two,
+      .grid.three,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <span class="kicker">Witness and Citation Board</span>
+        <h1>Claims, quotations, sources, authority.</h1>
+        <p>This board isolates the textual side of the visual language: witness quotes, source intros, scripture cards, and thesis statements.</p>
+        <p><strong>What should remain true:</strong> quotation surfaces should feel ceremonial and readable, source cards should feel archival, and strong claims should land with weight rather than flashy motion.</p>
+        <div class="links">
+          <a href="./index.html">Command Center</a>
+          <a href="./style-board.html">Main Style Board</a>
+          <a href="./map-board.html">Map Board</a>
+          <a href="./02-series-kits/fifth-pack-manifest.md">Transition Manifest</a>
+        </div>
+      </div>
+      <div class="panel hero-stage">
+        <div class="stack">
+          <img src="./02-series-kits/episode-neutral/parchment-background-02.svg" alt="Dark background" />
+          <img src="./02-series-kits/frame-elements/glow-veil-01.svg" alt="Glow veil" />
+          <img src="./02-series-kits/episode-neutral/source-citation-card-01.svg" alt="Source citation card" />
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div class="metric"><span class="num">4</span><span class="label">Core quote and citation templates now available</span></div>
+      <div class="metric"><span class="num">2</span><span class="label">Matte-style reveal assets for source intros</span></div>
+      <div class="metric"><span class="num">3</span><span class="label">Lower-third and source tab variants</span></div>
+      <div class="metric"><span class="num">1</span><span class="label">Dedicated board for textual coherence</span></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Templates</span><h2>Quote Surfaces</h2></div>
+      <div class="grid two">
+        <article class="panel card">
+          <h3>Quote Card</h3>
+          <img class="asset" src="./02-series-kits/episode-neutral/quote-card-template-01.svg" alt="Quote card" />
+          <p>Use for thesis claims, witness lines, and major narrative assertions.</p>
+        </article>
+        <article class="panel card">
+          <h3>Quote Window Card</h3>
+          <img class="asset" src="./02-series-kits/episode-neutral/quote-window-card-01.svg" alt="Quote window card" />
+          <p>Use when text and image must share the same ceremonial surface.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Sources</span><h2>Citation and Lower Third Language</h2></div>
+      <div class="grid three">
+        <article class="panel card">
+          <h3>Source Citation Plate</h3>
+          <img class="asset" src="./02-series-kits/episode-neutral/source-citation-card-01.svg" alt="Source citation plate" />
+          <p>Primary source intros, textual witness setups, and chapter source cards.</p>
+        </article>
+        <article class="panel card">
+          <h3>Source Tabs</h3>
+          <div class="strip">
+            <img class="asset" src="./02-series-kits/frame-elements/source-tab-01.svg" alt="Source tab angled" />
+            <img class="asset" src="./02-series-kits/frame-elements/source-tab-02.svg" alt="Source tab rounded" />
+            <img class="asset" src="./02-series-kits/frame-elements/gold-rule-02.svg" alt="Gold rule double" />
+          </div>
+          <p>Use these for scholars, councils, source labels, and textual categories.</p>
+        </article>
+        <article class="panel card">
+          <h3>Transition Plates</h3>
+          <div class="strip">
+            <img class="asset" src="./02-series-kits/episode-neutral/parchment-reveal-plate-01.svg" alt="Parchment reveal plate" />
+            <img class="asset" src="./02-series-kits/episode-neutral/codex-opening-plate-01.svg" alt="Codex opening plate" />
+            <img class="asset" src="./02-series-kits/frame-elements/page-turn-slice-01.svg" alt="Page turn slice" />
+          </div>
+          <p>Source cards should enter with ritual weight, not generic fades.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="kicker">Derived</span><h2>Site-Based Text Rhythm</h2></div>
+      <div class="grid two">
+        <article class="panel card">
+          <h3>Heading and Fact Logic</h3>
+          <img class="asset" src="./01-core-collections/typography-references/site-derived/site-heading-system.svg" alt="Heading system" />
+          <img class="asset" src="./01-core-collections/typography-references/site-derived/site-fact-bar.svg" alt="Fact bar reference" style="margin-top:12px;" />
+        </article>
+        <article class="panel card">
+          <h3>Callout and Parchment Reference</h3>
+          <img class="asset" src="./01-core-collections/scroll-textures/site-derived/site-callout-panel.svg" alt="Callout panel" />
+          <img class="asset" src="./01-core-collections/manuscripts/site-derived/site-codex-frame.svg" alt="Site codex frame" style="margin-top:12px;" />
+        </article>
+      </div>
+      <div class="note">
+        <strong>Quote Review Standard</strong>
+        If a quote card feels like a social media graphic instead of an illuminated documentary witness plate, it is off-model. The text should feel sourced, deliberate, and archival.
+      </div>
+    </section>
+  </div>
+</body>
+</html>
