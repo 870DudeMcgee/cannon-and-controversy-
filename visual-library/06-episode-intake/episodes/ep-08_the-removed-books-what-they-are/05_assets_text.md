@@ -8,6 +8,52 @@
 
 Keep every section first-cut ready. The editor should not need to open a second text file to complete the initial assembly.
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+### Opener Title
+
+- selected opener:
+	- The Removed Books: What They Are
+- supporting line:
+	- Excluded from one canon tradition, not lost to history
+- short version:
+	- Excluded, not lost
+- preferred placement:
+	- Beat 1
+
+### Chapter Card 01: Story and History
+
+- selected chapter title:
+	- Story and History
+- supporting line:
+	- Tobit, Judith, and the Maccabees as concrete books
+- short version:
+	- Story and history
+- preferred placement:
+	- Beat 4 or Beat 5
+
+### Chapter Card 02: Wisdom and Exile
+
+- selected chapter title:
+	- Wisdom and Exile
+- supporting line:
+	- Wisdom, Sirach, and Baruch widen the source world
+- short version:
+	- Wisdom and exile
+- preferred placement:
+	- Beat 8 through Beat 10
+
+### Closing Title
+
+- selected closing line:
+	- These books were excluded, not erased.
+- short version:
+	- Excluded, not erased.
+- preferred placement:
+	- Final beat
+
 ## Lower Thirds
 
 ### Priority Set
@@ -173,6 +219,59 @@ Keep every section first-cut ready. The editor should not need to open a second 
 	- Use in the Wisdom profile beat to connect the book to the later argument arc.
 - preferred placement:
 	- Beat 8
+
+## Evidence Cards
+
+### Evidence Card 01: Seven Books, Not a Vague Appendix
+
+- card title:
+	- Seven books, not a vague appendix
+- selected lines:
+	- Tobit and Judith
+	- 1 and 2 Maccabees
+	- Wisdom, Sirach, and Baruch
+- short version:
+	- seven books, concrete titles
+- source caption:
+	- The removed-books set is a real library of texts, not a hazy category label
+- framing note:
+	- Use as the first inventory card after the opening correction.
+- preferred placement:
+	- Beat 3 through Beat 5
+
+### Evidence Card 02: The Maccabean Pair
+
+- card title:
+	- The Maccabean pair
+- selected lines:
+	- 1 Maccabees gives the historical bridge
+	- 2 Maccabees gives martyrdom resurrection and prayer for the dead
+	- history and theology travel together in this pair
+- short version:
+	- history in one | theology in the other
+- source caption:
+	- The clearest two-book comparison inside the removed-books set
+- framing note:
+	- Use when the episode turns from story books to explicit historical consequence.
+- preferred placement:
+	- Beat 6 or Beat 7
+
+### Evidence Card 03: Esther and Daniel Are Longer in Greek
+
+- card title:
+	- Esther and Daniel are longer in Greek
+- selected lines:
+	- Greek Esther adds prayers letters and dreams
+	- Daniel adds the Song of the Three Young Men, Susanna, and Bel and the Dragon
+	- Protestant Esther and Daniel are shorter forms
+- short version:
+	- shorter in Protestant print
+- source caption:
+	- The removed material includes additions to existing books, not only separate titles
+- framing note:
+	- Use as the final category-reset card before the closing line.
+- preferred placement:
+	- Beat 10 through Beat 12
 
 ## Evidence Strips
 

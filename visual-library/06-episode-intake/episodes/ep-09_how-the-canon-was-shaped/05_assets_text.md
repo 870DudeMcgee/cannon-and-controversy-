@@ -8,6 +8,52 @@
 
 Keep every section first-cut ready. The editor should not need to open a second text file to complete the initial assembly.
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+### Opener Title
+
+- selected opener:
+	- How the Canon Was Shaped
+- supporting line:
+	- A chain of decisions across centuries
+- short version:
+	- Not one moment
+- preferred placement:
+	- Beat 1
+
+### Chapter Card 01: Septuagint and Yavneh
+
+- selected chapter title:
+	- Septuagint and Yavneh
+- supporting line:
+	- Greek inheritance and rabbinic narrowing move apart
+- short version:
+	- Septuagint and Yavneh
+- preferred placement:
+	- Beat 2 through Beat 4
+
+### Chapter Card 02: Witness and Uncertainty
+
+- selected chapter title:
+	- Witness and Uncertainty
+- supporting line:
+	- Irenaeus, Origen, and Athanasius show the canon still in motion
+- short version:
+	- Witness and uncertainty
+- preferred placement:
+	- Beat 5 through Beat 7
+
+### Closing Title
+
+- selected closing line:
+	- The Bible list was shaped by centuries, then normalized by print.
+- short version:
+	- Shaped by centuries.
+- preferred placement:
+	- Final beat
+
 ## Lower Thirds
 
 ### Priority Set
@@ -186,6 +232,59 @@ Keep every section first-cut ready. The editor should not need to open a second 
 	- Use as the closing synthesis card.
 - preferred placement:
 	- Beat 12
+
+## Evidence Cards
+
+### Evidence Card 01: The Early Divergence
+
+- card title:
+	- The early divergence
+- selected lines:
+	- Septuagint created in Alexandria
+	- rabbinic consolidation narrows after 70 AD
+	- Jewish and Christian scriptural worlds no longer move in exactly the same direction
+- short version:
+	- early divergence, not one later split
+- source caption:
+	- The chronology begins with different stabilization patterns, not with the Reformation
+- framing note:
+	- Use early so the finale has a clear starting condition.
+- preferred placement:
+	- Beat 2 through Beat 4
+
+### Evidence Card 02: From Witness to Decision
+
+- card title:
+	- From witness to decision
+- selected lines:
+	- Irenaeus and Origen show mixed practice
+	- Rome Hippo and Carthage show formal list tradition
+	- Jerome carries doubt forward inside the Latin world
+- short version:
+	- witness | decision | doubt
+- source caption:
+	- The canon story moves from usage to formalization without becoming simple
+- framing note:
+	- Use as the middle-cluster summary before the Reformation turn.
+- preferred placement:
+	- Beat 6 through Beat 9
+
+### Evidence Card 03: Luther to the Print Cutoff
+
+- card title:
+	- Luther to the print cutoff
+- selected lines:
+	- Luther demotes the books
+	- Westminster excludes them formally
+	- 1826 normalizes absence in cheap Protestant print
+- short version:
+	- demotion | exclusion | normalized absence
+- source caption:
+	- The final practical sequence that explains why most Protestants never saw the books at all
+- framing note:
+	- Use as the last explanatory card before the closing synthesis.
+- preferred placement:
+	- Beat 10 through Beat 12
 
 ## Evidence Strips
 

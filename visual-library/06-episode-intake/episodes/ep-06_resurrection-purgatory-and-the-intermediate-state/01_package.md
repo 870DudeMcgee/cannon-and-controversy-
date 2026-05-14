@@ -3,8 +3,8 @@
 - episode title: Resurrection, Purgatory, and the Intermediate State
 - episode code: ep-06_resurrection-purgatory-and-the-intermediate-state
 - narrative focus: Episode 06 turns Episode 05's internal-source argument into doctrinal consequence. Once the clearest deuterocanonical afterlife texts are removed, Christians are forced to explain resurrection, post-death consciousness, and purification from a changed textual base.
-- source review status: core textual spine established from Part Eight of the site and the final source-authority framing that follows Episode 05
-- visual review status: reusable system ready; episode-specific doctrine comparison cards and intermediate-state evidence cards still need first-pass generation
+- source review status: source narrative locked for first assembly from Part Eight of the site and the source-authority framing after Episode 05
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -83,16 +83,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-	- one or two public-domain manuscript or codex plates suitable for solemn doctrine-comparison backgrounds
-	- optional public-domain grave or cave texture for the intermediate-state transition layer
+	- optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-	- title and chapter-card variants
-	- doctrine comparison cards for the two-stage model and the tradition table
-	- Luke 16 and 1 Enoch 22 evidence cards
+	- none at the text layer for the first assembly
 - what still needs text population:
-	- final opener title variants
-	- final Luke 16 2 Maccabees 12 Wisdom 3 and 1 Enoch 22 card wording
-	- lower-third or source-strip identifiers for the major passages and tradition labels
+	- final title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

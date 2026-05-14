@@ -8,6 +8,52 @@
 
 Keep every section first-cut ready. The editor should not need to open a second text file to complete the initial assembly.
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+### Opener Title
+
+- selected opener:
+	- Resurrection, Purgatory, and the Intermediate State
+- supporting line:
+	- Canon choices reorganize afterlife doctrine
+- short version:
+	- Canon choices reorganize doctrine
+- preferred placement:
+	- Beat 1
+
+### Chapter Card 01: Two Stages After Death
+
+- selected chapter title:
+	- Two Stages After Death
+- supporting line:
+	- Intermediate state now, final resurrection later
+- short version:
+	- Two stages after death
+- preferred placement:
+	- Beat 4 or Beat 5
+
+### Chapter Card 02: Luke 16 and Enoch 22
+
+- selected chapter title:
+	- Luke 16 and Enoch 22
+- supporting line:
+	- Structured after-death tension before the final assize
+- short version:
+	- Luke 16 and Enoch 22
+- preferred placement:
+	- Beat 8 through Beat 10
+
+### Closing Title
+
+- selected closing line:
+	- Remove the clearest support texts, and the doctrine map reorganizes.
+- short version:
+	- Doctrine reorganizes.
+- preferred placement:
+	- Final beat
+
 ## Lower Thirds
 
 ### Priority Set
@@ -167,6 +213,61 @@ Keep every section first-cut ready. The editor should not need to open a second 
 	- Pair with the retained resurrection texts so the doctrinal compression is visible.
 - preferred placement:
 	- Beat 17
+
+## Evidence Cards
+
+### Evidence Card 01: The Two-Stage Model
+
+- card title:
+	- The two-stage model
+- selected lines:
+	- conscious intermediate state after death
+	- final resurrection and judgment at the end
+	- scripture does not collapse the two into one event
+- short version:
+	- intermediate state | final resurrection
+- source caption:
+	- Episode 06's core doctrinal framework for reading the afterlife texts together
+- framing note:
+	- Use early as the orientation card before individual passages arrive.
+- preferred placement:
+	- Beat 4 through Beat 6
+
+### Evidence Card 02: Luke 16 and 1 Enoch 22
+
+- card title:
+	- Luke 16 and 1 Enoch 22
+- selected lines:
+	- conscious moral awareness after death
+	- separation before final judgment
+	- tension now does not erase judgment later
+- short version:
+	- separation now | judgment later
+- source caption:
+	- The strongest paired source-world card for the intermediate-state architecture
+- citation strip:
+	- Luke 16 | 1 Enoch 22
+- framing note:
+	- Use after Luke 16 so the wider Second Temple pattern becomes visible.
+- preferred placement:
+	- Beat 8 through Beat 11
+
+### Evidence Card 03: Canon Consequence
+
+- card title:
+	- Canon consequence
+- selected lines:
+	- 2 Maccabees gives direct prayer-for-the-dead support
+	- Wisdom 3 gives direct immortality language
+	- remove those texts and doctrine must be rebuilt indirectly
+- short version:
+	- remove the clearest support texts
+- source caption:
+	- The doctrinal consequence line at the center of Episode 06
+- framing note:
+	- Use late as the synthesis card before the final end-card.
+- preferred placement:
+	- Beat 15 through Beat 18
 
 ## Evidence Strips
 

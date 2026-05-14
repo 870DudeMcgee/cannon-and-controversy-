@@ -3,8 +3,8 @@
 - episode title: The Reformation Cut: Luther and the Protestant Bible
 - episode code: ep-03_luther-and-the-reformation-cut
 - narrative focus: The inherited canon tension becomes an explicit Protestant cut when Luther rejects the deuterocanonical books on doctrinal grounds and later Protestant tradition hardens the line.
-- source review status: core textual spine established from the site's Luther and Reformation section
-- visual review status: reusable system ready, episode-specific quote cards and conflict graphics still in progress
+- source review status: source narrative locked for first assembly from the Luther and Reformation section
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -86,15 +86,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-  - one or two public-domain portrait or title-page images tied to Luther, Reformation printing, or sixteenth-century Bibles
-  - a minimal historical map or place label for Wittenberg and Leipzig if desired
+  - optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-  - title and chapter-card variants
-  - Luther/Eck/James quote cards and source strips
-  - print-shop atmosphere plates for exposition beds
+  - none at the text layer for the first assembly
 - what still needs text population:
-  - final opener title variants
-  - lower-third or source-strip identifiers for Luther, Johann Eck, and Westminster context
+  - final title cards, lower thirds, quote cards, evidence cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

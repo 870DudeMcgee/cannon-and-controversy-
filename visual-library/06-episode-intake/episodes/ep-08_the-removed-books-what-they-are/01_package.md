@@ -3,8 +3,8 @@
 - episode title: The Removed Books: What They Are
 - episode code: ep-08_the-removed-books-what-they-are
 - narrative focus: Episode 08 turns from consequence to inventory. It identifies the seven deuterocanonical books and the Greek additions to Esther and Daniel, showing what each text contributes and why these books are concrete works rather than a vague missing category.
-- source review status: core textual spine established from the removed-books section and the additions-to-existing-books section in the site
-- visual review status: reusable system ready; episode-specific book-profile cards and additions comparison cards still need first-pass generation
+- source review status: source narrative locked for first assembly from the removed-books section and the additions-to-existing-books section
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -79,16 +79,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-	- one or two public-domain manuscript or codex visuals suited to an inventory/profile episode
-	- optional illumination or shelf-style textures for the additions-to-Daniel section
+	- optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-	- title and chapter-card variants
-	- book-profile cards for all seven books
-	- additions-to-Esther and Daniel comparison cards
+	- none at the text layer for the first assembly
 - what still needs text population:
-	- final opener title variants
-	- final short profile wording for each book and additions set
-	- lower-third or source-strip identifiers for each book title, date, and setting
+	- final title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

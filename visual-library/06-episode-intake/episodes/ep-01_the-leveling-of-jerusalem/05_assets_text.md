@@ -4,6 +4,63 @@
 - episode code: ep-01_the-leveling-of-jerusalem
 - purpose: single first-cut text sheet for on-screen labels, quotes, evidence, comparisons, and source strips
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+## Opener Title
+
+- selected opener:
+  - The Leveling of Jerusalem
+- supporting line:
+  - The forty-year fuse from crucifixion to canon fracture
+- short version:
+  - Jerusalem falls, the canon story sharpens
+- preferred placement:
+  - Beat 1
+
+## Chapter Card 01: Pressure Before the Fire
+
+- selected chapter title:
+  - Pressure Before the Fire
+- supporting line:
+  - Caiaphas, Pilate, and the politics of sacrifice
+- short version:
+  - Pressure before the fire
+- preferred placement:
+  - Beat 5 or Beat 6
+
+## Chapter Card 02: The Death That Cracked the Dam
+
+- selected chapter title:
+  - The Death That Cracked the Dam
+- supporting line:
+  - James dies, the Jerusalem center gives way
+- short version:
+  - The death that cracked the dam
+- preferred placement:
+  - Beat 16 or Beat 17
+
+## Chapter Card 03: Yavneh After the Ash
+
+- selected chapter title:
+  - Yavneh After the Ash
+- supporting line:
+  - Survivors consolidate the post-Temple line
+- short version:
+  - Yavneh after the ash
+- preferred placement:
+  - Beat 23 or Beat 24
+
+## Closing Title
+
+- selected closing line:
+  - The split begins in the ruins.
+- short version:
+  - The split begins in the ruins.
+- preferred placement:
+  - Final beat
+
 ## Lower Thirds
 
 - purpose: ready-to-use lower thirds, source strips, and witness labels for the first assembly
@@ -198,6 +255,98 @@ Keep the quote cards short enough to read in motion. If the full quotation feels
 - preferred placement:
   - Beat 15
 
+## Evidence Cards
+
+- purpose: final on-screen evidence-card text and closing-resolution wording for the first cut
+
+## Use Rule
+
+Keep these cards chronological and concrete. They should make the pressure sequence legible, not turn the episode into abstract commentary.
+
+## Evidence Card 01: Political Pressure in Judea
+
+- card title:
+  - Political pressure in Judea
+- selected lines:
+  - Temple leadership fears Roman reprisal
+  - Caiaphas argues for one death to save the nation
+  - crucifixion is framed as public-order management
+- short version:
+  - Temple pressure | Roman reprisal | one death to save the nation
+- source caption:
+  - The crucifixion sequence as a political containment response under occupation
+- framing note:
+  - Use before the war sequence begins to widen.
+- preferred placement:
+  - Beat 6 through Beat 8
+
+## Evidence Card 02: The Fracture Reaches Rome
+
+- card title:
+  - The fracture reaches Rome
+- selected lines:
+  - 49 AD | Claudius expels Jews from Rome
+  - messianic unrest is no longer local to Jerusalem
+  - the conflict now stretches across the empire
+- short version:
+  - 49 AD | unrest reaches Rome
+- source caption:
+  - Claudius-era expulsion as proof that the crisis is no longer geographically contained
+- citation strip:
+  - Suetonius, Claudius 25.4 | Acts 18:1-2
+- framing note:
+  - Use as the bridge from Jerusalem pressure to empire-wide instability.
+- preferred placement:
+  - Beat 11 or Beat 12
+
+## Evidence Card 03: James and the Broken Center
+
+- card title:
+  - James and the broken center
+- selected lines:
+  - James the Just is executed
+  - Jerusalem loses its moderating center
+  - the city moves closer to irreversible fracture
+- short version:
+  - James killed | the center breaks
+- source caption:
+  - The death of James as a political and communal breaking point before the war closes in
+- citation strip:
+  - Josephus, Antiquities XX.9
+- framing note:
+  - Use as the human hinge before the catastrophe sequence lands.
+- preferred placement:
+  - Beat 17 or Beat 18
+
+## Evidence Card 04: Yavneh After 70 AD
+
+- card title:
+  - Yavneh after 70 AD
+- selected lines:
+  - the Temple falls in 70 AD
+  - the Pharisaic stream survives the catastrophe
+  - canon consolidation begins in the aftermath
+- short version:
+  - Temple destroyed | consolidation begins
+- source caption:
+  - Post-Temple survival and consolidation as the opening condition for the later canon split
+- framing note:
+  - Use as the final transition card into Episode 02.
+- preferred placement:
+  - Beat 24 through Beat 26
+
+## End-Card Set: The Split Begins in the Ruins
+
+- safest version:
+  - The Bible split did not begin in one later meeting.
+  - It began in the long aftermath of Jerusalem's collapse.
+- shorter version:
+  - The split begins
+  - in the ruins.
+- stronger documentary version:
+  - Stone fell in Jerusalem.
+  - The canon story changed with it.
+
 ## Alternate Caption Lines
 
 - Caiaphas alt caption:
@@ -210,3 +359,4 @@ Keep the quote cards short enough to read in motion. If the full quotation feels
 - Hold the Caiaphas card just long enough to register the logic of sacrifice.
 - Let the Josephus card breathe slightly longer; it functions as an authority beat before James.
 - If needed, split the Josephus quote across two lines at `did not forsake him`.
+- Use the Yavneh evidence card as the clean handoff into Episode 02 rather than as a dense history slide.

@@ -3,8 +3,8 @@
 - episode title: How the Canon Was Shaped
 - episode code: ep-09_how-the-canon-was-shaped
 - narrative focus: Episode 09 closes the series by turning the canon debate into a chronology viewers can retain. It shows that the canon was formed across centuries through Jewish consolidation, Christian witness, councils, translators, reformers, and print-distribution decisions.
-- source review status: core textual spine established from `The Timeline: How the Canon Was Shaped`
-- visual review status: reusable system ready; episode-specific timeline cards and witness cards still need first-pass generation
+- source review status: source narrative locked for first assembly from `The Timeline: How the Canon Was Shaped`
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -78,16 +78,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-	- one or two public-domain council, codex, or print-era visuals suited to the later chronology beats
-	- optional public-domain engraving or press imagery for the nineteenth-century Bible Society cutoff
+	- optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-	- title and chapter-card variants
-	- milestone cards for the major canon events
-	- witness cards for Irenaeus, Origen, Jerome, Luther, and Westminster
+	- none at the text layer for the first assembly
 - what still needs text population:
-	- final opener title variants
-	- final short milestone wording for the major timeline stops
-	- lower-third or source-strip identifiers for dates, councils, letters, and confessions
+	- final title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

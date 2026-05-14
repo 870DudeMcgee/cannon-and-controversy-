@@ -4,6 +4,63 @@
 - episode code: ep-05_referenced-inside-the-bible
 - purpose: single first-cut text sheet for on-screen labels, quotes, evidence, comparisons, and source strips
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+## Opener Title
+
+- selected opener:
+  - Referenced Inside the Bible
+- supporting line:
+  - The removed books remain inside the language of the New Testament
+- short version:
+  - Hidden in plain sight
+- preferred placement:
+  - Beat 1
+
+## Chapter Card 01: Jude Quotes Enoch
+
+- selected chapter title:
+  - Jude Quotes Enoch
+- supporting line:
+  - Direct citation, not vague resemblance
+- short version:
+  - Jude quotes Enoch
+- preferred placement:
+  - Beat 7 or Beat 8
+
+## Chapter Card 02: Allusion Density
+
+- selected chapter title:
+  - Allusion Density
+- supporting line:
+  - Wisdom, Sirach, Maccabees, and the New Testament world
+- short version:
+  - Allusion density
+- preferred placement:
+  - Beat 13 through Beat 16
+
+## Chapter Card 03: Jesus and the Enochic World
+
+- selected chapter title:
+  - Jesus and the Enochic World
+- supporting line:
+  - Motif clustering matters more than isolated overlap
+- short version:
+  - Jesus and the Enochic world
+- preferred placement:
+  - Beat 19 through Beat 22
+
+## Closing Title
+
+- selected closing line:
+  - Removed from the list, still present in the language.
+- short version:
+  - Still present in the language.
+- preferred placement:
+  - Final beat
+
 ## Lower Thirds
 
 - purpose: ready-to-use lower thirds, source strips, and witness labels for the first assembly

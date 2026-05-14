@@ -3,8 +3,8 @@
 - episode title: The First Bible: Two Different Lists
 - episode code: ep-02_the-first-bible-two-lists
 - narrative focus: Before Christianity fought over the canon, Jewish communities were already reading two different scriptural collections, and the later split inherits that earlier divergence.
-- source review status: core textual spine established from the site section on the Hebrew Bible and the Septuagint
-- visual review status: reusable system ready, episode-specific comparison graphics and geography still in progress
+- source review status: source narrative locked for first assembly from the Hebrew Bible and Septuagint section
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -89,15 +89,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-  - one or two public-domain manuscript or codex images for Hebrew and Greek scriptural worlds
-  - a clean public-domain map surface for Palestine and Alexandria
+  - optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-  - title and chapter-card variants
-  - comparison-card layouts for Hebrew Bible vs Septuagint
-  - codex atmosphere plates for exposition beds
+  - none at the text layer for the first assembly
 - what still needs text population:
-  - final opener title variants
-  - lower-third or source-strip identifiers for Josephus, Septuagint, and Alexandrian context
+  - final title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

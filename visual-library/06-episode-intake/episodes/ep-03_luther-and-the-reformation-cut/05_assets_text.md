@@ -4,6 +4,54 @@
 - episode code: ep-03_luther-and-the-reformation-cut
 - purpose: single first-cut text sheet for on-screen labels, quotes, evidence, comparisons, and source strips
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+## Opener Title
+
+- selected opener:
+  - The Reformation Cut
+- supporting line:
+  - Doctrine drives exclusion in the sixteenth century
+- short version:
+  - The Reformation cut
+- preferred placement:
+  - Beat 1
+
+## Chapter Card 01: Leipzig 1519
+
+- selected chapter title:
+  - Leipzig 1519
+- supporting line:
+  - 2 Maccabees becomes the pressure point
+- short version:
+  - Leipzig 1519
+- preferred placement:
+  - Beat 6 or Beat 7
+
+## Chapter Card 02: Luther's Canon Rules
+
+- selected chapter title:
+  - Luther's Canon Rules
+- supporting line:
+  - Hebrew canon, Christological fit, Pauline grace
+- short version:
+  - Luther's canon rules
+- preferred placement:
+  - Beat 12 through Beat 14
+
+## Chapter Card 03: Westminster Hardens the Line
+
+- selected chapter title:
+  - Westminster Hardens the Line
+- supporting line:
+  - A downgrade becomes confessional exclusion
+- short version:
+  - Westminster hardens the line
+- preferred placement:
+  - Beat 22 or Beat 23
+
 ## Lower Thirds
 
 - purpose: ready-to-use lower thirds, source strips, and witness labels for the first assembly
@@ -230,6 +278,65 @@ Keep these cards documentary and legible. The cards should register evidence and
   - Use as the final hardening beat after Luther's softer phrasing has already been established.
 - preferred placement:
   - Beat 22 or Beat 23
+
+## Evidence Cards
+
+- purpose: final on-screen evidence-card text for the first cut where the procedural logic of exclusion needs to be seen clearly
+
+## Use Rule
+
+Keep these cards procedural and documentary. They should show why the cut happened and how it hardened.
+
+## Evidence Card 01: Leipzig Under Pressure
+
+- card title:
+  - Leipzig under pressure
+- selected lines:
+  - Johann Eck cites 2 Maccabees on prayers for the dead
+  - Luther does not soften the verse
+  - he challenges the book's authority instead
+- short version:
+  - Leipzig | pressure on 2 Maccabees
+- source caption:
+  - The doctrinal dispute that turns canon classification into the solution
+- framing note:
+  - Use before the Luther preface card so the causality is visible.
+- preferred placement:
+  - Beat 7 through Beat 9
+
+## Evidence Card 02: Luther's Canon Filter
+
+- card title:
+  - Luther's canon filter
+- selected lines:
+  - must be in the Hebrew Bible
+  - must clearly proclaim Christ
+  - must not contradict Pauline grace
+- short version:
+  - Hebrew Bible | proclaim Christ | not contradict grace
+- source caption:
+  - The three procedural filters that reorganize the canon question around Luther's theology
+- framing note:
+  - Use with the criteria card as the clean summary of the rules in play.
+- preferred placement:
+  - Beat 12 through Beat 16
+
+## Evidence Card 03: From Downgrade to Rule
+
+- card title:
+  - From downgrade to rule
+- selected lines:
+  - Luther still calls the books profitable
+  - Westminster removes their authority entirely
+  - confessional Protestantism hardens the line
+- short version:
+  - downgrade becomes rule
+- source caption:
+  - The movement from Luther's softer reclassification to Westminster's explicit exclusion
+- framing note:
+  - Use just before the final end-card set.
+- preferred placement:
+  - Beat 21 through Beat 23
 
 ## Alternate Caption Lines
 

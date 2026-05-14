@@ -8,6 +8,52 @@
 
 Keep every section first-cut ready. The editor should not need to open a second text file to complete the initial assembly.
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+### Opener Title
+
+- selected opener:
+	- Why It Matters
+- supporting line:
+	- The canon debate changed what readers could see directly in scripture
+- short version:
+	- Not merely academic
+- preferred placement:
+	- Beat 1
+
+### Chapter Card 01: Doctrinal Stakes
+
+- selected chapter title:
+	- Doctrinal Stakes
+- supporting line:
+	- Prayer for the dead and immortality become less direct
+- short version:
+	- Doctrinal stakes
+- preferred placement:
+	- Beat 4 or Beat 5
+
+### Chapter Card 02: History and Cosmology
+
+- selected chapter title:
+	- History and Cosmology
+- supporting line:
+	- Watchers, Hanukkah, and the missing bridge into the New Testament world
+- short version:
+	- History and cosmology
+- preferred placement:
+	- Beat 8 through Beat 10
+
+### Closing Title
+
+- selected closing line:
+	- A richer story than most readers were ever given.
+- short version:
+	- A richer story.
+- preferred placement:
+	- Final beat
+
 ## Lower Thirds
 
 ### Priority Set
@@ -142,6 +188,59 @@ Keep every section first-cut ready. The editor should not need to open a second 
 	- Use as the final quiet card before the end fade.
 - preferred placement:
 	- Beat 15
+
+## Evidence Cards
+
+### Evidence Card 01: Doctrine Becomes Less Direct
+
+- card title:
+	- Doctrine becomes less direct
+- selected lines:
+	- 2 Maccabees 12 no longer speaks from the page
+	- Wisdom 3 no longer speaks from the page
+	- the questions remain, but the canon answers them less directly
+- short version:
+	- the questions remain
+- source caption:
+	- The first consequence of source loss in the canon debate
+- framing note:
+	- Use as the opener card for the consequence sequence.
+- preferred placement:
+	- Beat 4 through Beat 6
+
+### Evidence Card 02: The Missing Bridge
+
+- card title:
+	- The missing bridge
+- selected lines:
+	- Maccabees explains Hanukkah and the Second Temple crisis
+	- 1 Enoch expands the angel and judgment world
+	- the New Testament still stands inside that conversation
+- short version:
+	- bridge removed | echoes remain
+- source caption:
+	- The historical and cosmological world behind the New Testament grows thinner without these books
+- framing note:
+	- Use as the bridge from doctrine to history and cosmology.
+- preferred placement:
+	- Beat 8 through Beat 11
+
+### Evidence Card 03: Source-World Loss
+
+- card title:
+	- Source-world loss
+- selected lines:
+	- remove the books from common reading
+	- New Testament assumptions become harder to see
+	- readers inherit a thinner scriptural world
+- short version:
+	- the world behind the text grows dimmer
+- source caption:
+	- Episode 07's broadest consequence claim
+- framing note:
+	- Use before the perspective note and final end-card.
+- preferred placement:
+	- Beat 12 through Beat 14
 
 ## Evidence Strips
 

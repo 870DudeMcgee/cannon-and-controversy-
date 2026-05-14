@@ -3,8 +3,8 @@
 - episode title: Referenced Inside the Bible
 - episode code: ep-05_referenced-inside-the-bible
 - narrative focus: The removed books are not simply outside the Bible. They remain embedded inside New Testament quotations, allusions, and conceptual frameworks.
-- source review status: core textual spine established from the site's direct-quotation and strong-allusion sections
-- visual review status: reusable system ready, episode-specific quote cards and comparison boards still in progress
+- source review status: source narrative locked for first assembly from the direct-quotation and strong-allusion sections
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -78,16 +78,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-  - one or two public-domain manuscript or codex images suitable for citation-board backgrounds
-  - optional visual motif for quoted-line highlighting inside biblical text
+  - optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-  - title and chapter-card variants
-  - direct-quotation and strong-allusion evidence cards
-  - citation-board atmosphere plates
+  - none at the text layer for the first assembly
 - what still needs text population:
-  - final opener title variants
-  - final Jude, Enoch, Wisdom, and Sirach evidence-card wording
-  - lower-third or source-strip identifiers for Jude, Enoch, Wisdom of Solomon, Sirach, and 2 Maccabees
+  - final title cards, lower thirds, quote cards, evidence cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

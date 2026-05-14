@@ -3,8 +3,8 @@
 - episode title: Why It Matters
 - episode code: ep-07_why-it-matters
 - narrative focus: Episode 07 widens Episode 06's doctrine consequences into the full stakes of the canon debate. It shows what changed in doctrine, cosmology, historical memory, and New Testament readability when these books were removed or downgraded.
-- source review status: core textual spine established from Part Nine of the site and the immediate consequence list under `What Changed When the Books Were Removed`
-- visual review status: reusable system ready; episode-specific consequence cards and culmination end-cards still need first-pass generation
+- source review status: source narrative locked for first assembly from Part Nine and the immediate consequence list under `What Changed When the Books Were Removed`
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -79,16 +79,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-	- one or two public-domain codex or church-history textures suitable for a closing synthesis episode
-	- optional public-domain visual for Hanukkah or Second Temple memory if needed for the historical-context beat
+	- optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-	- title and chapter-card variants
-	- consequence cards for doctrine, Watchers, intertestamental history, and New Testament literacy
-	- final perspective end-card variants
+	- none at the text layer for the first assembly
 - what still needs text population:
-	- final opener title variants
-	- final consequence-card wording for doctrine, evil, history, and literary-foundation stakes
-	- lower-third or source-strip identifiers for Hippo, Trent, Westminster, Hanukkah, and 1 Enoch
+	- final title cards, lower thirds, quote cards, evidence cards, comparison cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

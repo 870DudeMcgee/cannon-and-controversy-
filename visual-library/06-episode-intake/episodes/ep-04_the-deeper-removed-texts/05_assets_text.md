@@ -4,6 +4,52 @@
 - episode code: ep-04_the-deeper-removed-texts
 - purpose: single first-cut text sheet for on-screen labels, quotes, evidence, comparisons, and source strips
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+## Opener Title
+
+- selected opener:
+  - The Deeper Removed Texts
+- supporting line:
+  - Buried libraries and surviving witnesses outside the later line
+- short version:
+  - The deeper removed texts
+- preferred placement:
+  - Beat 1
+
+## Chapter Card 01: Qumran Under Pressure
+
+- selected chapter title:
+  - Qumran Under Pressure
+- supporting line:
+  - A library moves into emergency preservation
+- short version:
+  - Qumran under pressure
+- preferred placement:
+  - Beat 6 or Beat 7
+
+## Chapter Card 02: 1 Enoch Preserved
+
+- selected chapter title:
+  - 1 Enoch Preserved
+- supporting line:
+  - Ancient, copied, and worth saving before the line narrowed
+- short version:
+  - 1 Enoch preserved
+- preferred placement:
+  - Beat 18 through Beat 20
+
+## Closing Title
+
+- selected closing line:
+  - Excluded later. Preserved earlier.
+- short version:
+  - Excluded later. Preserved earlier.
+- preferred placement:
+  - Final beat
+
 ## Lower Thirds
 
 - purpose: ready-to-use lower thirds, source strips, and witness labels for the first assembly

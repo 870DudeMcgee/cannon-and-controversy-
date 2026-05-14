@@ -4,12 +4,119 @@
 - episode code: ep-02_the-first-bible-two-lists
 - purpose: single first-cut text sheet for on-screen labels, quotes, evidence, comparisons, and source strips
 
+## Title Cards
+
+- purpose: final opener, chapter-break, and closing title selections for the first cut
+
+## Opener Title
+
+- selected opener:
+  - The First Bible: Two Different Lists
+- supporting line:
+  - The split begins before the later church fights
+- short version:
+  - Two scriptural worlds already existed
+- preferred placement:
+  - Beat 1
+
+## Chapter Card 01: The Hebrew Witness
+
+- selected chapter title:
+  - The Hebrew Witness
+- supporting line:
+  - Josephus and the narrower Palestinian collection
+- short version:
+  - The Hebrew witness
+- preferred placement:
+  - Beat 7 or Beat 8
+
+## Chapter Card 02: The Septuagint World
+
+- selected chapter title:
+  - The Septuagint World
+- supporting line:
+  - Greek scriptures in Alexandria and the diaspora
+- short version:
+  - The Septuagint world
+- preferred placement:
+  - Beat 12 or Beat 13
+
+## Closing Title
+
+- selected closing line:
+  - Removed later, not added later.
+- short version:
+  - Removed later, not added later.
+- preferred placement:
+  - Final beat
+
 ## Lower Thirds
 
 - purpose: ready-to-use lower thirds, source strips, and witness labels for the first assembly
 
 ## Primary Use Rules
 
+
+## Evidence Cards
+
+- purpose: final on-screen evidence-card text for the first cut where witness and inheritance need to land in one glance
+
+## Use Rule
+
+Keep these cards explanatory and balanced. They should clarify the divergence before the end-card resolves it.
+
+## Evidence Card 01: Josephus and the Hebrew Collection
+
+- card title:
+  - Josephus and the Hebrew collection
+- selected lines:
+  - first-century Jewish witness
+  - 22-book snapshot around 95 AD
+  - narrower Palestinian inheritance
+- short version:
+  - Josephus | 22-book witness
+- source caption:
+  - Josephus gives a first-century view of the narrower Hebrew collection in the apostolic age
+- citation strip:
+  - Josephus, Against Apion 1.8
+- framing note:
+  - Use before Alexandria appears so the narrower side is firmly grounded.
+- preferred placement:
+  - Beat 8 through Beat 10
+
+## Evidence Card 02: The Septuagint in Alexandria
+
+- card title:
+  - The Septuagint in Alexandria
+- selected lines:
+  - Greek scriptures for diaspora Jews
+  - translation begun around 250 BC
+  - broader collection inherited by early Christians
+- short version:
+  - Alexandria | Greek scriptures | broader collection
+- source caption:
+  - The Septuagint as the larger Greek scriptural world already in circulation before the later canon debates
+- framing note:
+  - Use as the reveal card when the episode pivots into the Alexandrian world.
+- preferred placement:
+  - Beat 13 through Beat 15
+
+## Evidence Card 03: The Early Church's Inheritance
+
+- card title:
+  - The early Church's inheritance
+- selected lines:
+  - New Testament quotations often favor Septuagint wording
+  - early Christians read from the Greek collection
+  - the later debate inherits an older divergence
+- short version:
+  - early Church | Septuagint inheritance
+- source caption:
+  - Early Christian quotation practice ties the New Testament world to the broader Greek scriptural tradition
+- framing note:
+  - Use before the final `removed, not added` resolution card.
+- preferred placement:
+  - Beat 16 through Beat 18
 - Lead with historical location or textual role, not modern polemic.
 - Keep the first line scannable in under two seconds.
 - Use source strips when the witness itself carries argumentative weight.

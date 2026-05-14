@@ -3,8 +3,8 @@
 - episode title: The Leveling of Jerusalem
 - episode code: ep-01_the-leveling-of-jerusalem
 - narrative focus: The forty-year fuse from the crucifixion to the destruction of Jerusalem and the post-Temple canon consequences.
-- source review status: partial, with core textual spine established from site research
-- visual review status: reusable system ready, episode-specific historical sourcing still in progress
+- source review status: source narrative locked for first assembly from site research
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -111,15 +111,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-  - public-domain maps of Jerusalem, Judea, and the Temple for episode-specific historical grounding
-  - one or two ruin/Temple-destruction visuals from trusted public-domain collections
+  - optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-  - first Jerusalem map motion study
-  - manuscript atmosphere plates for context beds
-  - optional chapter-title variants for the opener and chapter breaks
+  - none at the text layer for the first assembly
 - what still needs text population:
-  - final opener title variants
-  - any alternate lower-third identifiers beyond the approved first-cut set in `05_assets_text.md`
+  - final title cards, lower thirds, quote cards, evidence cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 

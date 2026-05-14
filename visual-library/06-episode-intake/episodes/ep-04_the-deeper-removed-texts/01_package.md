@@ -3,8 +3,8 @@
 - episode title: The Deeper Removed Texts
 - episode code: ep-04_the-deeper-removed-texts
 - narrative focus: Beyond the deuterocanonical books lies a wider textual world preserved at Qumran, where books like 1 Enoch and Jubilees prove that later exclusion did not mean earlier irrelevance or non-circulation.
-- source review status: core textual spine established from the site's Qumran and Dead Sea Scrolls section
-- visual review status: reusable system ready, episode-specific archaeology and evidence cards still in progress
+- source review status: source narrative locked for first assembly from the Qumran and Dead Sea Scrolls section
+- visual review status: reusable system ready; final selected title cards, lower thirds, quote cards, evidence cards, and end-card wording locked in `05_assets_text.md`
 - owner: Jewel Bait
 
 ## Approved Inputs
@@ -90,15 +90,11 @@
 ## Missing Pieces
 
 - what still needs sourcing:
-  - one or two public-domain photographs or illustrations of Qumran caves, scroll jars, or Dead Sea Scroll fragments
-  - a simple map surface locating Qumran in relation to Jerusalem and the Dead Sea
+  - optional public-domain visual sourcing can continue without blocking the first cut
 - what still needs generation:
-  - title and chapter-card variants
-  - Qumran and Enoch evidence cards
-  - cave and archive atmosphere plates for exposition beds
+  - none at the text layer for the first assembly
 - what still needs text population:
-  - final opener title variants
-  - lower-third or source-strip identifiers for Qumran, Cave 4, Cave 11, and Enoch
+  - final title cards, lower thirds, quote cards, evidence cards, and end-card wording are locked in `05_assets_text.md`
 
 ## Notes
 
